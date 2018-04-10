@@ -5,6 +5,8 @@
  */
 package almondessol;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author estevao
@@ -52,6 +54,12 @@ public class TelaCadastrar extends javax.swing.JFrame {
         lnome.setText("Nome");
 
         lcod.setText("Codigo");
+
+        tnome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tnomeActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("CADASTRAR INFORMAÇÕES");
 
@@ -201,13 +209,60 @@ public class TelaCadastrar extends javax.swing.JFrame {
     }//GEN-LAST:event_tdescricaoActionPerformed
 
     private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
-        // TODO add your handling code here:
+        if(evt.getSource()==btnConfirmar){
+            if(stringVazia(tnome.getText())==false || stringVazia(ttipo.getText())==false || stringVazia(tmarca.getText())==false || stringVazia(tpreco.getText())==false || stringVazia(tcod.getText())==false || stringVazia(tmodelo.getText())==false || stringVazia(tdescricao.getText())==false || stringVazia(tquantidade.getText())==false)
+                JOptionPane.showMessageDialog(null, "Campo(s) vazio");
+            if(precoNegativo(Integer.valueOf(tquantidade.getText())) == false)
+                JOptionPane.showMessageDialog(null, "Quantidade menor que 0");
+            if(quantNegativo(Integer.valueOf(tpreco.getText())) == false)
+                JOptionPane.showMessageDialog(null, "Preço menor que 0");
+            if(letrasEmCampoDeNumero(tquantidade.getText()) || letrasEmCampoDeNumero(tcod.getText()) || letrasEmCampoDeNumero(tpreco.getText()))
+                JOptionPane.showMessageDialog(null, "Contém letras em campo(s) que deveria ter apenas número");
+            if(numeroEmCampoDeLetras(tnome.getText())==false)
+                JOptionPane.showMessageDialog(null, "Contém numerais no(s) campo(s) de nome ou instrumentos");
+            
+        }
     }//GEN-LAST:event_btnConfirmarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCancelarActionPerformed
 
+    private void tnomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tnomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tnomeActionPerformed
+
+    public boolean precoNegativo(int num){
+        if(num<=0)
+            return false;
+        return true;
+    }
+    
+    public boolean quantNegativo(int num){
+        if(num<=0)
+            return false;
+        return true;
+        
+    }
+    
+    public boolean letrasEmCampoDeNumero(String num){
+        if(num.matches("[0-9]+"))
+            return false;
+        return true;
+    }
+    
+    public boolean numeroEmCampoDeLetras(String str){
+        if(str.matches("(?:\\d+[a-z]|[a-z]+\\d)[a-z\\d]*"))
+            return false;
+        return true;
+    }
+    
+    private boolean stringVazia(String nome){
+        if(nome.isEmpty() || nome==null || nome.trim()=="")
+            return false;
+        return true;
+    }
+    
     /**
      * @param args the command line arguments
      */
