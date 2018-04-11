@@ -209,6 +209,7 @@ public class TelaCadastrar extends javax.swing.JFrame {
     }//GEN-LAST:event_tdescricaoActionPerformed
 
     private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
+        
         if(evt.getSource()==btnConfirmar){
             if(stringVazia(tnome.getText())==false || stringVazia(ttipo.getText())==false || stringVazia(tmarca.getText())==false || stringVazia(tpreco.getText())==false || stringVazia(tcod.getText())==false || stringVazia(tmodelo.getText())==false || stringVazia(tdescricao.getText())==false || stringVazia(tquantidade.getText())==false)
                 JOptionPane.showMessageDialog(null, "Campo(s) vazio");
