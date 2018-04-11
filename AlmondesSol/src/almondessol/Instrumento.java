@@ -12,16 +12,16 @@ package almondessol;
 public class Instrumento {
     
     
-    private String nome,marca,modelo,tipo,descricao;
-    private double preco;
-    private int quant;
+    String nome,marca,modelo,tipo,descricao;
+    double preco;
+    int quant, codBar;
     
     
     public Instrumento(){
      
     }
     
-    public Instrumento(String nome,String marca,String modelo, String tipo, String descricao, double preco, int quant){
+    public Instrumento(String nome,String marca,String modelo, String tipo, String descricao, double preco, int quant, int codBar){
         this.nome = nome;
         this.marca = marca;
         this.modelo = modelo;
@@ -29,7 +29,16 @@ public class Instrumento {
         this.descricao = descricao;
         this.preco = preco;
         this.quant = quant;
+        this.codBar = codBar;
     } 
+
+    public int getCodBar() {
+        return codBar;
+    }
+
+    public void setCodBar(int codBar) {
+        this.codBar = codBar;
+    }
     
     public String getNome() {
         return nome;
