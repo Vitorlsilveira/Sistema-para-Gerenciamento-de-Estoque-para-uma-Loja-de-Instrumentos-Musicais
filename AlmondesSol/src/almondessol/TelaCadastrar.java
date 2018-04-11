@@ -219,13 +219,13 @@ public class TelaCadastrar extends javax.swing.JFrame {
         if(evt.getSource()==btnConfirmar){
             if(stringVazia(tnome.getText())==false || stringVazia(ttipo.getText())==false || stringVazia(tmarca.getText())==false || stringVazia(tpreco.getText())==false || stringVazia(tcod.getText())==false || stringVazia(tmodelo.getText())==false || stringVazia(tdescricao.getText())==false || stringVazia(tquantidade.getText())==false)
                 JOptionPane.showMessageDialog(null, "Campo(s) vazio");
-            if(precoNegativo(Integer.valueOf(tquantidade.getText())) == false)
+            else if(precoNegativo(Integer.valueOf(tquantidade.getText())) == false)
                 JOptionPane.showMessageDialog(null, "Quantidade menor que 0");
-            if(quantNegativo(Integer.valueOf(tpreco.getText())) == false)
+            else if(quantNegativo(Integer.valueOf(tpreco.getText())) == false)
                 JOptionPane.showMessageDialog(null, "Preço menor que 0");
-            if(letrasEmCampoDeNumero(tquantidade.getText()) || letrasEmCampoDeNumero(tcod.getText()) || letrasEmCampoDeNumero(tpreco.getText()))
+            else if(letrasEmCampoDeNumero(tquantidade.getText()) || letrasEmCampoDeNumero(tcod.getText()) || letrasEmCampoDeNumero(tpreco.getText()))
                 JOptionPane.showMessageDialog(null, "Contém letras em campo(s) que deveria ter apenas número");
-            if(numeroEmCampoDeLetras(tnome.getText())==false)
+            else if(numeroEmCampoDeLetras(tnome.getText())==false)
                 JOptionPane.showMessageDialog(null, "Contém numerais no(s) campo(s) de nome ou instrumentos");
             else{
             
