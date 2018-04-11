@@ -230,15 +230,7 @@ public class TelaCadastrar extends javax.swing.JFrame {
             else{
             
                 ConexaoBanco banco = new ConexaoBanco();
-                Instrumento instrumento = new Instrumento(
-                        tnome.getText(),
-                        tmarca.getText(),
-                        tmodelo.getText(),
-                        ttipo.getText(),
-                        tdescricao.getText(),
-                        Double.parseDouble(tpreco.getText()),
-                        Integer.parseInt(tquantidade.getText()),
-                        Integer.parseInt(tcod.getText())   
+                Instrumento instrumento = new Instrumento(tnome.getText(),tmarca.getText(),tmodelo.getText(),ttipo.getText(),tdescricao.getText(),Double.parseDouble(tpreco.getText()),Integer.parseInt(tquantidade.getText()),Integer.parseInt(tcod.getText())   
                 );
                 Object[] options = { "Sim", "Não" }; 
 
@@ -248,17 +240,7 @@ public class TelaCadastrar extends javax.swing.JFrame {
 
                     banco.cadastrar(instrumento);
                     JOptionPane.showMessageDialog(null,"Cadastrado com sucesso!!!");
-
-                    // Limpa os campos após o cadastro
-                    
-                    tnome.setText("");
-                    tmarca.setText("");
-                    tmodelo.setText("");
-                    ttipo.setText("");
-                    tdescricao.setText("");
-                    tpreco.setText("");
-                    tquantidade.setText("");
-                    tcod.setText("");
+                    limparCampos();
                     
                 }              
             }            
@@ -306,6 +288,17 @@ public class TelaCadastrar extends javax.swing.JFrame {
         if(nome.isEmpty() || nome==null || nome.trim()=="")
             return false;
         return true;
+    }
+    
+    public void limparCampos(){
+        tnome.setText("");
+        tmarca.setText("");
+        tmodelo.setText("");
+        ttipo.setText("");
+        tdescricao.setText("");
+        tpreco.setText("");
+        tquantidade.setText("");
+        tcod.setText("");        
     }
     
     /**

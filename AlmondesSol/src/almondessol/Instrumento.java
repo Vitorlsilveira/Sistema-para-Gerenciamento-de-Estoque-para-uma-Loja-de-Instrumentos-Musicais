@@ -32,6 +32,16 @@ public class Instrumento {
         this.codBar = codBar;
     } 
 
+    public Instrumento(String nome,String marca,String modelo, String tipo, String descricao, double preco, int quant){
+        this.nome = nome;
+        this.marca = marca;
+        this.modelo = modelo;
+        this.tipo = tipo;
+        this.descricao = descricao;
+        this.preco = preco;
+        this.quant = quant;
+    }     
+
     public int getCodBar() {
         return codBar;
     }
