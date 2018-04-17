@@ -112,15 +112,24 @@ public class ConexaoBanco {
         return null;
     }
     
-    public ArrayList<Instrumento> Buscar(String pesq){
+    public ArrayList<Instrumento> Buscar(String busca, int op){
 
         ConexaoBanco conexaobanco = new ConexaoBanco();
         conexaobanco.Conexao();
         ArrayList<Instrumento> Informacoes = new ArrayList<>();
         
-
+        String pesq=null;
         
-        String cmd = "select * from instrumento where cpf_resp like '%"+pesq+"%';";
+        if(op == 1){
+            pesq = "nome";
+            
+        }else if (op == 2){
+            pesq = "marca";            
+        }else{
+            pesq = "modelo";
+        }
+                
+        String cmd = "select * from instrumento where '%"+pesq+"%' like '%"+busca+"%';";
         
         try {
            
