@@ -21,7 +21,7 @@ public class Instrumento {
      
     }
     
-    public Instrumento(String nome,String marca,String modelo, String tipo, String descricao, double preco, int quant, int codBar){
+    public Instrumento(String nome,String marca,String modelo, String tipo, String descricao, int codBar, double preco, int quant){
         this.nome = nome;
         this.marca = marca;
         this.modelo = modelo;
@@ -105,4 +105,10 @@ public class Instrumento {
     public void setQuant(int quant) {
         this.quant = quant;
     }
+
+    @Override
+    public String toString() {
+        return "Instrumento{" + "nome=" + nome + ", marca=" + marca + ", modelo=" + modelo + ", tipo=" + tipo + ", descricao=" + descricao + ", preco=" + preco + ", quant=" + quant + ", codBar=" + codBar + '}';
+    }
+    
 }

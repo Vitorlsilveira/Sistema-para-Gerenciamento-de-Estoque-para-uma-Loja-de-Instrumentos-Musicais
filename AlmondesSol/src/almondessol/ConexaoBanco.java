@@ -74,4 +74,44 @@ public class ConexaoBanco {
 
     }    
    
+    
+    public ArrayList<Instrumento> Listar(){
+
+        ConexaoBanco conexaobanco = new ConexaoBanco();
+        conexaobanco.Conexao();
+        ArrayList<Instrumento> Informacoes = new ArrayList<>();
+        String cmd = "select * from instrumento";              
+        try {
+           
+            PreparedStatement pst = conexaobanco.conection.prepareStatement(cmd);
+            conexaobanco.rs = pst.executeQuery(cmd);
+            while(conexaobanco.rs.next()){
+                    Instrumento dados = new Instrumento(
+                        conexaobanco.rs.getString("nome"), 
+                        conexaobanco.rs.getString("marca"), 
+                        conexaobanco.rs.getString("tipo"), 
+                        conexaobanco.rs.getString("modelo"), 
+                        conexaobanco.rs.getString("descricao"), 
+                        conexaobanco.rs.getInt("codBar"), 
+                        (int) conexaobanco.rs.getDouble("preco"), 
+                        conexaobanco.rs.getInt("quant")
+                    );                       
+
+                    Informacoes.add(dados);
+            }            
+            pst.execute();
+            pst.close();
+            
+            
+            return Informacoes;
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Connection.class.getName()).log(Level.SEVERE, null, ex);
+        }        
+        
+        return null;
+    }
+    
+    
+    
 }
