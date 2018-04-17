@@ -81,6 +81,12 @@ public class TelaCadastrar extends javax.swing.JFrame {
 
         lpreco.setText("Preço");
 
+        tpreco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tprecoActionPerformed(evt);
+            }
+        });
+
         ltipo.setText("Tipo");
 
         ttipo.addActionListener(new java.awt.event.ActionListener() {
@@ -213,15 +219,39 @@ public class TelaCadastrar extends javax.swing.JFrame {
         if(evt.getSource()==btnConfirmar){
             if(stringVazia(tnome.getText())==false || stringVazia(ttipo.getText())==false || stringVazia(tmarca.getText())==false || stringVazia(tpreco.getText())==false || stringVazia(tcod.getText())==false || stringVazia(tmodelo.getText())==false || stringVazia(tdescricao.getText())==false || stringVazia(tquantidade.getText())==false)
                 JOptionPane.showMessageDialog(null, "Campo(s) vazio");
-            if(precoNegativo(Integer.valueOf(tquantidade.getText())) == false)
+            else if(precoNegativo(Integer.valueOf(tquantidade.getText())) == false)
                 JOptionPane.showMessageDialog(null, "Quantidade menor que 0");
-            if(quantNegativo(Integer.valueOf(tpreco.getText())) == false)
+            else if(quantNegativo(Integer.valueOf(tpreco.getText())) == false)
                 JOptionPane.showMessageDialog(null, "Preço menor que 0");
-            if(letrasEmCampoDeNumero(tquantidade.getText()) || letrasEmCampoDeNumero(tcod.getText()) || letrasEmCampoDeNumero(tpreco.getText()))
+            else if(letrasEmCampoDeNumero(tquantidade.getText()) || letrasEmCampoDeNumero(tcod.getText()) || letrasEmCampoDeNumero(tpreco.getText()))
                 JOptionPane.showMessageDialog(null, "Contém letras em campo(s) que deveria ter apenas número");
-            if(numeroEmCampoDeLetras(tnome.getText())==false)
+            else if(numeroEmCampoDeLetras(tnome.getText())==false)
                 JOptionPane.showMessageDialog(null, "Contém numerais no(s) campo(s) de nome ou instrumentos");
+            else{
             
+                ConexaoBanco banco = new ConexaoBanco();
+                Instrumento instrumento = new Instrumento(
+                        tnome.getText(), 
+                        tmarca.getText(),
+                        tmodelo.getText(),
+                        ttipo.getText(),
+                        tdescricao.getText(), 
+                        Integer.parseInt(tcod.getText()), 
+                        Double.parseDouble(tpreco.getText()),
+                        Integer.parseInt(tquantidade.getText())   
+                );
+                Object[] options = { "Sim", "Não" }; 
+
+                int opcao = JOptionPane.showOptionDialog(null, "Deseja realmente Cadastrar?", "De novo?", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]); 
+
+                if (opcao == 0){
+
+                    banco.cadastrar(instrumento);
+                    JOptionPane.showMessageDialog(null,"Cadastrado com sucesso!!!");
+                    limparCampos();
+                    
+                }              
+            }            
         }
     }//GEN-LAST:event_btnConfirmarActionPerformed
 
@@ -232,6 +262,10 @@ public class TelaCadastrar extends javax.swing.JFrame {
     private void tnomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tnomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tnomeActionPerformed
+
+    private void tprecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tprecoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tprecoActionPerformed
 
     public boolean precoNegativo(int num){
         if(num<=0)
@@ -262,6 +296,17 @@ public class TelaCadastrar extends javax.swing.JFrame {
         if(nome.isEmpty() || nome==null || nome.trim()=="")
             return false;
         return true;
+    }
+    
+    public void limparCampos(){
+        tnome.setText("");
+        tmarca.setText("");
+        tmodelo.setText("");
+        ttipo.setText("");
+        tdescricao.setText("");
+        tpreco.setText("");
+        tquantidade.setText("");
+        tcod.setText("");        
     }
     
     /**

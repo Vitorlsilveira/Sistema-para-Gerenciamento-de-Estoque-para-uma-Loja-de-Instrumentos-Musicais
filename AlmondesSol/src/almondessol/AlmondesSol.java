@@ -17,7 +17,9 @@ public class AlmondesSol {
     public static void main(String[] args) {
         // TODO code application logic here
         TelaCadastrar cadastrar = new TelaCadastrar();
-        cadastrar.setVisible(true);
+        //cadastrar.setVisible(true);
+        TelaListar listar = new TelaListar();
+        listar.setVisible(true);
     }
     
 }

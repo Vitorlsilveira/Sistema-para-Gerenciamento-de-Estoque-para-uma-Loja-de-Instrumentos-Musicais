@@ -5,6 +5,10 @@
  */
 package almondessol;
 
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
+
 /**
  *
  * @author estevao
@@ -15,7 +19,20 @@ public class TelaListar extends javax.swing.JFrame {
      * Creates new form NewJFrame3
      */
     public TelaListar() {
+        ConexaoBanco banco = new ConexaoBanco();
+        ArrayList<Instrumento> dados = new ArrayList<>();
+        dados = banco.Listar();
+        //ArrayList<Instrumento> instrumentos = new ArrayList<>(banco.Listar());
         initComponents();
+        String colunas[] = {"Nome", "Cod. Barra", "Marca", "Modelo", "Preco", "Tipo", "Quantidade", "Descricao"};
+        DefaultTableModel inf = new DefaultTableModel(colunas, 0);
+        
+        for (Instrumento d : dados){
+            inf.addRow(new Object[]{d.getNome(), d.getCodBar(), d.getMarca(), d.getModelo(), d.getPreco(), d.getTipo(), d.getQuant(), d.getDescricao()});
+        }
+        
+        listaInformacoes.setModel(inf);
+        
     }
 
     /**
@@ -30,14 +47,14 @@ public class TelaListar extends javax.swing.JFrame {
         jPopupMenu1 = new javax.swing.JPopupMenu();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        listaInformacoes = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel3.setText("PRODUTOS EM ESTOQUE");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        listaInformacoes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null},
@@ -71,9 +88,9 @@ public class TelaListar extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(2).setResizable(false);
+        jScrollPane1.setViewportView(listaInformacoes);
+        if (listaInformacoes.getColumnModel().getColumnCount() > 0) {
+            listaInformacoes.getColumnModel().getColumn(2).setResizable(false);
         }
 
         jButton1.setText("Voltar");
@@ -162,6 +179,6 @@ public class TelaListar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable listaInformacoes;
     // End of variables declaration//GEN-END:variables
 }

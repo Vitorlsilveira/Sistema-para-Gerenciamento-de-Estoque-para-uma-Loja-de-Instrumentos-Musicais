@@ -12,15 +12,26 @@ package almondessol;
 public class Instrumento {
     
     
-    private String nome,marca,modelo,tipo,descricao;
-    private double preco;
-    private int quant;
+    String nome,marca,modelo,tipo,descricao;
+    double preco;
+    int quant, codBar;
     
     
     public Instrumento(){
      
     }
     
+    public Instrumento(String nome,String marca,String modelo, String tipo, String descricao, int codBar, double preco, int quant){
+        this.nome = nome;
+        this.marca = marca;
+        this.modelo = modelo;
+        this.tipo = tipo;
+        this.descricao = descricao;
+        this.preco = preco;
+        this.quant = quant;
+        this.codBar = codBar;
+    } 
+
     public Instrumento(String nome,String marca,String modelo, String tipo, String descricao, double preco, int quant){
         this.nome = nome;
         this.marca = marca;
@@ -29,7 +40,15 @@ public class Instrumento {
         this.descricao = descricao;
         this.preco = preco;
         this.quant = quant;
-    } 
+    }     
+
+    public int getCodBar() {
+        return codBar;
+    }
+
+    public void setCodBar(int codBar) {
+        this.codBar = codBar;
+    }
     
     public String getNome() {
         return nome;
@@ -86,4 +105,10 @@ public class Instrumento {
     public void setQuant(int quant) {
         this.quant = quant;
     }
+
+    @Override
+    public String toString() {
+        return "Instrumento{" + "nome=" + nome + ", marca=" + marca + ", modelo=" + modelo + ", tipo=" + tipo + ", descricao=" + descricao + ", preco=" + preco + ", quant=" + quant + ", codBar=" + codBar + '}';
+    }
+    
 }
