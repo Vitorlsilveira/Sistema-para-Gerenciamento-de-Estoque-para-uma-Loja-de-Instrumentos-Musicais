@@ -32,7 +32,7 @@ public class CadASTest {
         assertTrue("O texte deve funcionar sem Falhas", cad.cadastro());
     }
     
-/*    
+ 
     @Test
     public void faltodeCampoNometest() {
         i.setNome("");
@@ -66,7 +66,7 @@ public class CadASTest {
         i.setDescricao("");
         cad = new CadAS(i);
         assertFalse("O cadastro de Instrumentos deve ter Descricao do instrumento", cad.cadastro());
-    }*/
+    }
     
     public void stringVaziaTest() {
         i.setNome("");
@@ -97,13 +97,7 @@ public class CadASTest {
         cad = new CadAS(i);
         assertFalse("O cadastro de Instrumentos deve ter Quantidade do instrumento", cad.cadastro());
     }
-    
-    @Test
-    public void numeroEmCampoDeLetrasTest(){
-        i.setNome("e");
-        cad = new CadAS(i);
-        assertFalse("Não é permitido número neste tipo de campo",tcad.letrasEmCampoDeNumero(i.getNome()));
-    }
+   
     
     @Test
     public void precoNegativoTest() {

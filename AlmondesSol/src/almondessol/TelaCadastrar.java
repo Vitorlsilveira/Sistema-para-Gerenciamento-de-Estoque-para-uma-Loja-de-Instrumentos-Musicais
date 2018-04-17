@@ -230,7 +230,15 @@ public class TelaCadastrar extends javax.swing.JFrame {
             else{
             
                 ConexaoBanco banco = new ConexaoBanco();
-                Instrumento instrumento = new Instrumento(tnome.getText(),tmarca.getText(),tmodelo.getText(),ttipo.getText(),tdescricao.getText(),Double.parseDouble(tpreco.getText()),Integer.parseInt(tquantidade.getText()),Integer.parseInt(tcod.getText())   
+                Instrumento instrumento = new Instrumento(
+                        tnome.getText(), 
+                        tmarca.getText(),
+                        tmodelo.getText(),
+                        ttipo.getText(),
+                        tdescricao.getText(), 
+                        Integer.parseInt(tcod.getText()), 
+                        Double.parseDouble(tpreco.getText()),
+                        Integer.parseInt(tquantidade.getText())   
                 );
                 Object[] options = { "Sim", "Não" }; 
 
