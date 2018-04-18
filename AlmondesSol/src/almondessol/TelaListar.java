@@ -83,14 +83,28 @@ public class TelaListar extends javax.swing.JFrame {
             Class[] types = new Class [] {
                 java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
         });
         jScrollPane1.setViewportView(listaInformacoes);
         if (listaInformacoes.getColumnModel().getColumnCount() > 0) {
+            listaInformacoes.getColumnModel().getColumn(0).setResizable(false);
+            listaInformacoes.getColumnModel().getColumn(1).setResizable(false);
             listaInformacoes.getColumnModel().getColumn(2).setResizable(false);
+            listaInformacoes.getColumnModel().getColumn(3).setResizable(false);
+            listaInformacoes.getColumnModel().getColumn(4).setResizable(false);
+            listaInformacoes.getColumnModel().getColumn(5).setResizable(false);
+            listaInformacoes.getColumnModel().getColumn(6).setResizable(false);
+            listaInformacoes.getColumnModel().getColumn(7).setResizable(false);
         }
 
         jButton1.setText("Voltar");
