@@ -20,7 +20,7 @@ public class Instrumento {
      
     }
 
-    public Instrumento(String nome, String marca, String modelo, String tipo, String descricao, double preco, int quant, int codBar, int id) {
+    public Instrumento(String nome,String marca,String modelo, String tipo, String descricao, int codBar, double preco, int quant, int id) {
         this.nome = nome;
         this.marca = marca;
         this.modelo = modelo;
