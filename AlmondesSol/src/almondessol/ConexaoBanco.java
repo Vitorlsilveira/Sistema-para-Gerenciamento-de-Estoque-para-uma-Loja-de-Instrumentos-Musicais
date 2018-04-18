@@ -142,7 +142,8 @@ public class ConexaoBanco {
                         conexaobanco.rs.getString("descricao"), 
                         conexaobanco.rs.getInt("codBar"), 
                         (int) conexaobanco.rs.getDouble("preco"), 
-                        conexaobanco.rs.getInt("quant")
+                        conexaobanco.rs.getInt("quant"),
+                        conexaobanco.rs.getInt("id")
                     );                       
                     System.out.println(dados.toString());
                     Informacoes.add(dados);

@@ -129,7 +129,9 @@ public class Instrumento {
 
     @Override
     public String toString() {
-        return "Instrumento{" + "nome=" + nome + ", marca=" + marca + ", modelo=" + modelo + ", tipo=" + tipo + ", descricao=" + descricao + ", preco=" + preco + ", quant=" + quant + ", codBar=" + codBar + '}';
+        return "Instrumento{" + "nome=" + nome + ", marca=" + marca + ", modelo=" + modelo + ", tipo=" + tipo + ", descricao=" + descricao + ", preco=" + preco + ", quant=" + quant + ", codBar=" + codBar + ", id=" + id + '}';
     }
+
+
     
 }

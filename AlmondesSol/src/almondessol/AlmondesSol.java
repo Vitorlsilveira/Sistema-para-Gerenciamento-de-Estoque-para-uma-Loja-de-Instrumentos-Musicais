@@ -19,9 +19,9 @@ public class AlmondesSol {
         TelaCadastrar cadastrar = new TelaCadastrar();
         //cadastrar.setVisible(true);
         TelaListar listar = new TelaListar();
-        //listar.setVisible(true);
+        listar.setVisible(true);
         TelaBuscar buscar = new TelaBuscar();
-        buscar.setVisible(true);
+        //buscar.setVisible(true);
     }
     
 }
