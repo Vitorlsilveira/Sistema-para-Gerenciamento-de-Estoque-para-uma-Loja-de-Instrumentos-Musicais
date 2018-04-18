@@ -6,6 +6,7 @@
 package almondessol;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -200,8 +201,10 @@ public class TelaBuscar extends javax.swing.JFrame {
         if(RBmodelo.isSelected())
             op = 3;
         
-        
-        atribuirBuscaATabela(op);
+        if(tbuscar.getText().trim().equals(""))
+            JOptionPane.showMessageDialog(null, "Campo de busca está vazio");
+        else
+            atribuirBuscaATabela(op);
         
         
                
