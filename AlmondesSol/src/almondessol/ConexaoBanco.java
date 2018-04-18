@@ -162,6 +162,32 @@ public class ConexaoBanco {
         return null;
     }
 
+    public boolean Atualizar(Instrumento d){
+        ConexaoBanco conexaobanco = new ConexaoBanco();
+        conexaobanco.Conexao();
+        String cmd = "update instrumento set nome=?, marca=?, tipo=?, modelo=?, descricao=?, codBar=?, preco=?, quant=? where id = ?";
+        try {
+            PreparedStatement pst = conexaobanco.conection.prepareStatement(cmd);
+            pst.setString(1,d.getNome());
+            pst.setString(2,d.getMarca());
+            pst.setString(3,d.getTipo());
+            pst.setString(4,d.getModelo());            
+            pst.setString(5,d.getDescricao());
+            pst.setInt(6,d.getCodBar());
+            pst.setDouble(7,d.getPreco());
+            pst.setInt(8,d.getQuant());            
+            pst.setInt(9,d.getId());
+            pst.execute();
+            pst.close();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(Connection.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+
+    }     
+    
+    
     public boolean Excluir(int id){        
         ConexaoBanco conexaobanco = new ConexaoBanco();
         conexaobanco.Conexao();

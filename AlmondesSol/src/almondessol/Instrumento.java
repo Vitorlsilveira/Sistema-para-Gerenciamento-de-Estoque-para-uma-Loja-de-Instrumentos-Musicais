@@ -14,12 +14,24 @@ public class Instrumento {
     
     String nome,marca,modelo,tipo,descricao;
     double preco;
-    int quant, codBar;
-    
+    int quant, codBar, id;    
     
     public Instrumento(){
      
     }
+
+    public Instrumento(String nome, String marca, String modelo, String tipo, String descricao, double preco, int quant, int codBar, int id) {
+        this.nome = nome;
+        this.marca = marca;
+        this.modelo = modelo;
+        this.tipo = tipo;
+        this.descricao = descricao;
+        this.preco = preco;
+        this.quant = quant;
+        this.codBar = codBar;
+        this.id = id;
+    }
+    
     
     public Instrumento(String nome,String marca,String modelo, String tipo, String descricao, int codBar, double preco, int quant){
         this.nome = nome;
@@ -42,6 +54,15 @@ public class Instrumento {
         this.quant = quant;
     }     
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    
     public int getCodBar() {
         return codBar;
     }
