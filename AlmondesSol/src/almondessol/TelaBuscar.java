@@ -200,25 +200,28 @@ public class TelaBuscar extends javax.swing.JFrame {
         if(RBmodelo.isSelected())
             op = 3;
         
-        realizarBusca(op);
+        
+        atribuirBuscaATabela(op);
         
         
                
     }//GEN-LAST:event_btnBuscarActionPerformed
     
-    private void realizarBusca(int op){
+    private void atribuirBuscaATabela(int op){
         ConexaoBanco banco = new ConexaoBanco();
         ArrayList<Instrumento> dados = new ArrayList<>();
         dados = banco.Buscar(tbuscar.getText(), op);
         
         String colunas[] = {"Nome", "Cod. Barra", "Marca", "Modelo", "Preco", "Tipo", "Quantidade", "Descricao"};
-        DefaultTableModel inf = new DefaultTableModel(colunas, 0);
+        DefaultTableModel informacoes = new DefaultTableModel(colunas, 0);
         
         for (Instrumento d : dados){
-            inf.addRow(new Object[]{d.getNome(), d.getCodBar(), d.getMarca(), d.getModelo(), d.getPreco(), d.getTipo(), d.getQuant(), d.getDescricao()});
+            informacoes.addRow(new Object[]{d.getNome(), d.getCodBar(), d.getMarca(), d.getModelo(), d.getPreco(), d.getTipo(), d.getQuant(), d.getDescricao()});
         }
         
-        TableBusca.setModel(inf);         
+        
+        TableBusca.setModel(informacoes);
+        
     }
     /**
      * @param args the command line arguments
