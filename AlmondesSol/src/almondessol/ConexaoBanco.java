@@ -120,14 +120,13 @@ public class ConexaoBanco {
         
         String pesq=null;
         
-        if(op == 1){
+        if(op == 1)
             pesq = "nome";
-            
-        }else if (op == 2){
+        if (op == 2)
             pesq = "marca";            
-        }else{
+        if (op == 3)
             pesq = "modelo";
-        }
+        
                 
         String cmd = "select * from instrumento where '%"+pesq+"%' like '%"+busca+"%';";
         
