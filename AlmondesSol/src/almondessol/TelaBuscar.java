@@ -5,6 +5,10 @@
  */
 package almondessol;
 
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author estevao
@@ -37,7 +41,7 @@ public class TelaBuscar extends javax.swing.JFrame {
         RBmodelo = new javax.swing.JRadioButton();
         jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TableBusca = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -81,18 +85,29 @@ public class TelaBuscar extends javax.swing.JFrame {
 
         jButton2.setText("Voltar");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TableBusca.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nome", "Cod. Barra", "Marca", "Modelo", "Preço", "Tipo", "Quantidade", "Descrição"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(TableBusca);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -178,10 +193,40 @@ public class TelaBuscar extends javax.swing.JFrame {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
-        System.out.println("AAAAAAAAAAAA");
+        int op = 0;
+        if(RBnome.isSelected())
+            op = 1;
+        if(RBmarca.isSelected())
+            op = 2;
+        if(RBmodelo.isSelected())
+            op = 3;
+        
+        if (tbuscar.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null, "Campo de busca vazio");
+        }else{
+            realizarBusca(op);
+        }
+            
+            
                
     }//GEN-LAST:event_btnBuscarActionPerformed
-
+    
+    
+    private void realizarBusca(int op){
+        ConexaoBanco banco = new ConexaoBanco();
+        ArrayList<Instrumento> dados = new ArrayList<>();
+        dados = banco.Buscar(tbuscar.getText(), op);
+        
+        String colunas[] = {"Nome", "Cod. Barra", "Marca", "Modelo", "Preco", "Tipo", "Quantidade", "Descricao"};
+        DefaultTableModel inf = new DefaultTableModel(colunas, 0);
+        
+        for (Instrumento d : dados){
+            inf.addRow(new Object[]{d.getNome(), d.getCodBar(), d.getMarca(), d.getModelo(), d.getPreco(), d.getTipo(), d.getQuant(), d.getDescricao()});
+        }
+        
+        TableBusca.setModel(inf);                  
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -228,12 +273,12 @@ public class TelaBuscar extends javax.swing.JFrame {
     private javax.swing.JRadioButton RBmarca;
     private javax.swing.JRadioButton RBmodelo;
     private javax.swing.JRadioButton RBnome;
+    private javax.swing.JTable TableBusca;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField tbuscar;
     // End of variables declaration//GEN-END:variables
 }
