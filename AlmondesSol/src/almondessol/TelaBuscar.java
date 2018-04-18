@@ -20,7 +20,6 @@ public class TelaBuscar extends javax.swing.JFrame {
     public TelaBuscar() {
         initComponents();
         RBnome.setSelected(true);
-        TableBusca.setVisible(false);
     }
 
     /**
@@ -87,13 +86,24 @@ public class TelaBuscar extends javax.swing.JFrame {
 
         TableBusca.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nome", "Cod. Barra", "Marca", "Modelo", "Preço", "Tipo", "Quantidade", "Descrição"
             }
         ));
         jScrollPane1.setViewportView(TableBusca);
