@@ -113,27 +113,26 @@ public class ConexaoBanco {
     }
     
     public ArrayList<Instrumento> Buscar(String busca, int op){
-
+        System.out.println(busca+"\n");
         ConexaoBanco conexaobanco = new ConexaoBanco();
         conexaobanco.Conexao();
         ArrayList<Instrumento> Informacoes = new ArrayList<>();
         
-        String pesq=null;
+        String cmd=null;
         
         if(op == 1)
-            pesq = "nome";
+            cmd = "select * from instrumento where nome like '%"+busca+"%';";
         if (op == 2)
-            pesq = "marca";            
+            cmd = "select * from instrumento where marca like '%"+busca+"%';";
         if (op == 3)
-            pesq = "modelo";
+            cmd = "select * from instrumento where modelo like '%"+busca+"%';";
         
-                
-        String cmd = "select * from instrumento where '%"+pesq+"%' like '%"+busca+"%';";
         
         try {
-           
+        
             PreparedStatement pst = conexaobanco.conection.prepareStatement(cmd);
             conexaobanco.rs = pst.executeQuery(cmd);
+            
             while(conexaobanco.rs.next()){
                     Instrumento dados = new Instrumento(
                         conexaobanco.rs.getString("nome"), 
@@ -145,7 +144,7 @@ public class ConexaoBanco {
                         (int) conexaobanco.rs.getDouble("preco"), 
                         conexaobanco.rs.getInt("quant")
                     );                       
-
+                    System.out.println(dados.toString());
                     Informacoes.add(dados);
             }            
             pst.execute();
@@ -156,7 +155,9 @@ public class ConexaoBanco {
 
         } catch (SQLException ex) {
             Logger.getLogger(Connection.class.getName()).log(Level.SEVERE, null, ex);
+            
         }        
+        
         
         return null;
     }
