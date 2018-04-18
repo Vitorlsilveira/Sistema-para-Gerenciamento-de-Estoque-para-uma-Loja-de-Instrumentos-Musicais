@@ -200,6 +200,13 @@ public class TelaBuscar extends javax.swing.JFrame {
         if(RBmodelo.isSelected())
             op = 3;
         
+        realizarBusca(op);
+        
+        
+               
+    }//GEN-LAST:event_btnBuscarActionPerformed
+    
+    private void realizarBusca(int op){
         ConexaoBanco banco = new ConexaoBanco();
         ArrayList<Instrumento> dados = new ArrayList<>();
         dados = banco.Buscar(tbuscar.getText(), op);
@@ -211,12 +218,8 @@ public class TelaBuscar extends javax.swing.JFrame {
             inf.addRow(new Object[]{d.getNome(), d.getCodBar(), d.getMarca(), d.getModelo(), d.getPreco(), d.getTipo(), d.getQuant(), d.getDescricao()});
         }
         
-        TableBusca.setModel(inf);        
-        
-        
-               
-    }//GEN-LAST:event_btnBuscarActionPerformed
-
+        TableBusca.setModel(inf);         
+    }
     /**
      * @param args the command line arguments
      */
