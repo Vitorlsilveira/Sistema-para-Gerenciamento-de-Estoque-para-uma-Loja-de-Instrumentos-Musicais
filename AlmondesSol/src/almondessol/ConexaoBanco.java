@@ -161,7 +161,24 @@ public class ConexaoBanco {
         
         return null;
     }
-    
+
+    public boolean Excluir(int id){        
+        ConexaoBanco conexaobanco = new ConexaoBanco();
+        conexaobanco.Conexao();
+        
+        String cmd = "delete from instrumendo where ID = '"+id+"'";
+        
+        try {
+            PreparedStatement pst = conexaobanco.conection.prepareStatement(cmd);
+            pst.execute();
+            pst.close();        
+            return true;
+        } catch (SQLException ex) {
+            
+        }
+        
+        return false;
+    }     
         
     
 }
