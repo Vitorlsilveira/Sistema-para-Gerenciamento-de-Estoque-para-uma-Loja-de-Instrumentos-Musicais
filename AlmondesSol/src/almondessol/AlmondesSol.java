@@ -21,7 +21,7 @@ public class AlmondesSol {
         TelaListar listar = new TelaListar();
         listar.setVisible(true);
         TelaBuscar buscar = new TelaBuscar();
-        //buscar.setVisible(true);
+        buscar.setVisible(true);
     }
     
 }
