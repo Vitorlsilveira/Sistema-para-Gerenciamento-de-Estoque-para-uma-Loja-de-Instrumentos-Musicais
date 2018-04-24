@@ -79,6 +79,7 @@ DROP TABLE IF EXISTS `venda_instrumento`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `venda_instrumento` (
   `quant_prod` int(11) DEFAULT NULL,
+  `valor_unit` double NOT NULL,
   `id_venda` int(11) DEFAULT NULL,
   `id_prod` int(11) DEFAULT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -98,6 +99,10 @@ LOCK TABLES `venda_instrumento` WRITE;
 /*!40000 ALTER TABLE `venda_instrumento` DISABLE KEYS */;
 /*!40000 ALTER TABLE `venda_instrumento` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Dumping routines for database 'almonde_sol'
+--
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -108,4 +113,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-04-07 23:27:25
+-- Dump completed on 2018-04-23  9:53:05
