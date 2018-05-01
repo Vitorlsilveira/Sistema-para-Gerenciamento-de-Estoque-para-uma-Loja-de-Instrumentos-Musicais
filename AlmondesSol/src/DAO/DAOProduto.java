@@ -8,7 +8,9 @@ package DAO;
 import Model.Produto;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -45,8 +47,6 @@ public class DAOProduto {
         
     }
     
-    
-    
     public boolean update(Produto p){
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
@@ -63,6 +63,7 @@ public class DAOProduto {
         }
        
     }
+    
     public boolean delete(Produto p){
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
@@ -79,5 +80,77 @@ public class DAOProduto {
         }
         
     }
-
+    
+    ArrayList<Produto> listar_todos(){
+        ResultSet rs = null;
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ArrayList<Produto> result = new ArrayList();
+        String str = "select * from produto;";
+        
+         try {
+            stmt = con.prepareStatement(str);
+            rs = stmt.executeQuery();
+            
+            while(rs.next()){                                                                                                                                                                                                                                                                                                                                                                                                  
+               Produto p1 = new Produto(rs.getInt("id"),rs.getInt("codBar"),rs.getInt("quant"),rs.getString("nome"),rs.getString("marca"),rs.getString("modelo"),rs.getString("descricao"),rs.getFloat("preco"));
+               result.add(p1);
+            }
+            stmt.execute();
+            stmt.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Connection.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return result;
+    }
+    
+    ArrayList<Produto> listar_por_cod(int code){
+        ResultSet rs = null;
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ArrayList<Produto> result = new ArrayList();
+        String str = "select * from produto where codBar like '%"+code+"%';";
+        
+         try {
+            stmt = con.prepareStatement(str);
+            rs = stmt.executeQuery();
+            
+            while(rs.next()){                                                                                                                                                                                                                                                                                                                                                                                                  
+               Produto p1 = new Produto(rs.getInt("id"),rs.getInt("codBar"),rs.getInt("quant"),rs.getString("nome"),rs.getString("marca"),rs.getString("modelo"),rs.getString("descricao"),rs.getFloat("preco"));
+               result.add(p1);
+            }
+            stmt.execute();
+            stmt.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Connection.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return result;
+    }
+    
+    ArrayList<Produto> listar_por_prod(String nome){
+        ResultSet rs = null;
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ArrayList<Produto> result = new ArrayList();
+        String str = "select * from produto where codBar like '%"+nome+"%';";
+        
+         try {
+            stmt = con.prepareStatement(str);
+            rs = stmt.executeQuery();
+            
+            while(rs.next()){                                                                                                                                                                                                                                                                                                                                                                                                  
+               Produto p1 = new Produto(rs.getInt("id"),rs.getInt("codBar"),rs.getInt("quant"),rs.getString("nome"),rs.getString("marca"),rs.getString("modelo"),rs.getString("descricao"),rs.getFloat("preco"));
+               result.add(p1);
+            }
+            stmt.execute();
+            stmt.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Connection.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return result;
+    }
 }
+
