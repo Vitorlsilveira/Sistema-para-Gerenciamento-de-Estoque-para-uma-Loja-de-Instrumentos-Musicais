@@ -5,6 +5,7 @@
  */
 package almondessol;
 
+import View.CadastroView;
 import View.MainView;
 
 /**
@@ -18,7 +19,7 @@ public class AlmondesSol {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-      new MainView(false);
+      new CadastroView().setVisible(true);
     }
     
 }

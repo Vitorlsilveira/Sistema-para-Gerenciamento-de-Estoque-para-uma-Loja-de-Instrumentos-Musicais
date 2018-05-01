@@ -52,13 +52,13 @@ public class VendaView extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Código de Barras", "Produto", "Preço", "Quantidade em Estoque"
+                "Código de Barras", "Produto", "Marca", "Modelo", "Preço", "Quantidade em Estoque"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -82,13 +82,13 @@ public class VendaView extends javax.swing.JFrame {
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Código de Barras", "Produto", "Preço", "Quantidade"
+                "Código de Barras", "Produto", "Marca", "Modelo", "Preço", "Quantidade"
             }
         ));
         jScrollPane3.setViewportView(jTable3);
