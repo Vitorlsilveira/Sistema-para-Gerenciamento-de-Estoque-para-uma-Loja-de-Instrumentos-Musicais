@@ -24,7 +24,7 @@ public class Produto {
         this.preco = preco;
     }
 
-    public Produto(int code, int quant, int id, String nome, String marca, String modelo, String decricao, float preco) {
+    public Produto(int id,int code, int quant, String nome, String marca, String modelo, String decricao, float preco) {
         this.code = code;
         this.quant = quant;
         this.id = id;
