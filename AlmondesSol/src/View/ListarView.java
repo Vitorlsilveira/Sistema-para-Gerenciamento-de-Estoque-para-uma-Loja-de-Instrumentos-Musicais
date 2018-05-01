@@ -39,6 +39,12 @@ public class ListarView extends javax.swing.JPanel {
 
         jLabel1.setText("Buscar:");
 
+        tfBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfBuscarActionPerformed(evt);
+            }
+        });
+
         rbCod.setText("Código de Barras");
 
         rbProduto.setText("Produto");
@@ -47,13 +53,13 @@ public class ListarView extends javax.swing.JPanel {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Código de Barras", "Produto", "Preço", "Quantidade em Estoque"
+                "Código de Barras", "Produto", "Marca", "Modelo", "Preço", "Quantidade em Estoque"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -119,6 +125,10 @@ public class ListarView extends javax.swing.JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void tfBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfBuscarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
