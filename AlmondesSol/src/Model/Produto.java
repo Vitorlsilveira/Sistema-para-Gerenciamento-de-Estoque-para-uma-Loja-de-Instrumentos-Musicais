@@ -14,6 +14,9 @@ public class Produto {
     private String nome,marca,modelo,decricao;
     private float preco;
 
+    public Produto(){
+        
+    }
     public Produto(int code, int quant, String nome, String marca, String modelo, String decricao, float preco) {
         this.code = code;
         this.quant = quant;
