@@ -5,6 +5,10 @@
  */
 package View;
 
+import Controller.DAOProduto;
+import Model.Produto;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author tomaz
@@ -51,7 +55,19 @@ public class CadastroView extends javax.swing.JFrame {
 
         jLabel1.setText("Código de Barras");
 
+        tfCode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfCodeActionPerformed(evt);
+            }
+        });
+
         jLabel2.setText("Nome");
+
+        tfNoma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfNomaActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Marca");
 
@@ -67,10 +83,13 @@ public class CadastroView extends javax.swing.JFrame {
         taDescricao.setRows(5);
         jScrollPane1.setViewportView(taDescricao);
 
-        btCad.setIcon(new javax.swing.ImageIcon("C:\\Users\\tomaz\\Documents\\AlmondesSol\\Imagens\\checked.png")); // NOI18N
         btCad.setText("Cadastrar");
+        btCad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCadActionPerformed(evt);
+            }
+        });
 
-        btCancelar.setIcon(new javax.swing.ImageIcon("C:\\Users\\tomaz\\Documents\\AlmondesSol\\Imagens\\cancel.png")); // NOI18N
         btCancelar.setText("Cancelar");
         btCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -166,6 +185,42 @@ public class CadastroView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btCancelarActionPerformed
 
+    private void btCadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadActionPerformed
+        // TODO add your handling code here:
+        DAOProduto operacaoDAO = new DAOProduto();
+        Produto novoProduto = new Produto(
+                Integer.parseInt(tfCode.getText()),
+                Integer.parseInt(tfqtd.getText()),
+                tfNoma.getText(),
+                tfMarca.getText(),
+                tfModelo.getText(),
+                taDescricao.getText(),
+                Float.parseFloat(tfpreco.getText())
+        );
+
+        boolean verifica = operacaoDAO.save(novoProduto);
+        limparCampos();
+               
+    }//GEN-LAST:event_btCadActionPerformed
+
+    private void tfCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfCodeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfCodeActionPerformed
+
+    private void tfNomaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNomaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfNomaActionPerformed
+
+    private void limparCampos(){
+        tfCode.setText("");
+        tfqtd.setText("");
+        tfNoma.setText("");
+        tfMarca.setText("");
+        tfModelo.setText("");
+        taDescricao.setText("");
+        tfpreco.setText("");        
+    }
+    
     /**
      * @param args the command line arguments
      */
