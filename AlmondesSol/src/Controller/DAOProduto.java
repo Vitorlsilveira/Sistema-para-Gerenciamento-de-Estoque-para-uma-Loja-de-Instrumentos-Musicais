@@ -67,7 +67,7 @@ public class DAOProduto {
     public boolean delete(Produto p){
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
-         String str = "delete from produto where id="+p.getId()+";";
+        String str = "delete from produto where id="+p.getId()+";";
         
         try {
             stmt = con.prepareStatement(str);
