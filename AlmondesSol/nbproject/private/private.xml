@@ -4,19 +4,16 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/tomaz/Documents/AlmondesSol/src/almondessol/AlmondesSol.java</file>
+            <file>file:/C:/Users/tomaz/Documents/AlmondesSol/src/Controller/DAOVenda.java</file>
             <file>file:/C:/Users/tomaz/Documents/AlmondesSol/src/View/EditarView.java</file>
-            <file>file:/C:/Users/tomaz/Documents/AlmondesSol/src/View/UserLog.java</file>
-            <file>file:/C:/Users/tomaz/Documents/AlmondesSol/src/View/HistVendasView.java</file>
-            <file>file:/C:/Users/tomaz/Documents/AlmondesSol/src/View/ListarView.java</file>
-            <file>file:/C:/Users/tomaz/Documents/AlmondesSol/src/View/VendaView.java</file>
-            <file>file:/C:/Users/tomaz/Documents/AlmondesSol/src/Controller/ConnectionFactory.java</file>
-            <file>file:/C:/Users/tomaz/Documents/AlmondesSol/src/DAO/DAOVenda.java</file>
-            <file>file:/C:/Users/tomaz/Documents/AlmondesSol/src/DAO/DAOProduto.java</file>
             <file>file:/C:/Users/tomaz/Documents/AlmondesSol/src/View/MainView.java</file>
+            <file>file:/C:/Users/tomaz/Documents/AlmondesSol/src/Controller/DAOGerente.java</file>
+            <file>file:/C:/Users/tomaz/Documents/AlmondesSol/src/View/HistVendasView.java</file>
+            <file>file:/C:/Users/tomaz/Documents/AlmondesSol/src/View/ListarProdView.java</file>
             <file>file:/C:/Users/tomaz/Documents/AlmondesSol/src/View/CadastroView.java</file>
-            <file>file:/C:/Users/tomaz/Documents/AlmondesSol/src/Model/Produto.java</file>
-            <file>file:/C:/Users/tomaz/Documents/AlmondesSol/src/DAO/DAOGerente.java</file>
-            <file>file:/C:/Users/tomaz/Documents/AlmondesSol/src/DAO/ConnectionFactory.java</file>
+            <file>file:/C:/Users/tomaz/Documents/AlmondesSol/src/View/VendaView.java</file>
+            <file>file:/C:/Users/tomaz/Documents/AlmondesSol/src/Controller/DAOProduto.java</file>
+            <file>file:/C:/Users/tomaz/Documents/AlmondesSol/src/Controller/ConnectionFactory.java</file>
         </group>
     </open-files>
 </project-private>
