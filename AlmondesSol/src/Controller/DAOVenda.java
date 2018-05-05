@@ -95,7 +95,7 @@ public class DAOVenda {
         }
         return true;
     }
-    ArrayList<Venda> listar_todos(){
+    public ArrayList<Venda> listar_todos(){
         ResultSet rs = null;
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
@@ -120,7 +120,7 @@ public class DAOVenda {
         
         return result;
     }
-    ArrayList<Venda> listar_por_data(String data){
+    public ArrayList<Venda> listar_por_data(String data){
         ResultSet rs = null;
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
@@ -145,7 +145,7 @@ public class DAOVenda {
         
         return result;
     }
-    ArrayList<Venda> listar_por_cli(String cpf){
+    public ArrayList<Venda> listar_por_cli(String cpf){
         ResultSet rs = null;
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
@@ -171,7 +171,7 @@ public class DAOVenda {
         return result;
     }
     
-    ArrayList<Produto> listar_por_cod(int code){
+    public ArrayList<Produto> listar_por_cod(int code){
         ResultSet rs = null;
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;

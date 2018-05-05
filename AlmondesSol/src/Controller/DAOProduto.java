@@ -81,7 +81,7 @@ public class DAOProduto {
         
     }
     
-    ArrayList<Produto> listar_todos(){
+   public ArrayList<Produto> listar_todos(){
         ResultSet rs = null;
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
@@ -105,7 +105,7 @@ public class DAOProduto {
         return result;
     }
     
-    ArrayList<Produto> listar_por_cod(int code){
+   public ArrayList<Produto> listar_por_cod(int code){
         ResultSet rs = null;
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
@@ -129,12 +129,12 @@ public class DAOProduto {
         return result;
     }
     
-    ArrayList<Produto> listar_por_prod(String nome){
+    public ArrayList<Produto> listar_por_prod(String nome){
         ResultSet rs = null;
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ArrayList<Produto> result = new ArrayList();
-        String str = "select * from produto where codBar like '%"+nome+"%';";
+        String str = "select * from produto where nome like '%"+nome+"%';";
         
          try {
             stmt = con.prepareStatement(str);
