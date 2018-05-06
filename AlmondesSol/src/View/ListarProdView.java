@@ -193,7 +193,10 @@ public class ListarProdView extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        int i = jTable1.getSelectedRow();
-        System.err.println(i);
+       Produto p = list.get(i);
+       this.dispose();
+       new EditarView(p);
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void tfBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfBuscarKeyReleased

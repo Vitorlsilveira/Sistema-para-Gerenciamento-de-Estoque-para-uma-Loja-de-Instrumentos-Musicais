@@ -50,7 +50,7 @@ public class DAOProduto {
     public boolean update(Produto p){
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
-        String str = "update produto set codBar = "+p.getCode()+",nome='"+p.getNome()+"',marca='"+ p.getMarca()+"',modelo='"+p.getModelo()+"',descricao='"+p.getDecricao()+"',preco="+p.getPreco()+", quant="+p.getQuant()+" where id_servico = "+p.getId()+";";
+        String str = "update produto set codBar = "+p.getCode()+",nome='"+p.getNome()+"',marca='"+ p.getMarca()+"',modelo='"+p.getModelo()+"',descricao='"+p.getDecricao()+"',preco="+p.getPreco()+", quant="+p.getQuant()+" where id = "+p.getId()+";";
         
         try {
             stmt = con.prepareStatement(str);
