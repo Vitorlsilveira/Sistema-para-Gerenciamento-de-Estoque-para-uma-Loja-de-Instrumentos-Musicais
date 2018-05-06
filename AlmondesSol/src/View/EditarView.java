@@ -5,17 +5,30 @@
  */
 package View;
 
+import Controller.DAOProduto;
+import Model.Produto;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author tomaz
  */
 public class EditarView extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form EditarView
      */
-    public EditarView() {
+    public EditarView( Produto p) {
         initComponents();
+        setVisible(true);
+        taDescricao.setText(p.getDecricao());
+        tfCode.setText(""+p.getCode());
+        tfMarca.setText(p.getMarca());
+        tfModelo.setText(p.getModelo());
+        tfNoma.setText(p.getNome());
+        tfpreco.setText(""+p.getPreco());
+        tfqtd.setText(""+p.getQuant());
+        produto = p;
     }
 
     /**
@@ -69,6 +82,11 @@ public class EditarView extends javax.swing.JFrame {
 
         btAtualizar.setIcon(new javax.swing.ImageIcon("C:\\Users\\tomaz\\Documents\\AlmondesSol\\Imagens\\checked.png")); // NOI18N
         btAtualizar.setText("Atualizar");
+        btAtualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAtualizarActionPerformed(evt);
+            }
+        });
 
         btCancelar.setIcon(new javax.swing.ImageIcon("C:\\Users\\tomaz\\Documents\\AlmondesSol\\Imagens\\cancel.png")); // NOI18N
         btCancelar.setText("Cancelar");
@@ -163,48 +181,71 @@ public class EditarView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
+        new ListarProdView().setVisible(true);
     }//GEN-LAST:event_btCancelarActionPerformed
 
     private void tfprecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfprecoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfprecoActionPerformed
 
+    private void btAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAtualizarActionPerformed
+
+        DAOProduto operacaoDAO = new DAOProduto();
+        Produto novoProduto = new Produto(produto.getId(),
+                Integer.parseInt(tfqtd.getText()),
+                tfNoma.getText(),
+                tfMarca.getText(),
+                tfModelo.getText(),
+                taDescricao.getText(),
+                Float.parseFloat(tfpreco.getText())
+        );
+
+        boolean verifica = operacaoDAO.update(novoProduto);
+        if(verifica){
+            JOptionPane.showMessageDialog(null, "Produto Alterado com Sucesso");
+            this.dispose();
+            new ListarProdView().setVisible(true);
+        }else{
+            JOptionPane.showMessageDialog(null, "Erro na edição!");
+        }
+    }//GEN-LAST:event_btAtualizarActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EditarView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EditarView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EditarView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(EditarView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new EditarView().setVisible(true);
-            }
-        });
-    }
-
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(EditarView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(EditarView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(EditarView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(EditarView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new EditarView().setVisible(true);
+//            }
+//        });
+//    }
+    Produto produto;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAtualizar;
     private javax.swing.JButton btCancelar;
