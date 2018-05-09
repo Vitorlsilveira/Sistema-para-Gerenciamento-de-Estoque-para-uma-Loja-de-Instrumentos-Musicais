@@ -5,6 +5,12 @@
  */
 package View;
 
+import Controller.DAOProduto;
+import Model.Produto;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author tomaz
@@ -16,8 +22,49 @@ public class VendaView extends javax.swing.JFrame {
      */
     public VendaView() {
         initComponents();
+        rbCod.setSelected(true);
+        DAOProduto produtos = new DAOProduto();
+        list = produtos.listar_todos();
+        construirTabla(list);
     }
-
+   
+    public void construirTabla(ArrayList<Produto> produtos){
+        modelo = (DefaultTableModel) jTable1.getModel();
+        modelo.setNumRows(0);
+       
+        for(Produto p: produtos){
+            modelo.addRow(new Object[]{
+                p.getCode(),
+                p.getNome(),
+                p.getMarca(),
+                p.getModelo(),
+                p.getPreco(),
+                p.getQuant()
+            });
+        }
+        
+    }
+    
+    
+    
+    public void construirTabla2(ArrayList<Produto> produtos){
+        modelo2 = (DefaultTableModel) jTable3.getModel();
+        modelo2.setNumRows(0);
+       
+        for(Produto p: produtos){
+            modelo2.addRow(new Object[]{
+                p.getCode(),
+                p.getNome(),
+                p.getMarca(),
+                p.getModelo(),
+                p.getPreco(),
+                p.getQuant()
+            });
+        }
+        
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -48,9 +95,25 @@ public class VendaView extends javax.swing.JFrame {
 
         jLabel1.setText("Buscar:");
 
+        tfBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfBuscarKeyReleased(evt);
+            }
+        });
+
         rbCod.setText("Código de Barras");
+        rbCod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbCodActionPerformed(evt);
+            }
+        });
 
         rbProduto.setText("Produto");
+        rbProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbProdutoActionPerformed(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -59,7 +122,15 @@ public class VendaView extends javax.swing.JFrame {
             new String [] {
                 "Código de Barras", "Produto", "Marca", "Modelo", "Preço", "Quantidade em Estoque"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jTable1.setToolTipText("");
         jScrollPane1.setViewportView(jTable1);
 
@@ -67,6 +138,11 @@ public class VendaView extends javax.swing.JFrame {
 
         jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\tomaz\\Documents\\AlmondesSol\\Imagens\\cart.png")); // NOI18N
         jButton1.setText("Vender");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Produtos Selecionados");
 
@@ -87,7 +163,15 @@ public class VendaView extends javax.swing.JFrame {
             new String [] {
                 "Código de Barras", "Produto", "Marca", "Modelo", "Preço", "Quantidade"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane3.setViewportView(jTable3);
 
         jLabel4.setText("Cpf  Cliente:");
@@ -159,41 +243,100 @@ public class VendaView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void tfBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfBuscarKeyReleased
+        // TODO add your handling code here:
+        
+        if(tfBuscar.getText().equals("")){
+                    DAOProduto produtos = new DAOProduto();
+                    list = produtos.listar_todos();
+                    construirTabla(list);
+                  }else{
+                        DAOProduto produtos = new DAOProduto();
+                        if(rbCod.isSelected()){
+                            try{
+                               int code = Integer.parseInt(tfBuscar.getText());
+                               list = produtos.listar_por_cod(code);
+                               construirTabla(list); 
+                            }catch(NumberFormatException e){
+                                list = new ArrayList();
+                                construirTabla(list);
+                            }   
+                        }
+                        if(rbProduto.isSelected()){
+                            list = produtos.listar_por_prod(tfBuscar.getText());
+                            construirTabla(list);
+                        }
+                    
+                }
+    }//GEN-LAST:event_tfBuscarKeyReleased
+
+    private void rbCodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbCodActionPerformed
+        if(evt.getSource()==rbCod){
+           rbProduto.setSelected(false);
+        }
+    }//GEN-LAST:event_rbCodActionPerformed
+
+    private void rbProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbProdutoActionPerformed
+                                      
+         if(evt.getSource()==rbProduto){
+            rbCod.setSelected(false);
+        }
+    }//GEN-LAST:event_rbProdutoActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        int i = jTable1.getSelectedRow();
+        if(i!=-1){
+           int op =Integer.parseInt(JOptionPane.showInputDialog(null, "Informe a quantidade desejada: "));
+           Produto p = list.get(i);
+           if(p.getQuant()>=op){
+               p.setQuant(op);
+               list2.add(p);
+           }else{
+               JOptionPane.showMessageDialog(null, "A Quantidade Solicitada Excede o Estoque!");
+           }
+        }else{
+            JOptionPane.showMessageDialog(null, "Nenhum Produto Selecionado!");
+        }
+            
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VendaView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VendaView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VendaView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VendaView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VendaView().setVisible(true);
-            }
-        });
-    }
-
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(VendaView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(VendaView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(VendaView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(VendaView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new VendaView().setVisible(true);
+//            }
+//        });
+//    }
+    ArrayList<Produto> list;
+    ArrayList<Produto> list2 = new ArrayList();
+    DefaultTableModel modelo,modelo2;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

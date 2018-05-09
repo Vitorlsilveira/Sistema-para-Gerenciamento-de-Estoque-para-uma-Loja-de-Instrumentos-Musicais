@@ -47,9 +47,10 @@ public class DAOVenda {
          Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null; 
         try {
-            stmt = con.prepareStatement("INSERT INTO venda (data_venda,total)VALUES(?,?)");
+            stmt = con.prepareStatement("INSERT INTO venda (data_venda,total,cpf_cli)VALUES(?,?,?)");
             stmt.setString(1, v.getData());
             stmt.setFloat(2,v.getTotal());
+            stmt.setString(3, v.getCpf_cli());
             stmt.executeUpdate();
             ConnectionFactory.closeConection(con, stmt);
             boolean result = listSave(v.getShopping());

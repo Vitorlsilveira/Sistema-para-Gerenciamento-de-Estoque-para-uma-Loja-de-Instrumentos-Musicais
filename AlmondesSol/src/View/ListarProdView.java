@@ -290,7 +290,7 @@ public class ListarProdView extends javax.swing.JFrame {
 //            }
 //        });
 //    }
-     ArrayList<Produto> list;
+    ArrayList<Produto> list;
     DefaultTableModel modelo;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
