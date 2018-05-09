@@ -8,6 +8,7 @@ package almondessol;
 import View.CadastroView;
 import View.ListarProdView;
 import View.MainView;
+import View.VendaView;
 
 /**
  *
@@ -20,7 +21,7 @@ public class AlmondesSol {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-      new ListarProdView().setVisible(true);
+      new VendaView().setVisible(true);
     }
     
 }

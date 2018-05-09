@@ -24,7 +24,8 @@ DROP TABLE IF EXISTS `gerente`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `gerente` (
   `usuario` varchar(80) DEFAULT NULL,
-  `senha` varchar(80) DEFAULT NULL
+  `senha` varchar(80) DEFAULT NULL,
+  UNIQUE KEY `usuario` (`usuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -54,7 +55,7 @@ CREATE TABLE `produto` (
   `quant` int(11) DEFAULT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -63,6 +64,7 @@ CREATE TABLE `produto` (
 
 LOCK TABLES `produto` WRITE;
 /*!40000 ALTER TABLE `produto` DISABLE KEYS */;
+INSERT INTO `produto` VALUES ('Paletas','EstevaoP','FIcer','Paletas 75',321456,3.5,12,2),('Pandeiro','Baculejo','TR700','Paneiro de plastico',987654,100,10,3);
 /*!40000 ALTER TABLE `produto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -120,6 +122,31 @@ LOCK TABLES `venda_instrumento` WRITE;
 /*!40000 ALTER TABLE `venda_instrumento` DISABLE KEYS */;
 /*!40000 ALTER TABLE `venda_instrumento` ENABLE KEYS */;
 UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER Tgr_ItensVenda_Insert AFTER INSERT
+ON venda_instrumento
+FOR EACH ROW
+BEGIN
+	UPDATE produto SET quant = quant - NEW.quant_prod
+WHERE id = NEW.id_prod;
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+
+--
+-- Dumping events for database 'almonde_sol'
+--
 
 --
 -- Dumping routines for database 'almonde_sol'
@@ -134,4 +161,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-04-25  0:50:09
+-- Dump completed on 2018-05-09  1:39:43
