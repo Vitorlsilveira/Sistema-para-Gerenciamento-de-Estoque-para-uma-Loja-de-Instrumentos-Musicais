@@ -158,7 +158,7 @@ public class ListarProdView extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(118, 118, 118)
+                .addContainerGap(118, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addContainerGap(401, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -193,10 +193,13 @@ public class ListarProdView extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        int i = jTable1.getSelectedRow();
-       Produto p = list.get(i);
-       this.dispose();
-       new EditarView(p);
-        
+       if(i!=-1){ 
+            Produto p = list.get(i);
+            this.dispose();
+            new EditarView(p);
+       }else{
+           JOptionPane.showMessageDialog(null, "Selecione algum Produto!");
+       }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void tfBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfBuscarKeyReleased
@@ -239,18 +242,22 @@ public class ListarProdView extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         
         int i = jTable1.getSelectedRow();
-        int dialogButton = JOptionPane.YES_NO_OPTION;
-        int dialogResult = JOptionPane.showConfirmDialog (null, "Deseja realmene excluir o prouto selecionado?","Warning",dialogButton);
-        if(dialogResult==JOptionPane.YES_OPTION){
-            Produto p = list.get(i);
-            DAOProduto produtos = new DAOProduto();
-            if(produtos.delete(p)){
-                JOptionPane.showMessageDialog(null, "Produto Excluido com Sucesso");
-                list = produtos.listar_todos();
-                construirTabla(list);
-            }else{
-                JOptionPane.showMessageDialog(null, "Problemas ao Excluir");
+        if(i!=-1){ 
+            int dialogButton = JOptionPane.YES_NO_OPTION;
+            int dialogResult = JOptionPane.showConfirmDialog (null, "Deseja realmene excluir o prouto selecionado?","Warning",dialogButton);
+            if(dialogResult==JOptionPane.YES_OPTION){
+                Produto p = list.get(i);
+                DAOProduto produtos = new DAOProduto();
+                if(produtos.delete(p)){
+                    JOptionPane.showMessageDialog(null, "Produto Excluido com Sucesso");
+                    list = produtos.listar_todos();
+                    construirTabla(list);
+                }else{
+                    JOptionPane.showMessageDialog(null, "Problemas ao Excluir");
+                }
             }
+        }else{
+            JOptionPane.showMessageDialog(null, "Selecione algum Produto!");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
