@@ -74,12 +74,17 @@ public class DAOVenda {
         try {
             stmt = con.prepareStatement(str);
             rs = stmt.executeQuery();
-            id = rs.getInt("id");
+            while(rs.next()){
+                id = rs.getInt("id");
+            }
+            ConnectionFactory.closeConection(con, stmt,rs);
         } catch (SQLException ex) {
             Logger.getLogger(Connection.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+        System.err.println(id);
         for(Produto p: shoping){
+            con = ConnectionFactory.getConnection();
+            stmt = null;
             try {
                 stmt = con.prepareStatement("INSERT INTO venda_instrumento (id_venda,id_prod,quant_prod,valor_unit)VALUES(?,?,?,?)");
                 stmt.setInt(1, id);
@@ -90,9 +95,7 @@ public class DAOVenda {
             } catch (SQLException ex) {
                 //JOptionPane.showMessageDialog(null, "Erro ao salvar"+ ex);
                 return false;
-            }finally{
-                 ConnectionFactory.closeConection(con, stmt);
-            }    
+            }
         }
         return true;
     }
@@ -126,7 +129,7 @@ public class DAOVenda {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ArrayList<Venda> result = new ArrayList();
-        String str = "select * from venda where cpf_cli like '%"+data+"%';";
+        String str = "select * from venda where data_venda like '%"+data+"%';";
         
          try {
             stmt = con.prepareStatement(str);

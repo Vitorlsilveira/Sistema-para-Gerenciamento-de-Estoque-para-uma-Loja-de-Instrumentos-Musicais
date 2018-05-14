@@ -193,6 +193,7 @@ public class EditarView extends javax.swing.JFrame {
 
         DAOProduto operacaoDAO = new DAOProduto();
         Produto novoProduto = new Produto(produto.getId(),
+                Integer.parseInt(tfCode.getText()),
                 Integer.parseInt(tfqtd.getText()),
                 tfNoma.getText(),
                 tfMarca.getText(),
@@ -200,7 +201,7 @@ public class EditarView extends javax.swing.JFrame {
                 taDescricao.getText(),
                 Float.parseFloat(tfpreco.getText())
         );
-
+        //novoProduto.setId(produto.getId());
         boolean verifica = operacaoDAO.update(novoProduto);
         if(verifica){
             JOptionPane.showMessageDialog(null, "Produto Alterado com Sucesso");
