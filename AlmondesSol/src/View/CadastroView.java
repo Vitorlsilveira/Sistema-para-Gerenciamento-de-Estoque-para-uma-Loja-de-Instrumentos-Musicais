@@ -7,6 +7,8 @@ package View;
 
 import Controller.DAOProduto;
 import Model.Produto;
+import com.sun.glass.events.KeyEvent;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 
 /**
@@ -50,6 +52,7 @@ public class CadastroView extends javax.swing.JFrame {
         btCad = new javax.swing.JButton();
         btCancelar = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
+        verificaCode = new javax.swing.JLabel();
 
         setTitle("Cadastro de Produtos");
 
@@ -58,6 +61,11 @@ public class CadastroView extends javax.swing.JFrame {
         tfCode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfCodeActionPerformed(evt);
+            }
+        });
+        tfCode.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfCodeKeyPressed(evt);
             }
         });
 
@@ -118,8 +126,7 @@ public class CadastroView extends javax.swing.JFrame {
                                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(tfNoma, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(jLabel4)
-                                .addComponent(jLabel1)
-                                .addComponent(tfCode, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel1))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
                                     .addGap(103, 103, 103)
@@ -136,7 +143,11 @@ public class CadastroView extends javax.swing.JFrame {
                                                 .addComponent(tfpreco, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                                 .addGroup(layout.createSequentialGroup()
                                     .addGap(112, 112, 112)
-                                    .addComponent(jLabel9))))))
+                                    .addComponent(jLabel9))))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(tfCode, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(3, 3, 3)
+                            .addComponent(verificaCode, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(49, 49, 49))
         );
         layout.setVerticalGroup(
@@ -148,7 +159,9 @@ public class CadastroView extends javax.swing.JFrame {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel9))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(tfCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(verificaCode))
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -197,19 +210,38 @@ public class CadastroView extends javax.swing.JFrame {
                 taDescricao.getText(),
                 Float.parseFloat(tfpreco.getText())
         );
+        if(verificarCampos()){
+            boolean verifica = operacaoDAO.save(novoProduto);
+            limparCampos();
+        }else{
+            
+        }
 
-        boolean verifica = operacaoDAO.save(novoProduto);
-        limparCampos();
                
     }//GEN-LAST:event_btCadActionPerformed
 
     private void tfCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfCodeActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_tfCodeActionPerformed
 
     private void tfNomaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNomaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfNomaActionPerformed
+
+    private void tfCodeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfCodeKeyPressed
+        // TODO add your handling code here:
+        int key = evt.getKeyCode();
+        if((key>=evt.VK_0 && key<=evt.VK_9) || (key>=evt.VK_NUMPAD0 && key<=evt.VK_NUMPAD9) || key==KeyEvent.VK_BACKSPACE) {        
+            tfCode.setEditable(true);
+            verificaCode.setText("");
+            tfCode.setBackground(Color.WHITE);
+        }else{
+            verificaCode.setText("Digite somente números!!!");
+            tfCode.setEditable(false);
+            
+        }
+    }//GEN-LAST:event_tfCodeKeyPressed
 
     private void limparCampos(){
         tfCode.setText("");
@@ -220,6 +252,40 @@ public class CadastroView extends javax.swing.JFrame {
         taDescricao.setText("");
         tfpreco.setText("");        
     }
+    
+    private boolean verificarCampos(){
+
+        return true;
+    }
+    private boolean CamposVazios(){
+        if(tfCode.getText()==null || tfCode.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null, "Campo code vazio!!!");
+            return true;
+        }
+        if(tfMarca.getText()==null || tfMarca.getText().trim().equals("")){
+            
+            return true;
+        }
+        if(tfModelo.getText()==null || tfModelo.getText().trim().equals("")){
+            System.out.println("AA");
+             return true;
+        }
+        if(tfNoma.getText()==null || tfNoma.getText().trim().equals("")){
+            System.out.println("AA");
+             return true;
+        }
+        if(tfpreco.getText()==null || tfpreco.getText().trim().equals("")){
+            System.out.println("AA");
+             return true;
+        }
+        if(tfqtd.getText()==null || tfqtd.getText().trim().equals("")){
+            System.out.println("AA");
+             return true;
+        }        
+        return false;
+    }      
+
+      
     
     /**
      * @param args the command line arguments
@@ -275,5 +341,6 @@ public class CadastroView extends javax.swing.JFrame {
     private javax.swing.JTextField tfNoma;
     private javax.swing.JTextField tfpreco;
     private javax.swing.JTextField tfqtd;
+    private javax.swing.JLabel verificaCode;
     // End of variables declaration//GEN-END:variables
 }

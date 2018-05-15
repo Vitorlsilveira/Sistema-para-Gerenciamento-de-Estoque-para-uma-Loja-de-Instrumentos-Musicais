@@ -24,7 +24,7 @@ public class AlmondesSol {
     public static void main(String[] args) {
         
         //new VendaView().setVisible(true);
-        new HistVendasView().setVisible(true);
+        new CadastroView().setVisible(true);
     }
     
 }
