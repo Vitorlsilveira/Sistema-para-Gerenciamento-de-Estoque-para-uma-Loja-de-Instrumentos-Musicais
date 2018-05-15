@@ -200,21 +200,23 @@ public class CadastroView extends javax.swing.JFrame {
 
     private void btCadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadActionPerformed
         // TODO add your handling code here:
-        DAOProduto operacaoDAO = new DAOProduto();
-        Produto novoProduto = new Produto(
-                Integer.parseInt(tfCode.getText()),
-                Integer.parseInt(tfqtd.getText()),
-                tfNoma.getText(),
-                tfMarca.getText(),
-                tfModelo.getText(),
-                taDescricao.getText(),
-                Float.parseFloat(tfpreco.getText())
-        );
-        if(verificarCampos()){
-            boolean verifica = operacaoDAO.save(novoProduto);
-            limparCampos();
-        }else{
-            
+        if(!CamposVazios()){
+            DAOProduto operacaoDAO = new DAOProduto();
+            Produto novoProduto = new Produto(
+                    Integer.parseInt(tfCode.getText()),
+                    Integer.parseInt(tfqtd.getText()),
+                    tfNoma.getText(),
+                    tfMarca.getText(),
+                    tfModelo.getText(),
+                    taDescricao.getText(),
+                    Float.parseFloat(tfpreco.getText())
+            );
+            if(verificarCampos()){
+                boolean verifica = operacaoDAO.save(novoProduto);
+                limparCampos();
+            }else{
+
+            }            
         }
 
                
@@ -259,27 +261,32 @@ public class CadastroView extends javax.swing.JFrame {
     }
     private boolean CamposVazios(){
         if(tfCode.getText()==null || tfCode.getText().trim().equals("")){
-            JOptionPane.showMessageDialog(null, "Campo code vazio!!!");
+            JOptionPane.showMessageDialog(null, "Campo codigo barras vazio!!!");
             return true;
         }
+        if(tfNoma.getText()==null || tfNoma.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null, "Campo nome vazio!!!");
+             return true;
+        }        
         if(tfMarca.getText()==null || tfMarca.getText().trim().equals("")){
-            
+            JOptionPane.showMessageDialog(null, "Campo marca vazio!!!");
             return true;
         }
         if(tfModelo.getText()==null || tfModelo.getText().trim().equals("")){
-            System.out.println("AA");
+            JOptionPane.showMessageDialog(null, "Campo modelo vazio!!!");
              return true;
         }
-        if(tfNoma.getText()==null || tfNoma.getText().trim().equals("")){
-            System.out.println("AA");
-             return true;
-        }
+
         if(tfpreco.getText()==null || tfpreco.getText().trim().equals("")){
-            System.out.println("AA");
+            JOptionPane.showMessageDialog(null, "Campo preco vazio!!!");
              return true;
         }
         if(tfqtd.getText()==null || tfqtd.getText().trim().equals("")){
-            System.out.println("AA");
+            JOptionPane.showMessageDialog(null, "Campo quantidade vazio!!!");
+            return true;
+        } 
+        if(taDescricao.getText()==null || taDescricao.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null, "Campo descricao vazio!!!");
              return true;
         }        
         return false;
