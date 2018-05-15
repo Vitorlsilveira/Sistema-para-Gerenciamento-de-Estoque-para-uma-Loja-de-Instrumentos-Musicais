@@ -53,6 +53,8 @@ public class CadastroView extends javax.swing.JFrame {
         btCancelar = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         verificaCode = new javax.swing.JLabel();
+        l_verifica_cod = new javax.swing.JLabel();
+        l_verifica_qtd = new javax.swing.JLabel();
 
         setTitle("Cadastro de Produtos");
 
@@ -66,6 +68,9 @@ public class CadastroView extends javax.swing.JFrame {
         tfCode.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tfCodeKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfCodeKeyReleased(evt);
             }
         });
 
@@ -84,6 +89,17 @@ public class CadastroView extends javax.swing.JFrame {
         jLabel5.setText("Quantidade");
 
         jLabel6.setText("Preço");
+
+        tfqtd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfqtdActionPerformed(evt);
+            }
+        });
+        tfqtd.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfqtdKeyPressed(evt);
+            }
+        });
 
         jLabel7.setText("Descrição");
 
@@ -140,14 +156,16 @@ public class CadastroView extends javax.swing.JFrame {
                                             .addGap(99, 99, 99)
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(jLabel6)
-                                                .addComponent(tfpreco, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                                .addComponent(tfpreco, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(l_verifica_qtd, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGroup(layout.createSequentialGroup()
                                     .addGap(112, 112, 112)
                                     .addComponent(jLabel9))))
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(tfCode, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(3, 3, 3)
-                            .addComponent(verificaCode, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(verificaCode, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(l_verifica_cod, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(49, 49, 49))
         );
         layout.setVerticalGroup(
@@ -162,7 +180,9 @@ public class CadastroView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tfCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(verificaCode))
-                .addGap(36, 36, 36)
+                .addGap(3, 3, 3)
+                .addComponent(l_verifica_cod)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3))
@@ -180,7 +200,9 @@ public class CadastroView extends javax.swing.JFrame {
                     .addComponent(tfModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfqtd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfpreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(53, 53, 53)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(l_verifica_qtd)
+                .addGap(32, 32, 32)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -236,14 +258,37 @@ public class CadastroView extends javax.swing.JFrame {
         int key = evt.getKeyCode();
         if((key>=evt.VK_0 && key<=evt.VK_9) || (key>=evt.VK_NUMPAD0 && key<=evt.VK_NUMPAD9) || key==KeyEvent.VK_BACKSPACE) {        
             tfCode.setEditable(true);
-            verificaCode.setText("");
+            l_verifica_cod.setText("");
             tfCode.setBackground(Color.WHITE);
         }else{
-            verificaCode.setText("Digite somente números!!!");
+            l_verifica_cod.setText("Digite somente números!!!");
             tfCode.setEditable(false);
             
         }
     }//GEN-LAST:event_tfCodeKeyPressed
+
+    private void tfCodeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfCodeKeyReleased
+        // TODO add your handling code here:
+        System.out.println(tfCode.getText());
+    }//GEN-LAST:event_tfCodeKeyReleased
+
+    private void tfqtdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfqtdKeyPressed
+        // TODO add your handling code here:
+        int key = evt.getKeyCode();
+        if((key>=evt.VK_0 && key<=evt.VK_9) || (key>=evt.VK_NUMPAD0 && key<=evt.VK_NUMPAD9) || key==KeyEvent.VK_BACKSPACE) {        
+            tfqtd.setEditable(true);
+            l_verifica_qtd.setText("");
+            tfqtd.setBackground(Color.WHITE);
+        }else{
+            l_verifica_qtd.setText("Digite somente números!!!");
+            tfqtd.setEditable(false);
+            
+        }
+    }//GEN-LAST:event_tfqtdKeyPressed
+
+    private void tfqtdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfqtdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfqtdActionPerformed
 
     private void limparCampos(){
         tfCode.setText("");
@@ -341,6 +386,8 @@ public class CadastroView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel l_verifica_cod;
+    private javax.swing.JLabel l_verifica_qtd;
     private javax.swing.JTextArea taDescricao;
     private javax.swing.JTextField tfCode;
     private javax.swing.JTextField tfMarca;
