@@ -61,6 +61,7 @@
                                               <Component id="tfpreco" min="-2" pref="78" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
+                                      <Component id="l_verifica_qtd" alignment="0" min="-2" pref="238" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -74,6 +75,7 @@
                           <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                           <Component id="verificaCode" min="-2" pref="246" max="-2" attributes="0"/>
                       </Group>
+                      <Component id="l_verifica_cod" alignment="0" min="-2" pref="242" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
@@ -95,7 +97,9 @@
                   <Component id="tfCode" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="verificaCode" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+              <Component id="l_verifica_cod" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -117,7 +121,9 @@
                   <Component id="tfqtd" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="tfpreco" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="l_verifica_qtd" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
               <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="106" max="-2" attributes="0"/>
@@ -141,6 +147,7 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfCodeActionPerformed"/>
         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfCodeKeyPressed"/>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfCodeKeyReleased"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
@@ -178,6 +185,10 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="tfqtd">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfqtdActionPerformed"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfqtdKeyPressed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="tfpreco">
     </Component>
@@ -220,6 +231,10 @@
     <Component class="javax.swing.JLabel" name="jLabel9">
     </Component>
     <Component class="javax.swing.JLabel" name="verificaCode">
+    </Component>
+    <Component class="javax.swing.JLabel" name="l_verifica_cod">
+    </Component>
+    <Component class="javax.swing.JLabel" name="l_verifica_qtd">
     </Component>
   </SubComponents>
 </Form>
