@@ -210,7 +210,7 @@ public class CadastroView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btCad)
                     .addComponent(btCancelar))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(67, Short.MAX_VALUE))
         );
 
         pack();
@@ -222,7 +222,7 @@ public class CadastroView extends javax.swing.JFrame {
 
     private void btCadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadActionPerformed
         // TODO add your handling code here:
-        if(!CamposVazios()){
+        if(verificarCampos()){
             DAOProduto operacaoDAO = new DAOProduto();
             Produto novoProduto = new Produto(
                     Integer.parseInt(tfCode.getText()),
@@ -233,12 +233,10 @@ public class CadastroView extends javax.swing.JFrame {
                     taDescricao.getText(),
                     Float.parseFloat(tfpreco.getText())
             );
-            if(verificarCampos()){
-                boolean verifica = operacaoDAO.save(novoProduto);
-                limparCampos();
-            }else{
+            
+            boolean verifica = operacaoDAO.save(novoProduto);
+            limparCampos();
 
-            }            
         }
 
                
@@ -259,7 +257,6 @@ public class CadastroView extends javax.swing.JFrame {
         if((key>=evt.VK_0 && key<=evt.VK_9) || (key>=evt.VK_NUMPAD0 && key<=evt.VK_NUMPAD9) || key==KeyEvent.VK_BACKSPACE) {        
             tfCode.setEditable(true);
             l_verifica_cod.setText("");
-            tfCode.setBackground(Color.WHITE);
         }else{
             l_verifica_cod.setText("Digite somente números!!!");
             tfCode.setEditable(false);
@@ -270,6 +267,17 @@ public class CadastroView extends javax.swing.JFrame {
     private void tfCodeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfCodeKeyReleased
         // TODO add your handling code here:
         System.out.println(tfCode.getText());
+        DAOProduto operacaoDAO = new DAOProduto();
+        boolean verifica = operacaoDAO.verificarCodBarras(tfCode.getText());
+        if(verifica){
+            l_verifica_cod.setText("Codigo de barras em usado");
+            btCad.setEnabled(false);
+        }else{
+            btCad.setEnabled(true);
+            l_verifica_cod.setText("");            
+        }
+            
+        
     }//GEN-LAST:event_tfCodeKeyReleased
 
     private void tfqtdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfqtdKeyPressed
@@ -301,9 +309,13 @@ public class CadastroView extends javax.swing.JFrame {
     }
     
     private boolean verificarCampos(){
-
+        if(CamposVazios()){
+            return false;
+        }
         return true;
     }
+    
+    
     private boolean CamposVazios(){
         if(tfCode.getText()==null || tfCode.getText().trim().equals("")){
             JOptionPane.showMessageDialog(null, "Campo codigo barras vazio!!!");
