@@ -56,6 +56,11 @@ public class CompraView extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        menu_Realizar_Venda = new javax.swing.JMenu();
+        menu_Historico_Venda = new javax.swing.JMenu();
+        menu_cadastrar_produto = new javax.swing.JMenu();
+        menu_lista_produtos = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -80,13 +85,62 @@ public class CompraView extends javax.swing.JFrame {
         jTable1.setToolTipText("");
         jScrollPane1.setViewportView(jTable1);
 
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\tomaz\\Documents\\AlmondesSol\\Imagens\\cancel.png")); // NOI18N
         jButton1.setText("Fechar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+
+        menu_Realizar_Venda.setText("Realizar Venda");
+        menu_Realizar_Venda.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                menu_Realizar_VendaMenuSelected(evt);
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+        });
+        jMenuBar1.add(menu_Realizar_Venda);
+
+        menu_Historico_Venda.setText("Historico Venda");
+        menu_Historico_Venda.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                menu_Historico_VendaMenuSelected(evt);
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+        });
+        jMenuBar1.add(menu_Historico_Venda);
+
+        menu_cadastrar_produto.setText("Cadastrar Produto");
+        menu_cadastrar_produto.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                menu_cadastrar_produtoMenuSelected(evt);
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+        });
+        jMenuBar1.add(menu_cadastrar_produto);
+
+        menu_lista_produtos.setText("Lista Produtos");
+        menu_lista_produtos.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                menu_lista_produtosMenuSelected(evt);
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+        });
+        jMenuBar1.add(menu_lista_produtos);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -108,7 +162,7 @@ public class CompraView extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addContainerGap())
         );
@@ -119,6 +173,30 @@ public class CompraView extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void menu_Realizar_VendaMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_menu_Realizar_VendaMenuSelected
+        // TODO add your handling code here:
+        new VendaView().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_menu_Realizar_VendaMenuSelected
+
+    private void menu_Historico_VendaMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_menu_Historico_VendaMenuSelected
+        // TODO add your handling code here:
+        new HistVendasView().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_menu_Historico_VendaMenuSelected
+
+    private void menu_cadastrar_produtoMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_menu_cadastrar_produtoMenuSelected
+        // TODO add your handling code here:
+        new CadastroView().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_menu_cadastrar_produtoMenuSelected
+
+    private void menu_lista_produtosMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_menu_lista_produtosMenuSelected
+        // TODO add your handling code here:
+        new ListarProdView().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_menu_lista_produtosMenuSelected
 
     /**
      * @param args the command line arguments
@@ -159,7 +237,12 @@ public class CompraView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JMenu menu_Historico_Venda;
+    private javax.swing.JMenu menu_Realizar_Venda;
+    private javax.swing.JMenu menu_cadastrar_produto;
+    private javax.swing.JMenu menu_lista_produtos;
     // End of variables declaration//GEN-END:variables
 }

@@ -9,6 +9,7 @@ import Controller.DAOProduto;
 import Controller.DAOVenda;
 import Model.Produto;
 import Model.Venda;
+import java.awt.Color;
 import java.util.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -26,11 +27,13 @@ public class VendaView extends javax.swing.JFrame {
      * Creates new form VendaView
      */
     public VendaView() {
+        super("Almondes Sol - Vendas");
         initComponents();
         rbCod.setSelected(true);
         DAOProduto produtos = new DAOProduto();
         list = produtos.listar_todos();
         construirTabla(list);
+        
     }
    
     public void construirTabla(ArrayList<Produto> produtos){
@@ -79,6 +82,25 @@ public class VendaView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        menuBar1 = new java.awt.MenuBar();
+        menu1 = new java.awt.Menu();
+        menu2 = new java.awt.Menu();
+        menuBar2 = new java.awt.MenuBar();
+        menu3 = new java.awt.Menu();
+        menu4 = new java.awt.Menu();
+        jFrame1 = new javax.swing.JFrame();
+        menuBar3 = new java.awt.MenuBar();
+        menu5 = new java.awt.Menu();
+        menu6 = new java.awt.Menu();
+        menuBar4 = new java.awt.MenuBar();
+        menu7 = new java.awt.Menu();
+        menu8 = new java.awt.Menu();
+        jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JSeparator();
+        jMenu2 = new javax.swing.JMenu();
         jLabel1 = new javax.swing.JLabel();
         tfBuscar = new javax.swing.JTextField();
         rbCod = new javax.swing.JRadioButton();
@@ -96,6 +118,55 @@ public class VendaView extends javax.swing.JFrame {
         tfcpfcli = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         btn_retirar_produto = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        menu_Realizar_Venda = new javax.swing.JMenu();
+        menu_Historico_Venda = new javax.swing.JMenu();
+        menu_cadastrar_produto = new javax.swing.JMenu();
+        menu_lista_produtos = new javax.swing.JMenu();
+
+        menu1.setLabel("File");
+        menuBar1.add(menu1);
+
+        menu2.setLabel("Edit");
+        menuBar1.add(menu2);
+
+        menu3.setLabel("File");
+        menuBar2.add(menu3);
+
+        menu4.setLabel("Edit");
+        menuBar2.add(menu4);
+
+        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
+        jFrame1.getContentPane().setLayout(jFrame1Layout);
+        jFrame1Layout.setHorizontalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jFrame1Layout.setVerticalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        menu5.setLabel("File");
+        menuBar3.add(menu5);
+
+        menu6.setLabel("Edit");
+        menuBar3.add(menu6);
+
+        menu7.setLabel("File");
+        menuBar4.add(menu7);
+
+        menu8.setLabel("Edit");
+        menuBar4.add(menu8);
+
+        jRadioButtonMenuItem1.setSelected(true);
+        jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
+
+        jMenuItem1.setText("jMenuItem1");
+
+        jMenuItem2.setText("jMenuItem2");
+
+        jMenu2.setText("jMenu2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -200,6 +271,56 @@ public class VendaView extends javax.swing.JFrame {
             }
         });
 
+        menu_Realizar_Venda.setText("Realizar Venda");
+        menu_Realizar_Venda.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                menu_Realizar_VendaMenuSelected(evt);
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+        });
+        jMenuBar1.add(menu_Realizar_Venda);
+
+        menu_Historico_Venda.setText("Historico Venda");
+        menu_Historico_Venda.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                menu_Historico_VendaMenuSelected(evt);
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+        });
+        jMenuBar1.add(menu_Historico_Venda);
+
+        menu_cadastrar_produto.setText("Cadastrar Produto");
+        menu_cadastrar_produto.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                menu_cadastrar_produtoMenuSelected(evt);
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+        });
+        jMenuBar1.add(menu_cadastrar_produto);
+
+        menu_lista_produtos.setText("Lista Produtos");
+        menu_lista_produtos.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                menu_lista_produtosMenuSelected(evt);
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+        });
+        jMenuBar1.add(menu_lista_produtos);
+
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -209,21 +330,7 @@ public class VendaView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(rbCod)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(rbProduto))
-                            .addComponent(jLabel1)
-                            .addComponent(tfBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 589, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 960, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_vender, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(46, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 960, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(tfcpfcli, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(138, 138, 138)
@@ -236,8 +343,22 @@ public class VendaView extends javax.swing.JFrame {
                                         .addComponent(btn_cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(183, 183, 183)
-                                        .addComponent(btn_retirar_produto, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                                        .addComponent(btn_retirar_produto, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 960, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(56, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(rbCod)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(rbProduto))
+                            .addComponent(jLabel1)
+                            .addComponent(tfBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 589, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 960, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_vender, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -270,7 +391,7 @@ public class VendaView extends javax.swing.JFrame {
                     .addComponent(btn_cancelar)
                     .addComponent(btn_finalizar_venda)
                     .addComponent(tfcpfcli, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -351,7 +472,9 @@ public class VendaView extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_retirar_produtoActionPerformed
 
     private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed
-       this.dispose();
+       new HistVendasView().setVisible(true);
+        this.dispose();
+       
     }//GEN-LAST:event_btn_cancelarActionPerformed
 
     private void btn_limpar_listar_produtosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_limpar_listar_produtosActionPerformed
@@ -396,6 +519,29 @@ public class VendaView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_finalizar_vendaActionPerformed
 
+    private void menu_Realizar_VendaMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_menu_Realizar_VendaMenuSelected
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_menu_Realizar_VendaMenuSelected
+
+    private void menu_Historico_VendaMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_menu_Historico_VendaMenuSelected
+        // TODO add your handling code here:
+        new HistVendasView().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_menu_Historico_VendaMenuSelected
+
+    private void menu_cadastrar_produtoMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_menu_cadastrar_produtoMenuSelected
+        // TODO add your handling code here:
+        new CadastroView().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_menu_cadastrar_produtoMenuSelected
+
+    private void menu_lista_produtosMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_menu_lista_produtosMenuSelected
+        // TODO add your handling code here:
+        new ListarProdView().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_menu_lista_produtosMenuSelected
+
     /**
      * @param args the command line arguments
      */
@@ -439,12 +585,36 @@ public class VendaView extends javax.swing.JFrame {
     private javax.swing.JButton btn_limpar_listar_produtos;
     private javax.swing.JButton btn_retirar_produto;
     private javax.swing.JButton btn_vender;
+    private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JPopupMenu jPopupMenu1;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JSeparator jSeparator1;
+    private java.awt.Menu menu1;
+    private java.awt.Menu menu2;
+    private java.awt.Menu menu3;
+    private java.awt.Menu menu4;
+    private java.awt.Menu menu5;
+    private java.awt.Menu menu6;
+    private java.awt.Menu menu7;
+    private java.awt.Menu menu8;
+    private java.awt.MenuBar menuBar1;
+    private java.awt.MenuBar menuBar2;
+    private java.awt.MenuBar menuBar3;
+    private java.awt.MenuBar menuBar4;
+    private javax.swing.JMenu menu_Historico_Venda;
+    private javax.swing.JMenu menu_Realizar_Venda;
+    private javax.swing.JMenu menu_cadastrar_produto;
+    private javax.swing.JMenu menu_lista_produtos;
     private javax.swing.JRadioButton rbCod;
     private javax.swing.JRadioButton rbProduto;
     private javax.swing.JTable tabela_lista_compra;
