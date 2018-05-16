@@ -34,7 +34,7 @@ public class VendaView extends javax.swing.JFrame {
     }
    
     public void construirTabla(ArrayList<Produto> produtos){
-        modelo = (DefaultTableModel) jTable1.getModel();
+        modelo = (DefaultTableModel) tabela_lista_produtos.getModel();
         modelo.setNumRows(0);
        
         for(Produto p: produtos){
@@ -53,7 +53,7 @@ public class VendaView extends javax.swing.JFrame {
     
     
     public void construirTabla2(ArrayList<Produto> produtos){
-        modelo2 = (DefaultTableModel) jTable3.getModel();
+        modelo2 = (DefaultTableModel) tabela_lista_compra.getModel();
         modelo2.setNumRows(0);
        
         for(Produto p: produtos){
@@ -84,18 +84,18 @@ public class VendaView extends javax.swing.JFrame {
         rbCod = new javax.swing.JRadioButton();
         rbProduto = new javax.swing.JRadioButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabela_lista_produtos = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btn_vender = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btn_limpar_listar_produtos = new javax.swing.JButton();
+        btn_cancelar = new javax.swing.JButton();
+        btn_finalizar_venda = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        tabela_lista_compra = new javax.swing.JTable();
         tfcpfcli = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
+        btn_retirar_produto = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -121,7 +121,7 @@ public class VendaView extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabela_lista_produtos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -137,47 +137,43 @@ public class VendaView extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setToolTipText("");
-        jScrollPane1.setViewportView(jTable1);
+        tabela_lista_produtos.setToolTipText("");
+        jScrollPane1.setViewportView(tabela_lista_produtos);
 
         jLabel2.setText("Lista de Produtos");
 
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\tomaz\\Documents\\AlmondesSol\\Imagens\\cart.png")); // NOI18N
-        jButton1.setText("Vender");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btn_vender.setText("Vender");
+        btn_vender.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btn_venderActionPerformed(evt);
             }
         });
 
         jLabel3.setText("Produtos Selecionados");
 
-        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\tomaz\\Documents\\AlmondesSol\\Imagens\\floors.png")); // NOI18N
-        jButton2.setText("Limpar Lista de Produtos");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btn_limpar_listar_produtos.setText("Limpar Lista de Produtos");
+        btn_limpar_listar_produtos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btn_limpar_listar_produtosActionPerformed(evt);
             }
         });
 
-        jButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\tomaz\\Documents\\AlmondesSol\\Imagens\\cancel.png")); // NOI18N
-        jButton3.setText("Cancelar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btn_cancelar.setText("Cancelar");
+        btn_cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btn_cancelarActionPerformed(evt);
             }
         });
 
-        jButton4.setIcon(new javax.swing.ImageIcon("C:\\Users\\tomaz\\Documents\\AlmondesSol\\Imagens\\checked.png")); // NOI18N
-        jButton4.setText("Finalizar Venda");
-        jButton4.setToolTipText("");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btn_finalizar_venda.setText("Finalizar Venda");
+        btn_finalizar_venda.setToolTipText("");
+        btn_finalizar_venda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btn_finalizar_vendaActionPerformed(evt);
             }
         });
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        tabela_lista_compra.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -193,15 +189,14 @@ public class VendaView extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane3.setViewportView(jTable3);
+        jScrollPane3.setViewportView(tabela_lista_compra);
 
         jLabel4.setText("Cpf  Cliente:");
 
-        jButton5.setIcon(new javax.swing.ImageIcon("C:\\Users\\tomaz\\Documents\\AlmondesSol\\Imagens\\eraser.png")); // NOI18N
-        jButton5.setText("Retirar Produto");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        btn_retirar_produto.setText("Retirar Produto");
+        btn_retirar_produto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                btn_retirar_produtoActionPerformed(evt);
             }
         });
 
@@ -215,31 +210,33 @@ public class VendaView extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jButton1)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(rbCod)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(rbProduto))
-                                .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(tfBuscar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 589, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 960, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel2)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(rbCod)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(rbProduto))
+                            .addComponent(jLabel1)
+                            .addComponent(tfBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 589, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 960, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_vender, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(46, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton5)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(tfcpfcli, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(138, 138, 138)
-                                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jLabel4)
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 960, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 960, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(tfcpfcli, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(138, 138, 138)
+                                .addComponent(btn_finalizar_venda, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btn_limpar_listar_produtos, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btn_cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(183, 183, 183)
+                                        .addComponent(btn_retirar_produto, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -258,20 +255,20 @@ public class VendaView extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
+                .addComponent(btn_vender)
                 .addGap(8, 8, 8)
                 .addComponent(jLabel3)
                 .addGap(23, 23, 23)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton5)
+                .addComponent(btn_retirar_produto)
                 .addGap(17, 17, 17)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4)
+                    .addComponent(btn_limpar_listar_produtos)
+                    .addComponent(btn_cancelar)
+                    .addComponent(btn_finalizar_venda)
                     .addComponent(tfcpfcli, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24))
         );
@@ -319,8 +316,8 @@ public class VendaView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_rbProdutoActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        int i = jTable1.getSelectedRow();
+    private void btn_venderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_venderActionPerformed
+        int i = tabela_lista_produtos.getSelectedRow();
         if(i!=-1){
            int op =Integer.parseInt(JOptionPane.showInputDialog(null, "Informe a quantidade desejada: "));
            Produto p = list.get(i);
@@ -336,10 +333,10 @@ public class VendaView extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Nenhum Produto Selecionado!");
         }
             
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btn_venderActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        int i = jTable3.getSelectedRow();
+    private void btn_retirar_produtoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_retirar_produtoActionPerformed
+        int i = tabela_lista_compra.getSelectedRow();
         if(i!=-1){
              int dialogButton = JOptionPane.YES_NO_OPTION;
              int dialogResult = JOptionPane.showConfirmDialog (null, "Deseja realmene excluir o prouto selecionado?","Warning",dialogButton);
@@ -351,20 +348,20 @@ public class VendaView extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Nenhum Produto Selecionado!");
         }
            
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_btn_retirar_produtoActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed
        this.dispose();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btn_cancelarActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btn_limpar_listar_produtosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_limpar_listar_produtosActionPerformed
        int dialogButton = JOptionPane.YES_NO_OPTION;
        int dialogResult = JOptionPane.showConfirmDialog (null, "Deseja realmene excluir o prouto selecionado?","Warning",dialogButton);
        if(dialogResult==JOptionPane.YES_OPTION){
             list2.clear();
             construirTabla2(list2);
        }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btn_limpar_listar_produtosActionPerformed
     
     private String getDateTime() { 
 	DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss"); 
@@ -380,20 +377,24 @@ public class VendaView extends javax.swing.JFrame {
         return total;
     }
     
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btn_finalizar_vendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_finalizar_vendaActionPerformed
         DAOVenda venda = new DAOVenda();
         if(!list2.isEmpty()){
             float total  = totalCompra(list2);
             Venda v = new Venda(tfcpfcli.getText(),getDateTime(),total,list2);
             if(v.getCpf_cli().equals("")){
-                boolean verifica = venda.save(v);
+                boolean verifica = venda.save(v);                                
             }else{
                 boolean verifica = venda.saveWhithCpf(v);
             }
+            
+            list2.clear();
+            construirTabla2(list2);
+            JOptionPane.showMessageDialog(null, "Compra Confirmada!");
         }else{
             JOptionPane.showMessageDialog(null, "Nenhum Produto Selecionado!");
         }
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_btn_finalizar_vendaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -433,21 +434,21 @@ public class VendaView extends javax.swing.JFrame {
     ArrayList<Produto> list2 = new ArrayList();
     DefaultTableModel modelo,modelo2;
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton btn_cancelar;
+    private javax.swing.JButton btn_finalizar_venda;
+    private javax.swing.JButton btn_limpar_listar_produtos;
+    private javax.swing.JButton btn_retirar_produto;
+    private javax.swing.JButton btn_vender;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable3;
     private javax.swing.JRadioButton rbCod;
     private javax.swing.JRadioButton rbProduto;
+    private javax.swing.JTable tabela_lista_compra;
+    private javax.swing.JTable tabela_lista_produtos;
     private javax.swing.JTextField tfBuscar;
     private javax.swing.JTextField tfcpfcli;
     // End of variables declaration//GEN-END:variables
