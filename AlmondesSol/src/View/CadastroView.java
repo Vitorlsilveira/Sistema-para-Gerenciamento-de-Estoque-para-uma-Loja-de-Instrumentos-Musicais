@@ -9,6 +9,7 @@ import Controller.DAOProduto;
 import Model.Produto;
 import com.sun.glass.events.KeyEvent;
 import java.awt.Color;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
@@ -55,6 +56,7 @@ public class CadastroView extends javax.swing.JFrame {
         verificaCode = new javax.swing.JLabel();
         l_verifica_cod = new javax.swing.JLabel();
         l_verifica_qtd = new javax.swing.JLabel();
+        l_verifica_preco = new javax.swing.JLabel();
 
         setTitle("Cadastro de Produtos");
 
@@ -99,11 +101,22 @@ public class CadastroView extends javax.swing.JFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tfqtdKeyPressed(evt);
             }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfqtdKeyReleased(evt);
+            }
         });
 
+        tfpreco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfprecoActionPerformed(evt);
+            }
+        });
         tfpreco.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tfprecoKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfprecoKeyReleased(evt);
             }
         });
 
@@ -133,46 +146,51 @@ public class CadastroView extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(58, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btCad, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel7)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btCad, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(tfModelo, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tfNoma, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jLabel4)
-                                .addComponent(jLabel1))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel7)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addGap(103, 103, 103)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel3)
-                                        .addComponent(tfMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(tfModelo, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(tfNoma, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jLabel4)
+                                        .addComponent(jLabel1))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(layout.createSequentialGroup()
+                                            .addGap(103, 103, 103)
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel5)
-                                                .addComponent(tfqtd, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGap(99, 99, 99)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel6)
-                                                .addComponent(tfpreco, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addComponent(l_verifica_qtd, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addComponent(jLabel3)
+                                                .addComponent(tfMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(jLabel5)
+                                                        .addComponent(tfqtd, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addGap(99, 99, 99)
+                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(jLabel6)
+                                                        .addComponent(tfpreco, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addComponent(l_verifica_qtd, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(112, 112, 112)
+                                            .addComponent(jLabel9))))
                                 .addGroup(layout.createSequentialGroup()
-                                    .addGap(112, 112, 112)
-                                    .addComponent(jLabel9))))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(tfCode, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(3, 3, 3)
-                            .addComponent(verificaCode, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(l_verifica_cod, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(49, 49, 49))
+                                    .addComponent(tfCode, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(3, 3, 3)
+                                    .addComponent(verificaCode, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(l_verifica_cod, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(49, 49, 49))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(l_verifica_preco, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(60, 60, 60))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -208,7 +226,9 @@ public class CadastroView extends javax.swing.JFrame {
                     .addComponent(tfpreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(l_verifica_qtd)
-                .addGap(32, 32, 32)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(l_verifica_preco)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -216,7 +236,7 @@ public class CadastroView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btCad)
                     .addComponent(btCancelar))
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addContainerGap(76, Short.MAX_VALUE))
         );
 
         pack();
@@ -228,21 +248,24 @@ public class CadastroView extends javax.swing.JFrame {
 
     private void btCadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadActionPerformed
         // TODO add your handling code here:
-        if(verificarCampos()){
-            DAOProduto operacaoDAO = new DAOProduto();
-            Produto novoProduto = new Produto(
-                    Integer.parseInt(tfCode.getText()),
-                    Integer.parseInt(tfqtd.getText()),
-                    tfNoma.getText(),
-                    tfMarca.getText(),
-                    tfModelo.getText(),
-                    taDescricao.getText(),
-                    Float.parseFloat(tfpreco.getText())
-            );
-            
-            boolean verifica = operacaoDAO.save(novoProduto);
-            limparCampos();
+        try {
+            if(verificarCampos()){
+                DAOProduto operacaoDAO = new DAOProduto();
+                Produto novoProduto = new Produto(
+                        Integer.parseInt(tfCode.getText()),
+                        Integer.parseInt(tfqtd.getText()),
+                        tfNoma.getText(),
+                        tfMarca.getText(),
+                        tfModelo.getText(),
+                        taDescricao.getText(),
+                        Float.parseFloat(tfpreco.getText())
+                );
 
+                boolean verifica = operacaoDAO.save(novoProduto);
+                limparCampos();
+
+            }            
+        } catch (Exception e) {
         }
 
                
@@ -259,30 +282,36 @@ public class CadastroView extends javax.swing.JFrame {
 
     private void tfCodeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfCodeKeyPressed
         // TODO add your handling code here:
-        int key = evt.getKeyCode();
-        if((key>=evt.VK_0 && key<=evt.VK_9) || (key>=evt.VK_NUMPAD0 && key<=evt.VK_NUMPAD9) || key==KeyEvent.VK_BACKSPACE) {        
-            tfCode.setEditable(true);
-            l_verifica_cod.setText("");
-        }else{
-            l_verifica_cod.setText("Digite somente números!!!");
-            tfCode.setEditable(false);
-            
+        try {
+            int key = evt.getKeyCode();
+            if((key>=evt.VK_0 && key<=evt.VK_9) || (key>=evt.VK_NUMPAD0 && key<=evt.VK_NUMPAD9) || key==KeyEvent.VK_BACKSPACE) {        
+                tfCode.setEditable(true);
+                l_verifica_cod.setText("");
+            }else{
+                l_verifica_cod.setText("Digite somente números!!!");
+                tfCode.setEditable(false);
+
+            }            
+        } catch (Exception e) {
         }
     }//GEN-LAST:event_tfCodeKeyPressed
 
     private void tfCodeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfCodeKeyReleased
         // TODO add your handling code here:
-        System.out.println(tfCode.getText());
-        DAOProduto operacaoDAO = new DAOProduto();
-        boolean verifica = operacaoDAO.verificarCodBarras(tfCode.getText());
-        if(verifica){
-            l_verifica_cod.setText("Codigo de barras em usado");
-            btCad.setEnabled(false);
-        }else{
-            btCad.setEnabled(true);
-            l_verifica_cod.setText("");            
+        try {
+            DAOProduto operacaoDAO = new DAOProduto();
+            boolean verifica = operacaoDAO.verificarCodBarras(tfCode.getText());
+            if(verifica){
+                l_verifica_cod.setText("Codigo de barras em usado");
+                btCad.setEnabled(false);
+            }else{
+                btCad.setEnabled(true);
+                l_verifica_cod.setText("");            
+            }
+
+        } catch (Exception e) {
         }
-            
+   
         
     }//GEN-LAST:event_tfCodeKeyReleased
 
@@ -306,17 +335,64 @@ public class CadastroView extends javax.swing.JFrame {
 
     private void tfprecoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfprecoKeyPressed
         // TODO add your handling code here:
-        float key = evt.getKeyCode();
-        if((key>=evt.VK_0 && key<=evt.VK_9) || (key>=evt.VK_NUMPAD0 && key<=evt.VK_NUMPAD9) || key==KeyEvent.VK_BACKSPACE || key==KeyEvent.VK_PERIOD) {        
-            tfpreco.setEditable(true);
-            l_verifica_qtd.setText("");
-            tfpreco.setBackground(Color.WHITE);
-        }else{
-            l_verifica_qtd.setText("Digite somente números!!!");
-            tfpreco.setEditable(false);
-            
-        }        
+        try {
+            float key = evt.getKeyCode();
+            if((key>=evt.VK_0 && key<=evt.VK_9) || (key>=evt.VK_NUMPAD0 && key<=evt.VK_NUMPAD9) || key==KeyEvent.VK_BACKSPACE || key==KeyEvent.VK_PERIOD) {        
+                tfpreco.setEditable(true);
+                l_verifica_preco.setText("");
+            }else{
+                l_verifica_preco.setText("Caractere invalido");
+                tfpreco.setEditable(false);
+
+            }             
+        } catch (Exception e) {
+        }
     }//GEN-LAST:event_tfprecoKeyPressed
+
+    private void tfprecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfprecoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfprecoActionPerformed
+
+    private void tfqtdKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfqtdKeyReleased
+        // TODO add your handling code here:
+        try {
+            if(Integer.parseInt(tfqtd.getText()) <= 0){
+                l_verifica_qtd.setText("Valor invalido");
+                btCad.setEnabled(false);
+            }else{
+                l_verifica_qtd.setText("");
+                btCad.setEnabled(true);            
+            }
+
+        } catch (Exception ex) {
+            
+        }
+        
+
+    }//GEN-LAST:event_tfqtdKeyReleased
+
+    private void tfprecoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfprecoKeyReleased
+        // TODO add your handling code here:
+        try {
+            char letra = '.';
+            char[] palavra = tfpreco.getText().toCharArray();
+            int cont = 0;
+            for (int i = 0; i < palavra.length; i++) {
+                if (palavra[i] == letra) {
+                    cont++;
+                }
+            }
+            if (cont > 1){
+                l_verifica_preco.setText("Invalido");
+                btCad.setEnabled(false);
+                               
+            }else{
+                btCad.setEnabled(true);
+                l_verifica_preco.setText("");                
+            }
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_tfprecoKeyReleased
 
     private void limparCampos(){
         tfCode.setText("");
@@ -419,6 +495,7 @@ public class CadastroView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel l_verifica_cod;
+    private javax.swing.JLabel l_verifica_preco;
     private javax.swing.JLabel l_verifica_qtd;
     private javax.swing.JTextArea taDescricao;
     private javax.swing.JTextField tfCode;
