@@ -62,6 +62,11 @@ public class ListarProdView extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        menu_Realizar_Venda = new javax.swing.JMenu();
+        menu_Historico_Venda = new javax.swing.JMenu();
+        menu_cadastrar_produto = new javax.swing.JMenu();
+        menu_lista_produtos = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -111,7 +116,6 @@ public class ListarProdView extends javax.swing.JFrame {
         jTable1.setToolTipText("");
         jScrollPane1.setViewportView(jTable1);
 
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\tomaz\\Documents\\AlmondesSol\\Imagens\\edit.png")); // NOI18N
         jButton1.setText("Editar Item");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -119,7 +123,6 @@ public class ListarProdView extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\tomaz\\Documents\\AlmondesSol\\Imagens\\eraser.png")); // NOI18N
         jButton2.setText("Apagar Item");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,6 +131,56 @@ public class ListarProdView extends javax.swing.JFrame {
         });
 
         jLabel2.setText("Lista de Produtos");
+
+        menu_Realizar_Venda.setText("Realizar Venda");
+        menu_Realizar_Venda.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                menu_Realizar_VendaMenuSelected(evt);
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+        });
+        jMenuBar1.add(menu_Realizar_Venda);
+
+        menu_Historico_Venda.setText("Historico Venda");
+        menu_Historico_Venda.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                menu_Historico_VendaMenuSelected(evt);
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+        });
+        jMenuBar1.add(menu_Historico_Venda);
+
+        menu_cadastrar_produto.setText("Cadastrar Produto");
+        menu_cadastrar_produto.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                menu_cadastrar_produtoMenuSelected(evt);
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+        });
+        jMenuBar1.add(menu_cadastrar_produto);
+
+        menu_lista_produtos.setText("Lista Produtos");
+        menu_lista_produtos.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                menu_lista_produtosMenuSelected(evt);
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+        });
+        jMenuBar1.add(menu_lista_produtos);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -261,6 +314,29 @@ public class ListarProdView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void menu_Realizar_VendaMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_menu_Realizar_VendaMenuSelected
+        // TODO add your handling code here:
+        new VendaView().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_menu_Realizar_VendaMenuSelected
+
+    private void menu_Historico_VendaMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_menu_Historico_VendaMenuSelected
+        // TODO add your handling code here:
+        new HistVendasView().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_menu_Historico_VendaMenuSelected
+
+    private void menu_cadastrar_produtoMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_menu_cadastrar_produtoMenuSelected
+        // TODO add your handling code here:
+        new CadastroView().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_menu_cadastrar_produtoMenuSelected
+
+    private void menu_lista_produtosMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_menu_lista_produtosMenuSelected
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_menu_lista_produtosMenuSelected
+
     
 
     /**
@@ -304,8 +380,13 @@ public class ListarProdView extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JMenu menu_Historico_Venda;
+    private javax.swing.JMenu menu_Realizar_Venda;
+    private javax.swing.JMenu menu_cadastrar_produto;
+    private javax.swing.JMenu menu_lista_produtos;
     private javax.swing.JRadioButton rbCod;
     private javax.swing.JRadioButton rbProduto;
     private javax.swing.JTextField tfBuscar;

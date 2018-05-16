@@ -57,6 +57,11 @@ public class CadastroView extends javax.swing.JFrame {
         l_verifica_cod = new javax.swing.JLabel();
         l_verifica_qtd = new javax.swing.JLabel();
         l_verifica_preco = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        menu_Realizar_Venda = new javax.swing.JMenu();
+        menu_Historico_Venda = new javax.swing.JMenu();
+        menu_cadastrar_produto = new javax.swing.JMenu();
+        menu_lista_produtos = new javax.swing.JMenu();
 
         setTitle("Cadastro de Produtos");
 
@@ -139,6 +144,56 @@ public class CadastroView extends javax.swing.JFrame {
                 btCancelarActionPerformed(evt);
             }
         });
+
+        menu_Realizar_Venda.setText("Realizar Venda");
+        menu_Realizar_Venda.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                menu_Realizar_VendaMenuSelected(evt);
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+        });
+        jMenuBar1.add(menu_Realizar_Venda);
+
+        menu_Historico_Venda.setText("Historico Venda");
+        menu_Historico_Venda.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                menu_Historico_VendaMenuSelected(evt);
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+        });
+        jMenuBar1.add(menu_Historico_Venda);
+
+        menu_cadastrar_produto.setText("Cadastrar Produto");
+        menu_cadastrar_produto.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                menu_cadastrar_produtoMenuSelected(evt);
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+        });
+        jMenuBar1.add(menu_cadastrar_produto);
+
+        menu_lista_produtos.setText("Lista Produtos");
+        menu_lista_produtos.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                menu_lista_produtosMenuSelected(evt);
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+        });
+        jMenuBar1.add(menu_lista_produtos);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -228,7 +283,7 @@ public class CadastroView extends javax.swing.JFrame {
                 .addComponent(l_verifica_qtd)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(l_verifica_preco)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -236,7 +291,7 @@ public class CadastroView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btCad)
                     .addComponent(btCancelar))
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
 
         pack();
@@ -394,6 +449,30 @@ public class CadastroView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tfprecoKeyReleased
 
+    private void menu_Realizar_VendaMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_menu_Realizar_VendaMenuSelected
+        // TODO add your handling code here:
+        new VendaView().setVisible(true);
+        this.dispose();
+
+    }//GEN-LAST:event_menu_Realizar_VendaMenuSelected
+
+    private void menu_Historico_VendaMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_menu_Historico_VendaMenuSelected
+        // TODO add your handling code here:
+        new HistVendasView().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_menu_Historico_VendaMenuSelected
+
+    private void menu_cadastrar_produtoMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_menu_cadastrar_produtoMenuSelected
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_menu_cadastrar_produtoMenuSelected
+
+    private void menu_lista_produtosMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_menu_lista_produtosMenuSelected
+        // TODO add your handling code here:
+        new ListarProdView().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_menu_lista_produtosMenuSelected
+
     private void limparCampos(){
         tfCode.setText("");
         tfqtd.setText("");
@@ -493,10 +572,15 @@ public class CadastroView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel l_verifica_cod;
     private javax.swing.JLabel l_verifica_preco;
     private javax.swing.JLabel l_verifica_qtd;
+    private javax.swing.JMenu menu_Historico_Venda;
+    private javax.swing.JMenu menu_Realizar_Venda;
+    private javax.swing.JMenu menu_cadastrar_produto;
+    private javax.swing.JMenu menu_lista_produtos;
     private javax.swing.JTextArea taDescricao;
     private javax.swing.JTextField tfCode;
     private javax.swing.JTextField tfMarca;
