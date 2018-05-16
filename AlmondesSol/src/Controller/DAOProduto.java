@@ -81,7 +81,7 @@ public class DAOProduto {
         
     }
     
-   public ArrayList<Produto> listar_todos(){
+    public ArrayList<Produto> listar_todos(){
         ResultSet rs = null;
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
@@ -105,7 +105,7 @@ public class DAOProduto {
         return result;
     }
     
-   public ArrayList<Produto> listar_por_cod(int code){
+    public ArrayList<Produto> listar_por_cod(int code){
         ResultSet rs = null;
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
@@ -151,6 +151,33 @@ public class DAOProduto {
         }
         
         return result;
+    }
+    
+    public boolean verificarCodBarras(String code){
+        ResultSet rs = null;
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ArrayList<Produto> result = new ArrayList();
+        String str = "select * from produto;";
+        
+         try {
+            stmt = con.prepareStatement(str);
+            rs = stmt.executeQuery();
+            
+            while(rs.next()){                                                                                                                                                                                                                                                                                                                                                                                                  
+                if(rs.getString("codBar").equals(code)){
+                    
+                    return true;
+                }               
+            }
+            stmt.execute();
+            stmt.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Connection.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        return false;
     }
 }
 
