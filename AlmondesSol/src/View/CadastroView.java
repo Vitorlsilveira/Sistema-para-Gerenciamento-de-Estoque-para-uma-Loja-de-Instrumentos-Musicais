@@ -101,6 +101,12 @@ public class CadastroView extends javax.swing.JFrame {
             }
         });
 
+        tfpreco.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfprecoKeyPressed(evt);
+            }
+        });
+
         jLabel7.setText("Descrição");
 
         taDescricao.setColumns(20);
@@ -297,6 +303,20 @@ public class CadastroView extends javax.swing.JFrame {
     private void tfqtdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfqtdActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfqtdActionPerformed
+
+    private void tfprecoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfprecoKeyPressed
+        // TODO add your handling code here:
+        float key = evt.getKeyCode();
+        if((key>=evt.VK_0 && key<=evt.VK_9) || (key>=evt.VK_NUMPAD0 && key<=evt.VK_NUMPAD9) || key==KeyEvent.VK_BACKSPACE || key==KeyEvent.VK_PERIOD) {        
+            tfpreco.setEditable(true);
+            l_verifica_qtd.setText("");
+            tfpreco.setBackground(Color.WHITE);
+        }else{
+            l_verifica_qtd.setText("Digite somente números!!!");
+            tfpreco.setEditable(false);
+            
+        }        
+    }//GEN-LAST:event_tfprecoKeyPressed
 
     private void limparCampos(){
         tfCode.setText("");

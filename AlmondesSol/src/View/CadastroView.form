@@ -191,6 +191,9 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="tfpreco">
+      <Events>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfprecoKeyPressed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
