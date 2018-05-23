@@ -20,20 +20,20 @@
             <EventHandler event="menuSelected" listener="javax.swing.event.MenuListener" parameters="javax.swing.event.MenuEvent" handler="menu_Historico_VendaMenuSelected"/>
           </Events>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="menu_cadastrar_produto">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Cadastrar Produto"/>
-          </Properties>
-          <Events>
-            <EventHandler event="menuSelected" listener="javax.swing.event.MenuListener" parameters="javax.swing.event.MenuEvent" handler="menu_cadastrar_produtoMenuSelected"/>
-          </Events>
-        </Menu>
         <Menu class="javax.swing.JMenu" name="menu_lista_produtos">
           <Properties>
             <Property name="text" type="java.lang.String" value="Lista Produtos"/>
           </Properties>
           <Events>
             <EventHandler event="menuSelected" listener="javax.swing.event.MenuListener" parameters="javax.swing.event.MenuEvent" handler="menu_lista_produtosMenuSelected"/>
+          </Events>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="admin">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Administrador"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="adminMouseClicked"/>
           </Events>
         </Menu>
       </SubComponents>

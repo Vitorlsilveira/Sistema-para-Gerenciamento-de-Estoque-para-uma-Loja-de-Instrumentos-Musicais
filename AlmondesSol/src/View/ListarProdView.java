@@ -66,8 +66,8 @@ public class ListarProdView extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         menu_Realizar_Venda = new javax.swing.JMenu();
         menu_Historico_Venda = new javax.swing.JMenu();
-        menu_cadastrar_produto = new javax.swing.JMenu();
         menu_lista_produtos = new javax.swing.JMenu();
+        admin = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -157,18 +157,6 @@ public class ListarProdView extends javax.swing.JFrame {
         });
         jMenuBar1.add(menu_Historico_Venda);
 
-        menu_cadastrar_produto.setText("Cadastrar Produto");
-        menu_cadastrar_produto.addMenuListener(new javax.swing.event.MenuListener() {
-            public void menuSelected(javax.swing.event.MenuEvent evt) {
-                menu_cadastrar_produtoMenuSelected(evt);
-            }
-            public void menuDeselected(javax.swing.event.MenuEvent evt) {
-            }
-            public void menuCanceled(javax.swing.event.MenuEvent evt) {
-            }
-        });
-        jMenuBar1.add(menu_cadastrar_produto);
-
         menu_lista_produtos.setText("Lista Produtos");
         menu_lista_produtos.addMenuListener(new javax.swing.event.MenuListener() {
             public void menuSelected(javax.swing.event.MenuEvent evt) {
@@ -180,6 +168,14 @@ public class ListarProdView extends javax.swing.JFrame {
             }
         });
         jMenuBar1.add(menu_lista_produtos);
+
+        admin.setText("Administrador");
+        admin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                adminMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(admin);
 
         setJMenuBar(jMenuBar1);
 
@@ -327,16 +323,16 @@ public class ListarProdView extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_menu_Historico_VendaMenuSelected
 
-    private void menu_cadastrar_produtoMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_menu_cadastrar_produtoMenuSelected
-        // TODO add your handling code here:
-        new CadastroView().setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_menu_cadastrar_produtoMenuSelected
-
     private void menu_lista_produtosMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_menu_lista_produtosMenuSelected
         // TODO add your handling code here:
         
     }//GEN-LAST:event_menu_lista_produtosMenuSelected
+
+    private void adminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_adminMouseClicked
+        // TODO add your handling code here:
+        new UserLog().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_adminMouseClicked
 
     
 
@@ -377,6 +373,7 @@ public class ListarProdView extends javax.swing.JFrame {
     ArrayList<Produto> list;
     DefaultTableModel modelo;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu admin;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -386,7 +383,6 @@ public class ListarProdView extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JMenu menu_Historico_Venda;
     private javax.swing.JMenu menu_Realizar_Venda;
-    private javax.swing.JMenu menu_cadastrar_produto;
     private javax.swing.JMenu menu_lista_produtos;
     private javax.swing.JRadioButton rbCod;
     private javax.swing.JRadioButton rbProduto;

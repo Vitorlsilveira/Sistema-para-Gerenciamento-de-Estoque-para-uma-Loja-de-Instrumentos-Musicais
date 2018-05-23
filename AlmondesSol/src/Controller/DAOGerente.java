@@ -46,28 +46,33 @@ public class DAOGerente {
     public boolean update(Gerente g){
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
-        String str = "update produto set usuario = "+g.getUsuario()+",senha="+g.getSenha()+" where id_servico = "+g.getUsuario()+";";
         
+        String str = "update gerente set usuario= "+g.getUsuario()+", senha= "+g.getSenha()+" where usuario= "+g.getUsuario()+";";
+
         try {
             stmt = con.prepareStatement(str);
             stmt.executeUpdate();
-             return true;
+            stmt.close();
+            return true;
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Problemas na Edição");
+            System.out.println(ex);
             Logger.getLogger(Connection.class.getName()).log(Level.SEVERE, null, ex);
              return false;
         }
        
     }
     
-    public boolean delete(Gerente g){
+    public boolean delete(String user){
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
-        String str = "delete from gerente where id="+g.getUsuario()+";";
+        String str = "delete from gerente where usuario="+user+";";
         
         try {
             stmt = con.prepareStatement(str);
             stmt.executeUpdate();
+            stmt.close();
+            JOptionPane.showMessageDialog(null, "Usuario deletado!");
             return true;
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Problemas ao Deletar!");

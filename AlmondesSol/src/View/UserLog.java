@@ -114,7 +114,8 @@ public class UserLog extends javax.swing.JFrame {
             DAOGerente operacaoDAO = new DAOGerente();
             boolean a = operacaoDAO.login(gerente);
             if(a){
-                JOptionPane.showMessageDialog(null, "DEU CERTO");
+                new UserView(tfuser.getText(), String.valueOf(tfsenha.getPassword())).setVisible(true);
+                this.dispose();
             }else{
                 JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos");
             }

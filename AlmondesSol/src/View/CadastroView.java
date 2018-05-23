@@ -58,6 +58,10 @@ public class CadastroView extends javax.swing.JFrame {
         l_verifica_cod = new javax.swing.JLabel();
         l_verifica_qtd = new javax.swing.JLabel();
         l_verifica_preco = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        menu_usuario = new javax.swing.JMenu();
+        menu_novo_produto = new javax.swing.JMenu();
+        Voltar_vendas = new javax.swing.JMenu();
 
         setTitle("Cadastro de Produtos");
 
@@ -141,6 +145,32 @@ public class CadastroView extends javax.swing.JFrame {
             }
         });
 
+        menu_usuario.setText("Usuário");
+        menu_usuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menu_usuarioMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(menu_usuario);
+
+        menu_novo_produto.setText("Novo Produto");
+        menu_novo_produto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menu_novo_produtoMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(menu_novo_produto);
+
+        Voltar_vendas.setText("Vendas");
+        Voltar_vendas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Voltar_vendasMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(Voltar_vendas);
+
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -201,7 +231,7 @@ public class CadastroView extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel9))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tfCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(verificaCode))
@@ -229,7 +259,7 @@ public class CadastroView extends javax.swing.JFrame {
                 .addComponent(l_verifica_qtd)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(l_verifica_preco)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -237,7 +267,7 @@ public class CadastroView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btCad)
                     .addComponent(btCancelar))
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
 
         pack();
@@ -395,6 +425,23 @@ public class CadastroView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tfprecoKeyReleased
 
+    private void menu_usuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu_usuarioMouseClicked
+        // TODO add your handling code here:      
+        this.dispose();
+    }//GEN-LAST:event_menu_usuarioMouseClicked
+
+    private void menu_novo_produtoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu_novo_produtoMouseClicked
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_menu_novo_produtoMouseClicked
+
+    private void Voltar_vendasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Voltar_vendasMouseClicked
+        // TODO add your handling code here:
+        new VendaView().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_Voltar_vendasMouseClicked
+
     private void limparCampos(){
         tfCode.setText("");
         tfqtd.setText("");
@@ -484,6 +531,7 @@ public class CadastroView extends javax.swing.JFrame {
 //    }s
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu Voltar_vendas;
     private javax.swing.JButton btCad;
     private javax.swing.JButton btCancelar;
     private javax.swing.JLabel jLabel1;
@@ -494,10 +542,13 @@ public class CadastroView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel l_verifica_cod;
     private javax.swing.JLabel l_verifica_preco;
     private javax.swing.JLabel l_verifica_qtd;
+    private javax.swing.JMenu menu_novo_produto;
+    private javax.swing.JMenu menu_usuario;
     private javax.swing.JTextArea taDescricao;
     private javax.swing.JTextField tfCode;
     private javax.swing.JTextField tfMarca;
