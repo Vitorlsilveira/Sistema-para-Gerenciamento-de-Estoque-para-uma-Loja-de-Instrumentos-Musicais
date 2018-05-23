@@ -5,6 +5,10 @@
  */
 package View;
 
+import Controller.DAOGerente;
+import Model.Gerente;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author tomaz
@@ -43,6 +47,11 @@ public class UserLog extends javax.swing.JFrame {
         jLabel2.setText("Senha");
 
         btEntrar.setText("Entrar");
+        btEntrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btEntrarActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setText("Cancelar");
 
@@ -86,6 +95,27 @@ public class UserLog extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEntrarActionPerformed
+        // TODO add your handling code here:
+        if(tfuser.getText()==null || tfuser.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null, "É necessário informar o usuário");
+        }
+        else if(tfsenha.getText()==null || tfsenha.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null, "É necessário informar a senha");
+        }
+        else {
+            Gerente gerente = new Gerente(tfuser.getText(), String.valueOf(tfsenha.getPassword()));
+            DAOGerente operacaoDAO = new DAOGerente();
+            boolean a = operacaoDAO.login(gerente);
+            if(a){
+                JOptionPane.showMessageDialog(null, "DEU CERTO");
+            }else{
+                JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos");
+            }
+        }
+        
+    }//GEN-LAST:event_btEntrarActionPerformed
 
     /**
      * @param args the command line arguments

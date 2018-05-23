@@ -9,7 +9,9 @@ import Model.Gerente;
 import Model.Produto;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -73,5 +75,32 @@ public class DAOGerente {
             return false;
         }
         
+    }
+    
+    public boolean login(Gerente g){
+        ResultSet rs = null;
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ArrayList<Produto> result = new ArrayList();
+        String str = "select * from gerente;";
+        
+         try {
+            stmt = con.prepareStatement(str);
+            rs = stmt.executeQuery();
+            
+            while(rs.next()){                                                                                                                                                                                                                                                                                                                                                                                                  
+                if((rs.getString("usuario").equals(g.getUsuario())) && (rs.getString("senha").equals(g.getSenha()))){                    
+                    return true;
+                }               
+            }
+            stmt.execute();
+            stmt.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Connection.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        return false;
+      
     }
 }
