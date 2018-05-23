@@ -21,6 +21,7 @@ public class EditarView extends javax.swing.JFrame {
     public EditarView( Produto p) {
         initComponents();
         setVisible(true);
+        this.setLocationRelativeTo(null);
         taDescricao.setText(p.getDecricao());
         tfCode.setText(""+p.getCode());
         tfMarca.setText(p.getMarca());

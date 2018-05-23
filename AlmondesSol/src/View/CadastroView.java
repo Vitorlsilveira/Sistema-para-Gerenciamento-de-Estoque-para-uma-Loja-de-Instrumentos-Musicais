@@ -24,6 +24,7 @@ public class CadastroView extends javax.swing.JFrame {
     public CadastroView() {
         setResizable(false);  
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

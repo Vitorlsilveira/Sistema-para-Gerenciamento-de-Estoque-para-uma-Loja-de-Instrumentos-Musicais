@@ -23,6 +23,7 @@ public class ListarProdView extends javax.swing.JFrame {
      */
     public ListarProdView() {
         initComponents();
+        this.setLocationRelativeTo(null);
         rbCod.setSelected(true);
         DAOProduto produtos = new DAOProduto();
         list = produtos.listar_todos();

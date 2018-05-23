@@ -24,6 +24,7 @@ public class HistVendasView extends javax.swing.JFrame {
      */
     public HistVendasView() {
         initComponents();
+        this.setLocationRelativeTo(null);
         DAOVenda vendas = new DAOVenda();
         list = vendas.listar_todos();
         construirTabla(list);
