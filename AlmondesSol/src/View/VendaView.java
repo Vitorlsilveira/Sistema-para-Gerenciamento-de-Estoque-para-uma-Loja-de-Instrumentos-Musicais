@@ -28,7 +28,7 @@ public class VendaView extends javax.swing.JFrame {
      */
     public VendaView() {
         super("Almondes Sol - Vendas");
-        initComponents();
+        initComponents();this.setLocationRelativeTo(null);
         rbCod.setSelected(true);
         DAOProduto produtos = new DAOProduto();
         list = produtos.listar_todos();

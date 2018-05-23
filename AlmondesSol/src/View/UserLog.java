@@ -17,6 +17,7 @@ public class UserLog extends javax.swing.JFrame {
     public UserLog() {
         super("Almondes Sol - Login");
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -33,7 +34,7 @@ public class UserLog extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         tfsenha = new javax.swing.JPasswordField();
         btEntrar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -43,7 +44,7 @@ public class UserLog extends javax.swing.JFrame {
 
         btEntrar.setText("Entrar");
 
-        jButton1.setText("Cancelar");
+        btnCancelar.setText("Cancelar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -62,7 +63,7 @@ public class UserLog extends javax.swing.JFrame {
                         .addGap(52, 52, 52)
                         .addComponent(btEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1)))
+                        .addComponent(btnCancelar)))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -79,7 +80,7 @@ public class UserLog extends javax.swing.JFrame {
                 .addGap(60, 60, 60)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btEntrar)
-                    .addComponent(jButton1))
+                    .addComponent(btnCancelar))
                 .addContainerGap(34, Short.MAX_VALUE))
         );
 
@@ -123,7 +124,7 @@ public class UserLog extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btEntrar;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnCancelar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPasswordField tfsenha;

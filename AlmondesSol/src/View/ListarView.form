@@ -120,9 +120,6 @@
     </Container>
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\tomaz\Documents\AlmondesSol\Imagens\edit.png"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Editar Item"/>
       </Properties>
       <Events>
@@ -131,9 +128,6 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton2">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\tomaz\Documents\AlmondesSol\Imagens\eraser.png"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Apagar Item"/>
       </Properties>
     </Component>

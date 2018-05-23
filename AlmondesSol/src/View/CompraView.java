@@ -22,6 +22,7 @@ public class CompraView extends javax.swing.JFrame {
         initComponents();
         construirTabla(p);
         setVisible(true);
+        this.setLocationRelativeTo(null);
     }
 
     

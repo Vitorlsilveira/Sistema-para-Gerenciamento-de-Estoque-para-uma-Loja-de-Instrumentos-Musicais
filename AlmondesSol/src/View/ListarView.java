@@ -16,6 +16,7 @@ public class ListarView extends javax.swing.JPanel {
      */
     public ListarView() {
         initComponents();
+        
     }
 
     /**
