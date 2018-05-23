@@ -25,6 +25,8 @@ DROP TABLE IF EXISTS `gerente`;
 CREATE TABLE `gerente` (
   `usuario` varchar(80) DEFAULT NULL,
   `senha` varchar(80) DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`),
   UNIQUE KEY `usuario` (`usuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -184,4 +186,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-14 10:37:29
+-- Dump completed on 2018-05-23 11:49:43
