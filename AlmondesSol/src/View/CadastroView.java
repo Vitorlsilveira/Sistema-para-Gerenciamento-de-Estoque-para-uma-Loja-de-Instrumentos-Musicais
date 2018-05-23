@@ -7,7 +7,7 @@ package View;
 
 import Controller.DAOProduto;
 import Model.Produto;
-import com.sun.glass.events.KeyEvent;
+import java.awt.event.KeyEvent;
 import java.awt.Color;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -339,7 +339,7 @@ public class CadastroView extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             int key = evt.getKeyCode();
-            if((key>=evt.VK_0 && key<=evt.VK_9) || (key>=evt.VK_NUMPAD0 && key<=evt.VK_NUMPAD9) || key==KeyEvent.VK_BACKSPACE) {        
+            if((key>=KeyEvent.VK_0 && key<=KeyEvent.VK_9) || (key>=KeyEvent.VK_NUMPAD0 && key<=KeyEvent.VK_NUMPAD9) || key==KeyEvent.VK_BACK_SPACE) {        
                 tfCode.setEditable(true);
                 l_verifica_cod.setText("");
             }else{
@@ -373,7 +373,7 @@ public class CadastroView extends javax.swing.JFrame {
     private void tfqtdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfqtdKeyPressed
         // TODO add your handling code here:
         int key = evt.getKeyCode();
-        if((key>=evt.VK_0 && key<=evt.VK_9) || (key>=evt.VK_NUMPAD0 && key<=evt.VK_NUMPAD9) || key==KeyEvent.VK_BACKSPACE) {        
+        if((key>=KeyEvent.VK_0 && key<=KeyEvent.VK_9) || (key>=KeyEvent.VK_NUMPAD0 && key<=KeyEvent.VK_NUMPAD9) || key==KeyEvent.VK_BACK_SPACE) {        
             tfqtd.setEditable(true);
             l_verifica_qtd.setText("");
             tfqtd.setBackground(Color.WHITE);
@@ -392,7 +392,7 @@ public class CadastroView extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             float key = evt.getKeyCode();
-            if((key>=evt.VK_0 && key<=evt.VK_9) || (key>=evt.VK_NUMPAD0 && key<=evt.VK_NUMPAD9) || key==KeyEvent.VK_BACKSPACE || key==KeyEvent.VK_PERIOD) {        
+            if((key>=KeyEvent.VK_0 && key<=evt.VK_9) || (key>=evt.VK_NUMPAD0 && key<=evt.VK_NUMPAD9) || key==KeyEvent.VK_BACK_SPACE || key==KeyEvent.VK_PERIOD) {        
                 tfpreco.setEditable(true);
                 l_verifica_preco.setText("");
             }else{
