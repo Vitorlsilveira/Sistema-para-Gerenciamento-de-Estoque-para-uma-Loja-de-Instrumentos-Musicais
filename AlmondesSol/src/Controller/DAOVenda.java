@@ -23,7 +23,7 @@ import javax.swing.JOptionPane;
 public class DAOVenda {
  
     public boolean save(Venda v){
-        Connection con = ConnectionFactory.getConnection();
+        Connection con = ConnectionFactory.getInstance().getConnection();
         PreparedStatement stmt = null; 
         try {
             stmt = con.prepareStatement("INSERT INTO venda (data_venda,total)VALUES(?,?)");
@@ -38,7 +38,7 @@ public class DAOVenda {
                 return false;
             }
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao salvar"+ ex);
+            JOptionPane.showMessageDialog(null, "Erro ao salvar "+ ex);
             return false;
         }
         
