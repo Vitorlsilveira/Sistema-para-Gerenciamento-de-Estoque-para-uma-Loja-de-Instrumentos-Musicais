@@ -38,7 +38,7 @@ public class DAOVenda {
                 return false;
             }
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao salvar"+ ex);
+            JOptionPane.showMessageDialog(null, "Erro ao salvar "+ ex);
             return false;
         }
         
