@@ -23,7 +23,7 @@ import javax.swing.JOptionPane;
 public class DAOVenda {
  
     public boolean save(Venda v){
-        Connection con = ConnectionFactory.getConnection();
+        Connection con = ConnectionFactory.getInstance().getConnection();
         PreparedStatement stmt = null; 
         try {
             stmt = con.prepareStatement("INSERT INTO venda (data_venda,total)VALUES(?,?)");

@@ -23,7 +23,7 @@ import javax.swing.JOptionPane;
 public class DAOGerente {
 
     public boolean save(Gerente g){
-        Connection con = ConnectionFactory.getConnection();
+        Connection con = ConnectionFactory.getInstance().getConnection();
         PreparedStatement stmt = null; 
         try {
             stmt = con.prepareStatement("INSERT INTO gerente (usuario,senha)VALUES(?,?)");

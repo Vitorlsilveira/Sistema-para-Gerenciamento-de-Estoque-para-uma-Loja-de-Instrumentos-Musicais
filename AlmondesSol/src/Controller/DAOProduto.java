@@ -22,7 +22,7 @@ import javax.swing.JOptionPane;
 public class DAOProduto {
     
     public boolean save(Produto p){
-        Connection con = ConnectionFactory.getConnection();
+        Connection con = ConnectionFactory.getInstance().getConnection();
         PreparedStatement stmt = null; 
         try {
             stmt = con.prepareStatement("INSERT INTO produto (codBar,nome,marca,modelo,descricao,preco,quant)VALUES(?,?,?,?,?,?,?)");
