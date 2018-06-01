@@ -20,9 +20,10 @@ import javax.swing.JOptionPane;
  * @author tomaz
  */
 public class DAOProduto {
-    
+    ConnectionFactory intance = ConnectionFactory.getInstance();
     public boolean save(Produto p){
-        Connection con = ConnectionFactory.getInstance().getConnection();
+        Connection con = intance.getConnection();
+        System.err.println(intance);
         PreparedStatement stmt = null; 
         try {
             stmt = con.prepareStatement("INSERT INTO produto (codBar,nome,marca,modelo,descricao,preco,quant)VALUES(?,?,?,?,?,?,?)");
@@ -48,7 +49,7 @@ public class DAOProduto {
     }
     
     public boolean update(Produto p){
-        Connection con = ConnectionFactory.getConnection();
+        Connection con = intance.getConnection();
         PreparedStatement stmt = null;
         String str = "update produto set codBar = "+p.getCode()+",nome='"+p.getNome()+"',marca='"+ p.getMarca()+"',modelo='"+p.getModelo()+"',descricao='"+p.getDecricao()+"',preco="+p.getPreco()+", quant="+p.getQuant()+" where id = "+p.getId()+";";
         
@@ -65,7 +66,7 @@ public class DAOProduto {
     }
     
     public boolean delete(Produto p){
-        Connection con = ConnectionFactory.getConnection();
+        Connection con = intance.getConnection();
         PreparedStatement stmt = null;
         String str = "delete from produto where id="+p.getId()+";";
         
@@ -83,7 +84,7 @@ public class DAOProduto {
     
     public ArrayList<Produto> listar_todos(){
         ResultSet rs = null;
-        Connection con = ConnectionFactory.getConnection();
+        Connection con = intance.getConnection();
         PreparedStatement stmt = null;
         ArrayList<Produto> result = new ArrayList();
         String str = "select * from produto;";
@@ -107,7 +108,7 @@ public class DAOProduto {
     
     public ArrayList<Produto> listar_por_cod(int code){
         ResultSet rs = null;
-        Connection con = ConnectionFactory.getConnection();
+        Connection con = intance.getConnection();
         PreparedStatement stmt = null;
         ArrayList<Produto> result = new ArrayList();
         String str = "select * from produto where codBar like '%"+code+"%';";
@@ -131,7 +132,7 @@ public class DAOProduto {
     
     public ArrayList<Produto> listar_por_prod(String nome){
         ResultSet rs = null;
-        Connection con = ConnectionFactory.getConnection();
+        Connection con = intance.getConnection();
         PreparedStatement stmt = null;
         ArrayList<Produto> result = new ArrayList();
         String str = "select * from produto where nome like '%"+nome+"%';";
@@ -155,7 +156,7 @@ public class DAOProduto {
     
     public boolean verificarCodBarras(String code){
         ResultSet rs = null;
-        Connection con = ConnectionFactory.getConnection();
+        Connection con = intance.getConnection();
         PreparedStatement stmt = null;
         ArrayList<Produto> result = new ArrayList();
         String str = "select * from produto;";
