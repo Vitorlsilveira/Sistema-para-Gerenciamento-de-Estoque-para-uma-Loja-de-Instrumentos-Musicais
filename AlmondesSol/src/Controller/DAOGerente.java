@@ -21,9 +21,10 @@ import javax.swing.JOptionPane;
  * @author tomaz
  */
 public class DAOGerente {
-
+    ConnectionFactory intance = ConnectionFactory.getInstance();
     public boolean save(Gerente g){
-        Connection con = ConnectionFactory.getInstance().getConnection();
+        Connection con = intance.getConnection();
+        System.err.println(intance);
         PreparedStatement stmt = null; 
         try {
             stmt = con.prepareStatement("INSERT INTO gerente (usuario,senha)VALUES(?,?)");
@@ -44,7 +45,7 @@ public class DAOGerente {
     }
     
     public boolean update(Gerente g){
-        Connection con = ConnectionFactory.getConnection();
+        Connection con = intance.getConnection();
         PreparedStatement stmt = null;
         
         String str = "update gerente set usuario= "+g.getUsuario()+", senha= "+g.getSenha()+" where usuario= "+g.getUsuario()+";";
@@ -64,7 +65,7 @@ public class DAOGerente {
     }
     
     public boolean delete(String user){
-        Connection con = ConnectionFactory.getConnection();
+        Connection con = intance.getConnection();
         PreparedStatement stmt = null;
         String str = "delete from gerente where usuario="+user+";";
         
@@ -84,7 +85,7 @@ public class DAOGerente {
     
     public boolean login(Gerente g){
         ResultSet rs = null;
-        Connection con = ConnectionFactory.getConnection();
+        Connection con = intance.getConnection();
         PreparedStatement stmt = null;
         ArrayList<Produto> result = new ArrayList();
         String str = "select * from gerente;";

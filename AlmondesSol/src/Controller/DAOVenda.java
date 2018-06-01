@@ -21,9 +21,10 @@ import javax.swing.JOptionPane;
  * @author tomaz
  */
 public class DAOVenda {
- 
+    ConnectionFactory intance = ConnectionFactory.getInstance();
     public boolean save(Venda v){
-        Connection con = ConnectionFactory.getInstance().getConnection();
+        Connection con = intance.getConnection();
+        System.err.println(intance);
         PreparedStatement stmt = null; 
         try {
             stmt = con.prepareStatement("INSERT INTO venda (data_venda,total)VALUES(?,?)");
@@ -44,7 +45,7 @@ public class DAOVenda {
         
     }
     public boolean saveWhithCpf(Venda v){
-         Connection con = ConnectionFactory.getConnection();
+        Connection con = intance.getConnection();
         PreparedStatement stmt = null; 
         try {
             stmt = con.prepareStatement("INSERT INTO venda (data_venda,total,cpf_cli)VALUES(?,?,?)");
@@ -67,7 +68,7 @@ public class DAOVenda {
     
     public boolean listSave(ArrayList<Produto> shoping){
         ResultSet rs = null;
-        Connection con = ConnectionFactory.getConnection();
+        Connection con = intance.getConnection();
         PreparedStatement stmt = null;
         int id=0;
         String str = "select max(id) as id from venda;";
@@ -101,7 +102,7 @@ public class DAOVenda {
     }
     public ArrayList<Venda> listar_todos(){
         ResultSet rs = null;
-        Connection con = ConnectionFactory.getConnection();
+        Connection con = intance.getConnection();
         PreparedStatement stmt = null;
         ArrayList<Venda> result = new ArrayList();
         String str = "select * from venda;";
@@ -126,7 +127,7 @@ public class DAOVenda {
     }
     public ArrayList<Venda> listar_por_data(String data){
         ResultSet rs = null;
-        Connection con = ConnectionFactory.getConnection();
+        Connection con = intance.getConnection();
         PreparedStatement stmt = null;
         ArrayList<Venda> result = new ArrayList();
         String str = "select * from venda where data_venda like '%"+data+"%';";
@@ -151,7 +152,7 @@ public class DAOVenda {
     }
     public ArrayList<Venda> listar_por_cli(String cpf){
         ResultSet rs = null;
-        Connection con = ConnectionFactory.getConnection();
+        Connection con = intance.getConnection();
         PreparedStatement stmt = null;
         ArrayList<Venda> result = new ArrayList();
         String str = "select * from venda where cpf_cli like '%"+cpf+"%';";
@@ -177,7 +178,7 @@ public class DAOVenda {
     
     public ArrayList<Produto> listar_por_cod(int code){
         ResultSet rs = null;
-        Connection con = ConnectionFactory.getConnection();
+        Connection con = intance.getConnection();
         PreparedStatement stmt = null;
         ArrayList<Produto> result = new ArrayList();
         String str = "select produto.id,produto.codBar,produto.nome,produto.marca, produto.modelo, produto.descricao,produto.preco,result.quantidade from (select id_prod as iden,quant_prod as quantidade  from venda_instrumento where id_venda="+code+") as result inner join produto on result.iden=produto.id;";
@@ -198,7 +199,7 @@ public class DAOVenda {
     }
     
     public boolean delete(Venda v){
-        Connection con = ConnectionFactory.getConnection();
+        Connection con = intance.getConnection();
         PreparedStatement stmt = null;
         String str = "delete from venda where id="+v.getId()+";";
         
