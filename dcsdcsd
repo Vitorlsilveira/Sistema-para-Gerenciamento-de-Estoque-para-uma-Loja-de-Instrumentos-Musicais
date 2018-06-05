@@ -1,0 +1,821 @@
+[33mcommit 95a425e6259a517f10a3c2b813e43b72061760d3[m
+Author: dodo1210 <ds417042@gmail.com>
+Date:   Thu May 31 15:55:35 2018 -0300
+
+    Implementação do Singleton na classe de Conexão do Banco de Dados
+
+[33mcommit 093e5539643eed8aa27a95b1be89703eca20c675[m
+Author: dodo1210 <naaramc@hotmail.com>
+Date:   Thu May 31 15:48:25 2018 -0300
+
+    Implementação do Singleton na classe de Conexão do Banco de Dados
+
+[33mcommit b7b71db3c483dd662c2e6e8327ae9a1199411456[m
+Merge: 4c59694 bffb9f8
+Author: Estevao M. R. Viana <31069416+estevaomrviana@users.noreply.github.com>
+Date:   Wed May 23 08:52:26 2018 -0300
+
+    Merge pull request #92 from tomazrvb/master
+    
+    Alteracoes no banco de dados
+
+[33mcommit bffb9f8a728d356123981c4bd36958f796020fea[m
+Author: Tomaz <tomazrvb@hotmail.com>
+Date:   Wed May 23 11:50:49 2018 -0300
+
+    Alteracoes no banco de dados
+
+[33mcommit 4c5969407992ac6457d4d7ed3b257cf55ddcbf00[m
+Merge: ea94307 2036ddf
+Author: Estevao M. R. Viana <31069416+estevaomrviana@users.noreply.github.com>
+Date:   Wed May 23 05:09:32 2018 -0300
+
+    Merge pull request #91 from dodo1210/master
+    
+    alteracao no menu - adicao da opcao de acesso pelo administrador
+
+[33mcommit 2036ddf145d0ee6508ae46b4acbe8e93ee86baf6[m
+Author: estevaomrviana <estevaomagnoviana@gmail.com>
+Date:   Wed May 23 05:08:13 2018 -0300
+
+    alteracao no menu - adicao da opcao de acesso pelo administrador
+
+[33mcommit ea94307cf95cf4384ae24634c7d35452ee346e66[m
+Merge: 7df9b5c 700445a
+Author: Estevao M. R. Viana <31069416+estevaomrviana@users.noreply.github.com>
+Date:   Wed May 23 03:22:51 2018 -0300
+
+    Merge pull request #90 from dodo1210/master
+    
+    adicao da view UserView
+
+[33mcommit 700445a2c76165f87a46c4b568284c825ca7d318[m
+Author: estevaomrviana <estevaomagnoviana@gmail.com>
+Date:   Wed May 23 03:21:55 2018 -0300
+
+    adicao da view UserView
+
+[33mcommit 7df9b5cdacbf395d6b93c9856e1936e6159d4cd5[m
+Merge: bc3e447 8e42eb0
+Author: Estevao M. R. Viana <31069416+estevaomrviana@users.noreply.github.com>
+Date:   Wed May 23 03:07:05 2018 -0300
+
+    Merge pull request #89 from dodo1210/master
+    
+    refatoracao das acoes do botoes na view UserLog
+
+[33mcommit 8e42eb05c1dec5ed544d08f26f4d1ed98a7133d1[m
+Author: estevaomrviana <estevaomagnoviana@gmail.com>
+Date:   Wed May 23 03:05:53 2018 -0300
+
+    refatoracao das acoes do botoes na view UserLog
+
+[33mcommit bc3e4471ca25472645f2a2f6350ff4c828009ca6[m
+Merge: e12624e 4040269
+Author: Estevao M. R. Viana <31069416+estevaomrviana@users.noreply.github.com>
+Date:   Wed May 23 03:01:31 2018 -0300
+
+    Merge pull request #88 from dodo1210/master
+    
+    envio da funcionalidade de login
+
+[33mcommit 40402692be239627e064c55cb306a20cd9c89f7d[m
+Author: estevaomrviana <estevaomagnoviana@gmail.com>
+Date:   Wed May 23 03:00:22 2018 -0300
+
+    envio da funcionalidade de login
+
+[33mcommit e12624eed18b199641e541ab3fd5a943cc73f08d[m
+Merge: 34dde4c 4ef7133
+Author: Estevao M. R. Viana <31069416+estevaomrviana@users.noreply.github.com>
+Date:   Wed May 23 01:32:47 2018 -0300
+
+    Merge pull request #87 from dodo1210/master
+    
+    alteracao do posicionamento das views
+
+[33mcommit 4ef71338665db2dc9de4442b096a942e29fb50c3[m
+Author: estevaomrviana <estevaomagnoviana@gmail.com>
+Date:   Wed May 23 01:31:35 2018 -0300
+
+    alteracao do posicionamento das views
+
+[33mcommit 34dde4cb62089ba1c7a0291d6244cd6204ffc106[m
+Merge: 5166797 22adc52
+Author: Estevao M. R. Viana <31069416+estevaomrviana@users.noreply.github.com>
+Date:   Wed May 23 01:20:54 2018 -0300
+
+    Merge pull request #86 from dodo1210/master
+    
+    alteracao no visual na view LogView
+
+[33mcommit 22adc526f26a6c36a7ff685243247b55e28d8533[m
+Author: estevaomrviana <estevaomagnoviana@gmail.com>
+Date:   Wed May 23 01:19:36 2018 -0300
+
+    alteracao no visual na view LogView
+
+[33mcommit 5166797cf4d7af3fd0b8ac4ac2aed593bb49df9d[m
+Merge: ca3fd8f b8d5258
+Author: Estevao M. R. Viana <31069416+estevaomrviana@users.noreply.github.com>
+Date:   Wed May 23 01:13:58 2018 -0300
+
+    Merge pull request #85 from dodo1210/master
+    
+    correcao de erro no pacote KeyEvent na view CadastroView
+
+[33mcommit b8d525836ec84e5f8688a006b2eb31e359065615[m
+Author: estevaomrviana <estevaomagnoviana@gmail.com>
+Date:   Wed May 23 01:12:12 2018 -0300
+
+    correcao de erro no pacote KeyEvent na view CadastroView
+
+[33mcommit ca3fd8fba8e0210c5eaed31b4dbab7b9a0d69414[m
+Merge: 10927ab ac958eb
+Author: Estevao M. R. Viana <31069416+estevaomrviana@users.noreply.github.com>
+Date:   Wed May 16 04:38:28 2018 -0300
+
+    Merge pull request #84 from dodo1210/master
+    
+    adicao de menu nas views na barra superior
+
+[33mcommit ac958ebc2099d9c520ceea28f26eb69c6c542af0[m
+Author: “estevaomrviana” <“estevaomagnoviana@gmail.com”>
+Date:   Wed May 16 04:36:50 2018 -0300
+
+    adicao de menu nas views na barra superior
+
+[33mcommit 10927abd6a803219c1f5aa49425b830bddae40b2[m
+Merge: 051eece 966d0a2
+Author: Estevao M. R. Viana <31069416+estevaomrviana@users.noreply.github.com>
+Date:   Wed May 16 03:22:56 2018 -0300
+
+    Merge pull request #83 from dodo1210/master
+    
+    Refatoracao - verificacao do campo Preco em CadastroView
+
+[33mcommit 966d0a246787eb7951b72aae8f2494d03a456a29[m
+Author: “estevaomrviana” <“estevaomagnoviana@gmail.com”>
+Date:   Wed May 16 03:21:11 2018 -0300
+
+    Refatoracao - verificacao do campo Preco em CadastroView
+
+[33mcommit 051eece330dbc4442ff3a0db35c51f31bccc53ac[m
+Merge: fc1ae90 5f88b37
+Author: Estevao M. R. Viana <31069416+estevaomrviana@users.noreply.github.com>
+Date:   Tue May 15 21:55:46 2018 -0300
+
+    Merge pull request #82 from dodo1210/master
+    
+    verificacao do campo PRECO - CadastroView
+
+[33mcommit 5f88b37d485b6d214741f8136aa74e8958ecd9c7[m
+Author: “estevaomrviana” <“estevaomagnoviana@gmail.com”>
+Date:   Tue May 15 21:54:10 2018 -0300
+
+    verificacao do campo PRECO - CadastroView
+
+[33mcommit fc1ae90080db6d283fe6ab4a0ef98a768f460a7a[m
+Merge: e149d9f 44897d8
+Author: Estevao M. R. Viana <31069416+estevaomrviana@users.noreply.github.com>
+Date:   Tue May 15 21:39:25 2018 -0300
+
+    Merge pull request #81 from dodo1210/master
+    
+    verificacao do campo Codigo de barra - CadastroView
+
+[33mcommit 44897d8ed374a359db2e12528220cd88e1b20ec2[m
+Author: “estevaomrviana” <“estevaomagnoviana@gmail.com”>
+Date:   Tue May 15 21:37:24 2018 -0300
+
+    verificacao do campo Codigo de barra - CadastroView
+
+[33mcommit e149d9f660d36e8f8d14eefeaae2bdc0d81c8cdd[m
+Merge: 04ac184 0ed686d
+Author: Estevao M. R. Viana <31069416+estevaomrviana@users.noreply.github.com>
+Date:   Tue May 15 20:57:38 2018 -0300
+
+    Merge pull request #80 from dodo1210/master
+    
+    Refatoracao - validacao dos campos de inteiro em CadastroView
+
+[33mcommit 0ed686d28e9c09c076a845a1abddef7738cf674c[m
+Author: “estevaomrviana” <“estevaomagnoviana@gmail.com”>
+Date:   Tue May 15 20:56:40 2018 -0300
+
+    Refatoracao - validacao dos campos de inteiro em CadastroView
+
+[33mcommit 04ac18464a2bc4582af1bd08ae021d61781070a3[m
+Merge: 773521c 4a9ac73
+Author: Estevao M. R. Viana <31069416+estevaomrviana@users.noreply.github.com>
+Date:   Tue May 15 20:40:30 2018 -0300
+
+    Merge pull request #79 from dodo1210/master
+    
+    verificacao se os campos estao vazios em ViewCadastro
+
+[33mcommit 4a9ac73cb2e359139355a3a997b5f3ab53170437[m
+Author: “estevaomrviana” <“estevaomagnoviana@gmail.com”>
+Date:   Tue May 15 20:38:59 2018 -0300
+
+    verificacao se os campos estao vazios em ViewCadastro
+
+[33mcommit 773521c2276496d6149fc7d5178f72328b6f8399[m
+Merge: 5ade7cc 9122010
+Author: Estevao M. R. Viana <31069416+estevaomrviana@users.noreply.github.com>
+Date:   Tue May 15 20:17:13 2018 -0300
+
+    Merge pull request #78 from dodo1210/master
+    
+     validacao dos campos de inteiro em CadastroView
+
+[33mcommit 91220108e6f184a4163e40f78366c666ec55d33f[m
+Merge: a5566c4 5ade7cc
+Author: “estevaomrviana” <“estevaomagnoviana@gmail.com”>
+Date:   Tue May 15 20:07:13 2018 -0300
+
+    validacao dos campos de inteiro em CadastroView
+
+[33mcommit 5ade7cc8b925390fa900c69d16deafcc07c5941c[m
+Merge: 2ea9b02 406fa8d
+Author: Estevao M. R. Viana <31069416+estevaomrviana@users.noreply.github.com>
+Date:   Mon May 14 13:03:08 2018 -0300
+
+    Merge pull request #77 from tomazrvb/master
+    
+    Finalização da função de vendas e implementação de historicos de vend…
+
+[33mcommit 406fa8d067afcddfd44c8943f66f7148e0390350[m
+Author: Tomaz <tomazrvb@hotmail.com>
+Date:   Mon May 14 10:59:20 2018 -0300
+
+    Finalização da função de vendas e implementação de historicos de vendas, implementação de gatilho para remoção de venda no banvo de dados
+
+[33mcommit 2ea9b0262f3ab58efe2dedf6d5c00dc5765957de[m
+Merge: fb8418a e0ca3d7
+Author: Estevao M. R. Viana <31069416+estevaomrviana@users.noreply.github.com>
+Date:   Wed May 9 01:45:26 2018 -0300
+
+    Merge pull request #74 from tomazrvb/master
+    
+    Imlementação da listagem de Produtos em venda e criacao de um gatilho…
+
+[33mcommit e0ca3d7bf90c819c2945d0ffc12d474b43b1b107[m
+Author: Tomaz <tomazrvb@hotmail.com>
+Date:   Wed May 9 01:44:12 2018 -0300
+
+    Imlementação da listagem de Produtos em venda e criacao de um gatilho para automatisacao de vendas no banco de dados
+
+[33mcommit fb8418a782149887bfa922d21cc80e05c33da496[m
+Merge: e90aed4 541a17b
+Author: Estevao M. R. Viana <31069416+estevaomrviana@users.noreply.github.com>
+Date:   Sun May 6 14:12:47 2018 -0300
+
+    Merge pull request #69 from tomazrvb/master
+    
+    Integração da funcao de editar produtos
+
+[33mcommit 541a17b8c03dec826e88983efb13e7e8364ad542[m
+Author: Tomaz <tomazrvb@hotmail.com>
+Date:   Sun May 6 14:07:05 2018 -0300
+
+    Integração da funcao de editar produtos
+
+[33mcommit e90aed497a87ed92cc6cb1477ac776a8dba7eca9[m
+Merge: c7f5075 3dec9b4
+Author: Estevao M. R. Viana <31069416+estevaomrviana@users.noreply.github.com>
+Date:   Sat May 5 17:54:03 2018 -0300
+
+    Merge pull request #68 from tomazrvb/master
+    
+    Integracao VIEW de listagem de produtos com a funcionalidade de lista…
+
+[33mcommit 3dec9b4a84e3344a2be1c137992a00dec2f8d1e5[m
+Author: Tomaz <tomazrvb@hotmail.com>
+Date:   Sat May 5 17:38:34 2018 -0300
+
+    Integracao VIEW de listagem de produtos com a funcionalidade de listar e buscar, crida funcoes pra excluir produtos
+
+[33mcommit c7f5075ca8b7aaac6e43b5f06e92296d06aa5c38[m
+Merge: 1981b5c 3100740
+Author: Estevao M. R. Viana <31069416+estevaomrviana@users.noreply.github.com>
+Date:   Fri May 4 13:43:37 2018 -0300
+
+    Merge pull request #67 from tomazrvb/master
+    
+    Finalizacao do DAO de Vendas E DAO Gerente
+
+[33mcommit 3100740ae40d7aa5f961b27cea3e0774ad93f36c[m
+Author: Tomaz <tomazrvb@hotmail.com>
+Date:   Fri May 4 13:36:34 2018 -0300
+
+    Finalizacao do DAO de Vendas E DAO Gerente
+
+[33mcommit 1981b5c54413ce1ef5242560a5e165ae3a33a689[m
+Merge: 490bbdc 86dcc24
+Author: Estevao M. R. Viana <31069416+estevaomrviana@users.noreply.github.com>
+Date:   Tue May 1 23:02:46 2018 -0300
+
+    Merge pull request #66 from tomazrvb/master
+    
+    Organizaçao de pasta de Projeto novo
+
+[33mcommit 86dcc24b2a6b24043ac891ad5059adc2d7a2300e[m
+Author: Tomaz <tomazrvb@hotmail.com>
+Date:   Tue May 1 23:01:18 2018 -0300
+
+    Organizaçao de pasta de Projeto novo
+
+[33mcommit 490bbdcac50f3e91c68675492bbe01dfb83814d3[m
+Merge: 93abd56 6d9c15d
+Author: Estevao M. R. Viana <31069416+estevaomrviana@users.noreply.github.com>
+Date:   Tue May 1 22:49:58 2018 -0300
+
+    Merge pull request #65 from VeronBatista/master
+    
+    remocao de pastas desnecessarias
+
+[33mcommit 6d9c15d8756d3cfa2e20dacb8ac906f348ef139a[m
+Author: “estevaomrviana” <“estevaomagnoviana@gmail.com”>
+Date:   Tue May 1 22:47:54 2018 -0300
+
+    remocao de pasta desnecessaria
+
+[33mcommit 93abd56de569d8550c99112ca1a12874f85a6199[m
+Merge: bf3ae43 140f8d0
+Author: Estevao M. R. Viana <31069416+estevaomrviana@users.noreply.github.com>
+Date:   Tue May 1 22:30:00 2018 -0300
+
+    Merge pull request #64 from tomazrvb/master
+    
+    Organizaçao de pasta de Projeto
+
+[33mcommit 140f8d0bb8fa96324a8bdddcd160a114bd87c870[m
+Author: Tomaz <tomazrvb@hotmail.com>
+Date:   Tue May 1 22:28:59 2018 -0300
+
+    Organizaçao de pasta de Projeto
+
+[33mcommit bf3ae43490d281f7f11f561a0477fd63cce24741[m
+Merge: c59091c 6af0cd8
+Author: Estevao M. R. Viana <31069416+estevaomrviana@users.noreply.github.com>
+Date:   Tue May 1 22:25:07 2018 -0300
+
+    Merge pull request #63 from VeronBatista/master
+    
+    alteracoes na funcionalidade cadastrar
+
+[33mcommit 6af0cd8b67a99ed19ade7e1621860e870c6ad8c3[m
+Author: “estevaomrviana” <“estevaomagnoviana@gmail.com”>
+Date:   Tue May 1 22:23:19 2018 -0300
+
+    alteracoes na funcionalidade cadastrar
+
+[33mcommit c59091c884a67b4f8db06a3553bb2f3844093aed[m
+Merge: 9b1e6b4 99f28c7
+Author: Estevao M. R. Viana <31069416+estevaomrviana@users.noreply.github.com>
+Date:   Tue May 1 20:58:16 2018 -0300
+
+    Merge pull request #58 from tomazrvb/master
+    
+    Adicao dasfuncoes de listar ao DAO para Produtos
+
+[33mcommit 99f28c74c1b3e7ef1c3553fb624a59b97beca4c3[m
+Author: Tomaz <tomazrvb@hotmail.com>
+Date:   Tue May 1 20:53:55 2018 -0300
+
+    Adicao dasfuncoes de listar ao DAO para Produtos
+
+[33mcommit 9b1e6b4784c4f14586d61c8edc74122d43711c84[m
+Merge: 2329d0d a577f25
+Author: Estevao M. R. Viana <31069416+estevaomrviana@users.noreply.github.com>
+Date:   Tue May 1 19:48:34 2018 -0300
+
+    Merge pull request #57 from tomazrvb/master
+    
+    adicao de classe de conectfactory e a classe DAO para Produtos
+
+[33mcommit a577f253b96a4f11ff913f92ddb71ce95614ba89[m
+Author: Tomaz <tomazrvb@hotmail.com>
+Date:   Tue May 1 19:46:15 2018 -0300
+
+    adicao de classe de conectfactory e a classe DAO para Produtos
+
+[33mcommit 2329d0d484340e9e813e4b0307ea103cec4c0209[m
+Merge: f7d8c13 e9dec00
+Author: Estevao M. R. Viana <31069416+estevaomrviana@users.noreply.github.com>
+Date:   Wed Apr 25 02:04:21 2018 -0300
+
+    Merge pull request #56 from tomazrvb/master
+    
+    Alterações no Projeto para MVC
+
+[33mcommit e9dec005b1a88b3953dbedfc06953b7050bcfd48[m
+Author: Tomaz <tomazrvb@hotmail.com>
+Date:   Wed Apr 25 02:01:59 2018 -0300
+
+    Alterações no Projeto para MVC
+
+[33mcommit f7d8c13ca8e4290aaad4756a90779609418e7f40[m
+Merge: f4f83bf ecf45ad
+Author: VeronBatista <faculveron@hotmail.com>
+Date:   Wed Apr 25 01:41:04 2018 -0300
+
+    Merge pull request #39 from VeronBatista/master
+    
+    Alteracao na estrutura do BD
+
+[33mcommit ecf45ad56059cad39256f7566952e943737eae46[m
+Author: “estevaomrviana” <“estevaomagnoviana@gmail.com”>
+Date:   Wed Apr 25 01:39:50 2018 -0300
+
+    Alteracao na estrutura do BD
+
+[33mcommit f4f83bf6a07fc23d0f26a42893200b6f5ca186fe[m
+Merge: 85e4c84 6b9c671
+Author: Estevao M. R. Viana <31069416+estevaomrviana@users.noreply.github.com>
+Date:   Tue Apr 24 10:37:40 2018 -0300
+
+    Merge pull request #38 from tomazrvb/master
+    
+    Alteracao no banco de dado e remodelamento de telas
+
+[33mcommit 6b9c6712754f71e7dbf92a019a2d7e8833e720d6[m
+Author: Tomaz <tomazrvb@hotmail.com>
+Date:   Tue Apr 24 09:58:19 2018 -0300
+
+    Alteracao no banco de dado e remodelamento de telas
+
+[33mcommit 85e4c84fefb7a3bbb12a3f44c69059a28478c25d[m
+Merge: 95231c1 51cc183
+Author: tomazrvb <tomazrvb@hotmail.com>
+Date:   Thu Apr 19 17:20:29 2018 -0300
+
+    Merge pull request #37 from tomazrvb/master
+    
+    teste de commit
+
+[33mcommit 51cc183094aa1bee86f9e39a95d4d235a3ccf830[m
+Author: “estevaomrviana” <“estevaomagnoviana@gmail.com”>
+Date:   Thu Apr 19 17:19:30 2018 -0300
+
+    teste de commit
+
+[33mcommit 95231c15f1b3d774e6426accdd21c75a21d87e67[m
+Merge: 22e3a7c 4b1aa50
+Author: VeronBatista <faculveron@hotmail.com>
+Date:   Wed Apr 18 02:11:00 2018 -0300
+
+    Merge pull request #36 from VeronBatista/master
+    
+    correcao de erro em buscar
+
+[33mcommit 4b1aa50a8d7da335037d63d453c991c6a3cae9a5[m
+Author: “estevaomrviana” <“estevaomagnoviana@gmail.com”>
+Date:   Wed Apr 18 02:10:04 2018 -0300
+
+    correcao de erro em buscar
+
+[33mcommit 22e3a7c6013c16e8116730acd8d7511c311e575d[m
+Merge: e61071a 9a15427
+Author: Estevao M. R. Viana <31069416+estevaomrviana@users.noreply.github.com>
+Date:   Wed Apr 18 02:03:37 2018 -0300
+
+    Merge pull request #35 from VeronBatista/master
+    
+    atualizacoes no codigo
+
+[33mcommit 9a15427ea179f70c2774ca8c0fcf4f0f986e87dc[m
+Author: “estevaomrviana” <“estevaomagnoviana@gmail.com”>
+Date:   Wed Apr 18 02:02:18 2018 -0300
+
+    atualizacoes no codigo
+
+[33mcommit e61071ae251a8c60977aadc48ee49402e64a007f[m
+Merge: d7aac8e d8e9760
+Author: Estevao M. R. Viana <31069416+estevaomrviana@users.noreply.github.com>
+Date:   Wed Apr 18 01:53:16 2018 -0300
+
+    Merge pull request #34 from VeronBatista/master
+    
+    DAO da classe atualizar
+
+[33mcommit d8e9760d285e903e37142ad2c34388f8ac2a81af[m
+Author: “estevaomrviana” <“estevaomagnoviana@gmail.com”>
+Date:   Wed Apr 18 01:51:46 2018 -0300
+
+    DAO da classe atualizar
+
+[33mcommit d7aac8e64b34ee4163f6fd65421a948bbbe10a0f[m
+Merge: 48ff847 84efc1a
+Author: Estevao M. R. Viana <31069416+estevaomrviana@users.noreply.github.com>
+Date:   Wed Apr 18 01:36:24 2018 -0300
+
+    Merge pull request #33 from VeronBatista/master
+    
+    DAO excluir
+
+[33mcommit 84efc1a7a4f3274d7bc22205d5f7cfc86f1cf0dd[m
+Author: “estevaomrviana” <“estevaomagnoviana@gmail.com”>
+Date:   Wed Apr 18 01:30:27 2018 -0300
+
+    DAO excluir
+
+[33mcommit 48ff8470d2b54bcec99de24b2dbac6b13337982c[m
+Merge: 2eee46e 70ac13d
+Author: Estevao M. R. Viana <31069416+estevaomrviana@users.noreply.github.com>
+Date:   Wed Apr 18 01:23:43 2018 -0300
+
+    Merge pull request #32 from VeronBatista/master
+    
+    Alteracao em Buscar
+
+[33mcommit 70ac13d8246b3b06eae6f8fe3ceefc33f42be870[m
+Author: “estevaomrviana” <“estevaomagnoviana@gmail.com”>
+Date:   Wed Apr 18 01:21:04 2018 -0300
+
+    Alteracao em Buscar
+
+[33mcommit 2eee46e147420d0b49ed1f3a9487d209e9d1f372[m
+Merge: 4794e7b 8191895
+Author: VeronBatista <faculveron@hotmail.com>
+Date:   Tue Apr 17 23:13:08 2018 -0300
+
+    Merge pull request #31 from VeronBatista/master
+    
+    alteracao
+
+[33mcommit 8191895ac7180a8742d2d654006476b3d08a059d[m
+Author: “estevaomrviana” <“estevaomagnoviana@gmail.com”>
+Date:   Tue Apr 17 23:11:04 2018 -0300
+
+    alteracao
+
+[33mcommit d0ce2251f0a9ecf0ab51b6daf1bc37394efb4c27[m
+Author: “estevaomrviana” <“estevaomagnoviana@gmail.com”>
+Date:   Tue Apr 17 23:01:27 2018 -0300
+
+    alteracoes2
+
+[33mcommit a5566c4ae2452137315af71fb32b98969e835660[m
+Author: “estevaomrviana” <“estevaomagnoviana@gmail.com”>
+Date:   Tue Apr 17 21:39:51 2018 -0300
+
+    Envio de alteracoes em busca
+
+[33mcommit 4794e7bfdbe2ce6bcc6f8f4e6e5f41a7b266c842[m
+Merge: 6bc8782 352fafd
+Author: tomazrvb <tomazrvb@hotmail.com>
+Date:   Tue Apr 17 21:30:02 2018 -0300
+
+    Merge pull request #29 from tomazrvb/master
+    
+    Alteracoes em Busca
+
+[33mcommit 352fafd1c00b74ca68725476fc0c8fdcfd0439a5[m
+Author: “estevaomrviana” <“estevaomagnoviana@gmail.com”>
+Date:   Tue Apr 17 21:29:00 2018 -0300
+
+    Alteracoes em Busca
+
+[33mcommit 6bc8782c93d3e036f284fd1d4d0ee5acbcd17669[m
+Merge: 81283d6 ef171d9
+Author: tomazrvb <tomazrvb@hotmail.com>
+Date:   Tue Apr 17 21:13:23 2018 -0300
+
+    Merge pull request #28 from tomazrvb/master
+    
+    Alteracoes em Buscar
+
+[33mcommit ef171d9687486f3cabf77dc4308f0abbcce339c8[m
+Author: “estevaomrviana” <“estevaomagnoviana@gmail.com”>
+Date:   Tue Apr 17 21:12:14 2018 -0300
+
+    Alteracoes em Buscar
+
+[33mcommit 81283d639500007281200eb703e772a64e4567f1[m
+Merge: 0ed1849 0a83674
+Author: tomazrvb <tomazrvb@hotmail.com>
+Date:   Tue Apr 17 21:04:06 2018 -0300
+
+    Merge pull request #27 from tomazrvb/master
+    
+    Envio classe Buscar
+
+[33mcommit 0a8367407398503bb6b667ea40b3c6ffeca41c1c[m
+Author: “estevaomrviana” <“estevaomagnoviana@gmail.com”>
+Date:   Tue Apr 17 21:02:43 2018 -0300
+
+    Envio classe Buscar
+
+[33mcommit 0ed184909480f9fcaa2d025f6ff8cfad5ecd84d2[m
+Merge: 29de596 346c654
+Author: tomazrvb <tomazrvb@hotmail.com>
+Date:   Tue Apr 17 20:33:36 2018 -0300
+
+    Merge pull request #26 from tomazrvb/master
+    
+    Envio de Alteracoes BuscarDAO
+
+[33mcommit 346c654594eb52d8efa8270d83394301540d67e0[m
+Author: “estevaomrviana” <“estevaomagnoviana@gmail.com”>
+Date:   Tue Apr 17 20:32:23 2018 -0300
+
+    Envio de Alteracoes BuscarDAO
+
+[33mcommit 29de5961d7ae14ca86e9ce8a3b7303a7e792ecd7[m
+Merge: 3110d4b 323c55e
+Author: tomazrvb <tomazrvb@hotmail.com>
+Date:   Tue Apr 17 20:23:37 2018 -0300
+
+    Merge pull request #25 from tomazrvb/master
+    
+    Envio de BuscarDAO
+
+[33mcommit 323c55edc19330a33f7589016788598408f290aa[m
+Author: “estevaomrviana” <“estevaomagnoviana@gmail.com”>
+Date:   Tue Apr 17 20:22:23 2018 -0300
+
+    Envio de BuscarDAO
+
+[33mcommit 3110d4b50ac8f06fd78d32b1342f75bcf1034531[m
+Merge: 4527584 f4fa699
+Author: dodo1210 <ds417042@gmail.com>
+Date:   Tue Apr 17 19:53:28 2018 -0300
+
+    Merge pull request #24 from dodo1210/master
+    
+    Envio parcial de Buscar2
+
+[33mcommit f4fa69963f319b2e9cbfd3e30e3efc5ea2d50b98[m
+Author: “estevaomrviana” <“estevaomagnoviana@gmail.com”>
+Date:   Tue Apr 17 19:52:18 2018 -0300
+
+    Envio parcial de Buscar2
+
+[33mcommit 4527584755303b69df60c9d00dd7429f5d10c71b[m
+Merge: eb0323c 5766376
+Author: dodo1210 <ds417042@gmail.com>
+Date:   Tue Apr 17 19:38:23 2018 -0300
+
+    Merge pull request #23 from dodo1210/master
+    
+    Envio parcial de Buscar
+
+[33mcommit 576637658d7d3074720c4c7db2051b8f48944741[m
+Author: “estevaomrviana” <“estevaomagnoviana@gmail.com”>
+Date:   Tue Apr 17 19:36:36 2018 -0300
+
+    Envio parcial de Buscar
+
+[33mcommit eb0323c7c4b53da33e3775a1197386382a637a04[m
+Merge: bce2a6a 8d82f46
+Author: Estevao M. R. Viana <31069416+estevaomrviana@users.noreply.github.com>
+Date:   Tue Apr 17 19:18:19 2018 -0300
+
+    Merge pull request #22 from VeronBatista/master
+    
+    Envio classe Listar
+
+[33mcommit 8d82f46c109c3278c03a60f8e862d147aebfe036[m
+Author: “estevaomrviana” <“estevaomagnoviana@gmail.com”>
+Date:   Tue Apr 17 19:15:38 2018 -0300
+
+    Envio classe Listar
+
+[33mcommit bce2a6a5e1300586a6918af253f1151ff1b12966[m
+Author: “estevaomrviana” <“estevaomagnoviana@gmail.com”>
+Date:   Wed Apr 11 03:36:36 2018 -0300
+
+    Alteracoes em cadastrar
+
+[33mcommit 0bf1eb9296a4c93e1f15db463dda1a7d9f8b8e15[m
+Author: “estevaomrviana” <“estevaomagnoviana@gmail.com”>
+Date:   Wed Apr 11 03:19:56 2018 -0300
+
+    Alteracoes em cadastrar
+
+[33mcommit 6b3cae2dcad49086986ff36a5001a91aadd4f560[m
+Merge: 4a2ba36 891c3a6
+Author: “estevaomrviana” <“estevaomagnoviana@gmail.com”>
+Date:   Wed Apr 11 02:57:05 2018 -0300
+
+    Alteracoes em cadastrar
+
+[33mcommit 4a2ba36f38051c2da86cc588f6a9126ad8725a3d[m
+Author: “estevaomrviana” <“estevaomagnoviana@gmail.com”>
+Date:   Wed Apr 11 01:55:10 2018 -0300
+
+    Alteracao em cadastro
+
+[33mcommit 891c3a61f1b2370ea066d66e12baa37c2b4e9825[m
+Merge: 7540abe 895d696
+Author: Estevao M. R. Viana <31069416+estevaomrviana@users.noreply.github.com>
+Date:   Wed Apr 11 01:01:47 2018 -0300
+
+    Merge pull request #21 from dodo1210/master
+    
+    Alteracao em cadastro
+
+[33mcommit 895d696998a64f5e38e1fcfddc25ae4e5a24b32b[m
+Author: “estevaomrviana” <“estevaomagnoviana@gmail.com”>
+Date:   Wed Apr 11 00:59:13 2018 -0300
+
+    Alteracao em cadastro
+
+[33mcommit 95ff5e715f806541838160080807ce8f4088cf73[m
+Merge: 70ab482 7540abe
+Author: “estevaomrviana” <“estevaomagnoviana@gmail.com”>
+Date:   Wed Apr 11 00:53:49 2018 -0300
+
+    Merge branch 'master' of https://github.com/estevaomrviana/Sistema-para-Gerenciamento-de-Estoque-para-uma-Loja-de-Instrumentos-Musicais
+
+[33mcommit 7540abe67612ee6ca0f2b9e3094bf661b5c68347[m
+Merge: 235a9b9 a31e2ff
+Author: Estevao M. R. Viana <31069416+estevaomrviana@users.noreply.github.com>
+Date:   Wed Apr 11 00:33:14 2018 -0300
+
+    Merge pull request #20 from VeronBatista/master
+    
+    Envio do bd
+
+[33mcommit a31e2ff1633593ca5229237a3c06b6136104074a[m
+Author: “estevaomrviana” <“estevaomagnoviana@gmail.com”>
+Date:   Wed Apr 11 00:31:36 2018 -0300
+
+    Envio do bd
+
+[33mcommit 94c366299c8f1cf8fea526d1ba13a8e1fd5eede1[m
+Author: “estevaomrviana” <“estevaomagnoviana@gmail.com”>
+Date:   Wed Apr 11 00:12:46 2018 -0300
+
+    Envio do bd
+
+[33mcommit 70ab4828a513407ebe4aa49c306d1359c9749901[m
+Author: dodo1210 <ds417042@gmail.com>
+Date:   Tue Apr 10 20:05:43 2018 -0300
+
+    Funcionalidades
+
+[33mcommit 235a9b9985fae073ce82ed59b2924045e7f26b55[m
+Author: “estevaomrviana” <“estevaomagnoviana@gmail.com”>
+Date:   Tue Apr 10 12:32:37 2018 -0300
+
+    envio de telas
+
+[33mcommit d84ba30de00ae01f4eb9001c585a0fc41c8de703[m
+Author: “estevaomrviana” <“estevaomagnoviana@gmail.com”>
+Date:   Tue Apr 10 12:25:00 2018 -0300
+
+    envio de tela Cadastrar
+
+[33mcommit 379b8d6dadca024d70df7ec2276894315ae404d7[m
+Merge: d27deb1 0725364
+Author: Estevao M. R. Viana <31069416+estevaomrviana@users.noreply.github.com>
+Date:   Tue Apr 10 10:37:31 2018 -0300
+
+    Merge pull request #19 from tomazrvb/master
+    
+    Testes para a funcionalidade de Cadastro do Sistema
+
+[33mcommit 0725364f83d2efeed131d07eb059f0de908dfc6a[m
+Author: Tomaz <tomazrvb@hotmail.com>
+Date:   Tue Apr 10 10:34:35 2018 -0300
+
+    Testes para a funcionalidade de Cadastro do Sistema
+
+[33mcommit d27deb11a79202d04d2a8e63bd739bc330f12245[m
+Author: “estevaomrviana” <“estevaomagnoviana@gmail.com”>
+Date:   Wed Mar 28 06:31:05 2018 -0300
+
+    Envio de diagramas
+
+[33mcommit 60b3832ed21a5fd3396003ed5df2e1fc854f850a[m
+Author: “estevaomrviana” <“estevaomagnoviana@gmail.com”>
+Date:   Wed Mar 28 04:40:35 2018 -0300
+
+    envio_de_prototipos_de_interface
+
+[33mcommit 18498170346a13bf35a65eb4234bc2e097bdbd47[m
+Author: “estevaomrviana” <“estevaomagnoviana@gmail.com”>
+Date:   Mon Mar 26 14:41:18 2018 -0300
+
+    Alteracao_para_pasta
+
+[33mcommit 0dcd4c4981ea342c2491f43f3a2dbe5b751327e8[m
+Author: Estevao M. R. Viana <31069416+estevaomrviana@users.noreply.github.com>
+Date:   Mon Mar 26 11:08:32 2018 -0300
+
+    Add files via upload
+
+[33mcommit 0b29e58ee208d1b759a709eb940f7b58354cbe14[m
+Author: Estevao M. R. Viana <31069416+estevaomrviana@users.noreply.github.com>
+Date:   Mon Mar 26 11:07:12 2018 -0300
+
+    Add files via upload
+
+[33mcommit 5b25eb9e0230fb9c238930c355ee749e9ad379b5[m
+Author: Estevao M. R. Viana <31069416+estevaomrviana@users.noreply.github.com>
+Date:   Mon Mar 26 10:39:25 2018 -0300
+
+    Create README.md
