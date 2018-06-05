@@ -20,10 +20,15 @@ import javax.swing.JOptionPane;
  * @author tomaz
  */
 public class DAOProduto {
+    ConnectionFactory intance = ConnectionFactory.getInstance();
     
     public boolean save(Produto p){
-        Connection con = ConnectionFactory.getConnection();
+        Connection con = intance.getConnection();
+        System.err.println(intance);
         PreparedStatement stmt = null; 
+        if(verificacao(p)){
+            return false;
+        }
         try {
             stmt = con.prepareStatement("INSERT INTO produto (codBar,nome,marca,modelo,descricao,preco,quant)VALUES(?,?,?,?,?,?,?)");
             stmt.setInt(1, p.getCode());
@@ -35,10 +40,10 @@ public class DAOProduto {
             stmt.setInt(7, p.getQuant());
             
             stmt.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Salvo com sucesso");
+            //JOptionPane.showMessageDialog(null, "Salvo com sucesso");
             return true;
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao salvar"+ ex);
+            //JOptionPane.showMessageDialog(null, "Erro ao salvar"+ ex);
             return false;
         }finally{
              ConnectionFactory.closeConection(con, stmt);
@@ -48,16 +53,18 @@ public class DAOProduto {
     }
     
     public boolean update(Produto p){
-        Connection con = ConnectionFactory.getConnection();
+        Connection con = intance.getConnection();
         PreparedStatement stmt = null;
         String str = "update produto set codBar = "+p.getCode()+",nome='"+p.getNome()+"',marca='"+ p.getMarca()+"',modelo='"+p.getModelo()+"',descricao='"+p.getDecricao()+"',preco="+p.getPreco()+", quant="+p.getQuant()+" where id = "+p.getId()+";";
-        
+        if(verificacao(p)){
+            return false;
+        }
         try {
             stmt = con.prepareStatement(str);
             stmt.executeUpdate();
              return true;
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Problemas na Edição");
+            //JOptionPane.showMessageDialog(null, "Problemas na Edição");
             Logger.getLogger(Connection.class.getName()).log(Level.SEVERE, null, ex);
              return false;
         }
@@ -65,7 +72,7 @@ public class DAOProduto {
     }
     
     public boolean delete(Produto p){
-        Connection con = ConnectionFactory.getConnection();
+        Connection con = intance.getConnection();
         PreparedStatement stmt = null;
         String str = "delete from produto where id="+p.getId()+";";
         
@@ -74,7 +81,7 @@ public class DAOProduto {
             stmt.executeUpdate();
             return true;
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Problemas ao Deletar!");
+            //JOptionPane.showMessageDialog(null, "Problemas ao Deletar!");
             Logger.getLogger(Connection.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
@@ -83,7 +90,7 @@ public class DAOProduto {
     
     public ArrayList<Produto> listar_todos(){
         ResultSet rs = null;
-        Connection con = ConnectionFactory.getConnection();
+        Connection con = intance.getConnection();
         PreparedStatement stmt = null;
         ArrayList<Produto> result = new ArrayList();
         String str = "select * from produto;";
@@ -107,7 +114,7 @@ public class DAOProduto {
     
     public ArrayList<Produto> listar_por_cod(int code){
         ResultSet rs = null;
-        Connection con = ConnectionFactory.getConnection();
+        Connection con = intance.getConnection();
         PreparedStatement stmt = null;
         ArrayList<Produto> result = new ArrayList();
         String str = "select * from produto where codBar like '%"+code+"%';";
@@ -131,7 +138,7 @@ public class DAOProduto {
     
     public ArrayList<Produto> listar_por_prod(String nome){
         ResultSet rs = null;
-        Connection con = ConnectionFactory.getConnection();
+        Connection con = intance.getConnection();
         PreparedStatement stmt = null;
         ArrayList<Produto> result = new ArrayList();
         String str = "select * from produto where nome like '%"+nome+"%';";
@@ -155,7 +162,7 @@ public class DAOProduto {
     
     public boolean verificarCodBarras(String code){
         ResultSet rs = null;
-        Connection con = ConnectionFactory.getConnection();
+        Connection con = intance.getConnection();
         PreparedStatement stmt = null;
         ArrayList<Produto> result = new ArrayList();
         String str = "select * from produto;";
@@ -178,6 +185,22 @@ public class DAOProduto {
         
         
         return false;
+    }
+    
+    public boolean verificacao(Produto p){
+        if((p.getDecricao().equals(""))||(p.getNome().equals(""))||(p.getMarca().equals(""))||(p.getModelo().equals(""))){
+           return false; 
+        }
+        if(p.getQuant()<0){
+            return false;
+        }
+        if(p.getPreco()<=0){
+            return false;
+        }
+        if(p.getCode()==0){
+            return false;
+        }
+        return true;
     }
 }
 
