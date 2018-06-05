@@ -293,12 +293,6 @@ public class CadastroView extends javax.swing.JFrame {
                 );
 
                 boolean verifica = operacaoDAO.save(novoProduto);
-                if(verifica){
-                    JOptionPane.showMessageDialog(null, "Salvo com sucesso");
-                }else{
-                    JOptionPane.showMessageDialog(null, "Erro ao salvar!");
-                }
-                    
                 limparCampos();
 
             }            
