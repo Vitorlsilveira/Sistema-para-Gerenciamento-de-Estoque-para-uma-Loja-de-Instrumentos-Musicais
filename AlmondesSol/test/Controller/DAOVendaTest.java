@@ -23,6 +23,7 @@ public class DAOVendaTest {
      DAOVenda instance = new DAOVenda();
      DAOProduto instanceprod = new DAOProduto();
      ArrayList<Produto> list;
+     
     public DAOVendaTest() {
       
     }
@@ -53,149 +54,250 @@ public class DAOVendaTest {
      * Test of save method, of class DAOVenda.
      */
     @Test
-    public void testSave() {
-        System.out.println("save");
-        Venda v = null;
-        DAOVenda instance = new DAOVenda();
-        boolean expResult = false;
+    public void testSaveSemData() {
+        //System.out.println("save");
+        v.setCpf_cli("");
+        v.setData("");
         boolean result = instance.save(v);
-        assertEquals(expResult, result);
+        assertFalse("Toda venda deve ter datas!",result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
-
+    
+    @Test
+    public void testSaveTotalNegativo() {
+        //System.out.println("save");
+         v.setCpf_cli("");
+        v.setTotal(-1);
+        boolean result = instance.save(v);
+        assertFalse("Toda venda deve Saldo total positivo!",result);
+        // TODO review the generated test code and remove the default call to fail.
+    }
+    @Test
+    public void testSaveTotalZerado() {
+        //System.out.println("save");
+        v.setCpf_cli("");
+        v.setTotal(0);
+        
+        boolean result = instance.save(v);
+        assertFalse("Toda venda deve ter Saldo total maior que 0!",result);
+        // TODO review the generated test code and remove the default call to fail.
+    }
+    
+    @Test
+    public void testSaveShoppingNull() {
+        //System.out.println("save");
+         v.setCpf_cli("");
+        ArrayList<Produto> l  = null;
+        v.setShopping(l);
+        boolean result = instance.save(v);
+        assertFalse("Toda venda deve ter Produtos vinculados!",result);
+        // TODO review the generated test code and remove the default call to fail.
+    }
+    
+    @Test
+    public void testSaveShoppingVazio() {
+        //System.out.println("save");
+        v.setCpf_cli("");
+        ArrayList<Produto> l  = new ArrayList();
+        v.setShopping(l);
+        boolean result = instance.save(v);
+        assertFalse("Toda venda deve ter Produtos vinculados!",result);
+        // TODO review the generated test code and remove the default call to fail.
+    }
+    
+    @Test
+    public void testSave() {
+        //System.out.println("save");
+        v.setCpf_cli("");
+        boolean result = instance.save(v);
+        assertTrue("Esse cadastro deve resultar em uma venda!",result);
+        // TODO review the generated test code and remove the default call to fail.
+    }
+    
     /**
      * Test of saveWhithCpf method, of class DAOVenda.
      */
+    
+    @Test
+    public void testSaveWhithCpfSemData() {
+        //System.out.println("save");
+        v.setCpf_cli("");
+        v.setData("");
+        boolean result = instance.saveWhithCpf(v);
+        assertFalse("Toda venda deve ter datas!",result);
+        // TODO review the generated test code and remove the default call to fail.
+    }
+    
+    @Test
+    public void ttestSaveWhithCpfTotalNegativo() {
+        //System.out.println("save");
+         v.setCpf_cli("");
+        v.setTotal(-1);
+        boolean result = instance.saveWhithCpf(v);
+        assertFalse("Toda venda deve Saldo total positivo!",result);
+        // TODO review the generated test code and remove the default call to fail.
+    }
+    @Test
+    public void testSaveWhithCpfTotalZerado() {
+        //System.out.println("save");
+        v.setCpf_cli("");
+        v.setTotal(0);
+        
+        boolean result = instance.saveWhithCpf(v);
+        assertFalse("Toda venda deve ter Saldo total maior que 0!",result);
+        // TODO review the generated test code and remove the default call to fail.
+    }
+    
+    @Test
+    public void testSaveWhithCpfShoppingNull() {
+        //System.out.println("save");
+         v.setCpf_cli("");
+        ArrayList<Produto> l  = null;
+        v.setShopping(l);
+        boolean result = instance.saveWhithCpf(v);
+        assertFalse("Toda venda deve ter Produtos vinculados!",result);
+        // TODO review the generated test code and remove the default call to fail.
+    }
+    
+    @Test
+    public void testSaveWhithCpfShoppingVazio() {
+        //System.out.println("save");
+        v.setCpf_cli("");
+        ArrayList<Produto> l  = new ArrayList();
+        v.setShopping(l);
+        boolean result = instance.saveWhithCpf(v);
+        assertFalse("Toda venda deve ter Produtos vinculados!",result);
+        // TODO review the generated test code and remove the default call to fail.
+    }
+    
     @Test
     public void testSaveWhithCpf() {
-        System.out.println("saveWhithCpf");
-        Venda v = null;
-        DAOVenda instance = new DAOVenda();
-        boolean expResult = false;
+        //System.out.println("save");
         boolean result = instance.saveWhithCpf(v);
-        assertEquals(expResult, result);
+        assertTrue("Esse cadastro deve resultar em uma venda!",result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
+    
 
     /**
      * Test of listSave method, of class DAOVenda.
      */
     @Test
-    public void testListSave() {
-        System.out.println("listSave");
-        ArrayList<Produto> shoping = null;
-        DAOVenda instance = new DAOVenda();
-        boolean expResult = false;
+    public void testListSaveValorMaiorMaior() {
+        ArrayList<Produto> shoping = list; 
+        shoping.get(0).setQuant(shoping.get(0).getQuant()+1);
         boolean result = instance.listSave(shoping);
-        assertEquals(expResult, result);
+        assertFalse("O valor de quantidade de produto Não deve exceder ao Salvo em Banco!",result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
-
-    /**
-     * Test of listar_todos method, of class DAOVenda.
-     */
+    
     @Test
-    public void testListar_todos() {
-        System.out.println("listar_todos");
-        DAOVenda instance = new DAOVenda();
-        ArrayList<Venda> expResult = null;
-        ArrayList<Venda> result = instance.listar_todos();
-        assertEquals(expResult, result);
+    public void testListSave() {
+        ArrayList<Produto> shoping = list; 
+        shoping.get(0).setQuant(shoping.get(0).getQuant()-5);
+        boolean result = instance.listSave(shoping);
+        assertFalse("O valor de quantidade de produto Não deve exceder ao Salvo em Banco!",result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of listar_por_data method, of class DAOVenda.
-     */
-    @Test
-    public void testListar_por_data() {
-        System.out.println("listar_por_data");
-        String data = "";
-        DAOVenda instance = new DAOVenda();
-        ArrayList<Venda> expResult = null;
-        ArrayList<Venda> result = instance.listar_por_data(data);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of listar_por_cli method, of class DAOVenda.
-     */
-    @Test
-    public void testListar_por_cli() {
-        System.out.println("listar_por_cli");
-        String cpf = "";
-        DAOVenda instance = new DAOVenda();
-        ArrayList<Venda> expResult = null;
-        ArrayList<Venda> result = instance.listar_por_cli(cpf);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of listar_por_cod method, of class DAOVenda.
-     */
-    @Test
-    public void testListar_por_cod() {
-        System.out.println("listar_por_cod");
-        int code = 0;
-        DAOVenda instance = new DAOVenda();
-        ArrayList<Produto> expResult = null;
-        ArrayList<Produto> result = instance.listar_por_cod(code);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of delete method, of class DAOVenda.
-     */
-    @Test
-    public void testDelete() {
-        System.out.println("delete");
-        Venda v = null;
-        DAOVenda instance = new DAOVenda();
-        boolean expResult = false;
-        boolean result = instance.delete(v);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
      * Test of verifica method, of class DAOVenda.
      */
     @Test
-    public void testVerifica() {
-        System.out.println("verifica");
-        Venda v = null;
-        DAOVenda instance = new DAOVenda();
-        boolean expResult = false;
+    public void testVerificaCpfSemData() {
+        //System.out.println("save");
+        v.setData("");
         boolean result = instance.verifica(v);
-        assertEquals(expResult, result);
+        assertFalse("Toda venda deve ter datas!",result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    }
+    
+    @Test
+    public void testVerificaTotalNegativo() {
+        //System.out.println("save");
+        v.setTotal(-1);
+        boolean result = instance.verifica(v);
+        assertFalse("Toda venda deve Saldo total positivo!",result);
+        // TODO review the generated test code and remove the default call to fail.
+    }
+    @Test
+    public void testVerificaTotalZerado() {
+        //System.out.println("save");
+        v.setTotal(0);        
+        boolean result = instance.verifica(v);
+        assertFalse("Toda venda deve ter Saldo total maior que 0!",result);
+        // TODO review the generated test code and remove the default call to fail.
+    }
+    
+    @Test
+    public void testVerificaShoppingNull() {
+        //System.out.println("save");
+        ArrayList<Produto> l  = null;
+        v.setShopping(l);
+        boolean result = instance.verifica(v);
+        assertFalse("Toda venda deve ter Produtos vinculados!",result);
+        // TODO review the generated test code and remove the default call to fail.
+    }
+    
+    @Test
+    public void testVerificaShoppingVazio() {
+        //System.out.println("save");
+        ArrayList<Produto> l  = new ArrayList();
+        v.setShopping(l);
+        boolean result = instance.verifica(v);
+        assertFalse("Toda venda deve ter Produtos vinculados!",result);
+        // TODO review the generated test code and remove the default call to fail.
+    } 
+    
+    @Test
+    public void testVerifica() {
+        boolean result = instance.verifica(v);
+        assertTrue("Esse teste deve retornar true pois os valores estão corretos!", result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
     }
 
     /**
      * Test of verivicaListaProd method, of class DAOVenda.
      */
     @Test
-    public void testVerivicaListaProd() {
-        System.out.println("verivicaListaProd");
-        ArrayList<Produto> shoping = null;
-        DAOVenda instance = new DAOVenda();
-        boolean expResult = false;
+    public void testVerivicaListaProdMaior() {
+        
+        ArrayList<Produto> shoping = list; 
+        shoping.get(0).setQuant(shoping.get(0).getQuant()+1);
         boolean result = instance.verivicaListaProd(shoping);
-        assertEquals(expResult, result);
+        assertFalse("O valor de quantidade de produto Não deve exceder ao Salvo em Banco!", result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
     
+    @Test
+    public void testVerivicaListaProd() {
+        
+        ArrayList<Produto> shoping = list; 
+        shoping.get(0).setQuant(shoping.get(0).getQuant()-5);
+        boolean result = instance.verivicaListaProd(shoping);
+        assertTrue("O valor de quantidade de produto Não deve exceder ao Salvo em Banco!", result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+    
+    /**
+     * Test of delete method, of class DAOVenda.
+     */
+    @Test
+    public void testDeleteSemcpf() {
+        ArrayList<Venda> aux = instance.listar_por_data("2018-07-07");
+        v = aux.get(0);
+        boolean result = instance.delete(v);
+        assertTrue("Esse valor deve resultar em exclusão!", result);
+    }
+    @Test
+    public void testDeleteComcpf() {
+        ArrayList<Venda> aux = instance.listar_por_cli("055.335.047-97");
+        v = aux.get(0);
+        boolean result = instance.delete(v);
+        assertTrue("Esse valor deve resultar em exclusão!", result);
+    }
+
 }
