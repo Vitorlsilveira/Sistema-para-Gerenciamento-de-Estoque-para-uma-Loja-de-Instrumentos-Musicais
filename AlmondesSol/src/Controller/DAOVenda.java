@@ -25,7 +25,10 @@ public class DAOVenda {
     public boolean save(Venda v){
         Connection con = intance.getConnection();
         System.err.println(intance);
-        PreparedStatement stmt = null; 
+        PreparedStatement stmt = null;
+        if(!verifica(v)){
+            return false;
+        }
         try {
             stmt = con.prepareStatement("INSERT INTO venda (data_venda,total)VALUES(?,?)");
             stmt.setString(1, v.getData());
@@ -70,6 +73,9 @@ public class DAOVenda {
         ResultSet rs = null;
         Connection con = intance.getConnection();
         PreparedStatement stmt = null;
+        if(!verivicaListaProd(shoping)){
+            return false;
+        }
         int id=0;
         String str = "select max(id) as id from venda;";
         try {
@@ -213,5 +219,34 @@ public class DAOVenda {
             return false;
         }
         
+    }
+    
+   
+    public boolean verifica(Venda v){
+        if(v.getData().equals("")){
+            return false;
+        }
+        if(v.getTotal()<=0){
+           return false; 
+        }
+        if(v.getShopping().isEmpty()){
+            return false;
+        }
+        
+        if(v.getShopping()==null){
+          return false; 
+        }
+        return true;
+    }
+    
+    public boolean verivicaListaProd(ArrayList<Produto> shoping){
+         DAOProduto instance = new DAOProduto();
+         for(Produto p:shoping){
+             Produto aux = instance.listar_por_cod(p.getCode()).get(0);
+             if(aux.getQuant()< p.getQuant()){
+                 return false;
+             }
+         }
+        return true;
     }
 }

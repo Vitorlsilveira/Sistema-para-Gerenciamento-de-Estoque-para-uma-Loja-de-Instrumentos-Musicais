@@ -164,7 +164,7 @@ public class DAOProdutoTest {
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
-    
+    @Test
     public void testUpdateprecoNegativo() {
         ArrayList<Produto> aux = instance.listar_por_cod(222222);
         edit = aux.get(0);
@@ -174,7 +174,7 @@ public class DAOProdutoTest {
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
-    
+    @Test
     public void testUpdateqpreco0() {
         ArrayList<Produto> aux = instance.listar_por_cod(222222);
         edit = aux.get(0);
@@ -184,6 +184,27 @@ public class DAOProdutoTest {
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
+    @Test
+    public void testUpdateqtdcrt() {
+        ArrayList<Produto> aux = instance.listar_por_cod(222222);
+        edit = aux.get(0);
+        edit.setQuant(10);
+        boolean result = instance.update(edit);
+        assertTrue("Para se alterar um produto deve informar a Descricao",result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+    @Test
+    public void testUpdateprecocrt() {
+        ArrayList<Produto> aux = instance.listar_por_cod(222222);
+        edit = aux.get(0);
+        edit.setPreco(23);
+        boolean result = instance.update(edit);
+        assertTrue("Para se alterar um produto deve informar a Descricao",result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+    @Test
     public void testUpdate() {
         ArrayList<Produto> aux = instance.listar_por_cod(222222);
         edit = aux.get(0);
@@ -220,17 +241,81 @@ public class DAOProdutoTest {
      * Test of verificacao method, of class DAOProduto.
      */
     @Test
-    public void testVerificacao() {
-        System.out.println("verificacao");
-        Produto p = null;
-        DAOProduto instance = new DAOProduto();
-        boolean expResult = false;
+    public void testVerificacaoSemNome() {
+        p.setNome("");
         boolean result = instance.verificacao(p);
-        assertEquals(expResult, result);
+        assertFalse("Verificação deve retornar False!",result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+    @Test
+    public void testVerificacaoSemMarca() {
+        p.setMarca("");
+        boolean result = instance.verificacao(p);
+        assertFalse("Verificação deve retornar False!",result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+    @Test
+    public void testVerificacaoSemDescricao() {
+        p.setDecricao("");
+        boolean result = instance.verificacao(p);
+        assertFalse("Verificação deve retornar False!",result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
     
+    @Test
+    public void testVerificacaoSemModelo() {
+        p.setModelo("");
+        boolean result = instance.verificacao(p);
+        assertFalse("Verificação deve retornar False!",result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+    
+    @Test
+    public void testVerificacaoQtdNegativa() {
+        p.setQuant(-1);
+        boolean result = instance.verificacao(p);
+        assertFalse("Verificação deve retornar False!",result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+    
+    @Test
+    public void testVerificacaoprecoNegativa() {
+        p.setPreco(-1);
+        boolean result = instance.verificacao(p);
+        assertFalse("Verificação deve retornar False!",result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+    @Test
+    public void testVerificacaoprecozero() {
+        p.setPreco(0);
+        boolean result = instance.verificacao(p);
+        assertFalse("Verificação deve retornar False!",result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+    @Test
+    public void testVerificacaoQtdcrt() {
+        p.setQuant(-1);
+        boolean result = instance.verificacao(p);
+        assertTrue("Verificação deve retornar True!",result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+    
+    @Test
+    public void testVerificacaoprecocrt() {
+        p.setPreco(-1);
+        boolean result = instance.verificacao(p);
+        assertTrue("Verificação deve retornar True!",result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
     
     /**
      * Test of delete method, of class DAOProduto.
