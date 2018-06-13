@@ -11,9 +11,7 @@ public class DAOFacade {
     private Venda venda;
     
     public DAOFacade(){
-        this.gerente = gerente;
-        this.produto = produto;
-        this.venda = venda;
+        
     }
     
     public static boolean saveProduto(Produto produto){
@@ -40,6 +38,16 @@ public class DAOFacade {
     public static boolean deleteProduto(Produto produto){
         DAOProduto produtos = new DAOProduto();
         return produtos.delete(produto);
+    }
+    
+    public static boolean saveVenda(Venda vendas){
+        DAOVenda operacaoDAO = new DAOVenda();
+        return operacaoDAO.save(vendas);
+    }
+    
+    public static boolean saveVendacomCPF(Venda vendas){
+        DAOVenda operacaoDAO = new DAOVenda();
+        return operacaoDAO.saveWhithCpf(vendas);
     }
     
     public static ArrayList<Venda> listaVenda(){
