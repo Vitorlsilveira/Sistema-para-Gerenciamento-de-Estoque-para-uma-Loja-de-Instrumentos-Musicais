@@ -5,6 +5,7 @@
  */
 package View;
 
+import Controller.DAOFacade;
 import Controller.DAOProduto;
 import Controller.DAOVenda;
 import Model.Produto;
@@ -30,8 +31,8 @@ public class VendaView extends javax.swing.JFrame {
         super("Almondes Sol - Vendas");
         initComponents();this.setLocationRelativeTo(null);
         rbCod.setSelected(true);
-        DAOProduto produtos = new DAOProduto();
-        list = produtos.listar_todos();
+        DAOFacade produtos = new DAOFacade();
+        list = produtos.listaProduto();
         construirTabla(list);
         
     }
@@ -402,15 +403,15 @@ public class VendaView extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         if(tfBuscar.getText().equals("")){
-                    DAOProduto produtos = new DAOProduto();
-                    list = produtos.listar_todos();
+                    DAOFacade produtos = new DAOFacade();
+                    list = produtos.listaProduto();
                     construirTabla(list);
                   }else{
-                        DAOProduto produtos = new DAOProduto();
+                        DAOFacade produtos = new DAOFacade();
+                        int code = Integer.parseInt(tfBuscar.getText());
                         if(rbCod.isSelected()){
                             try{
-                               int code = Integer.parseInt(tfBuscar.getText());
-                               list = produtos.listar_por_cod(code);
+                               list = produtos.listaProdutoCod(code);
                                construirTabla(list); 
                             }catch(NumberFormatException e){
                                 list = new ArrayList();
@@ -418,7 +419,7 @@ public class VendaView extends javax.swing.JFrame {
                             }   
                         }
                         if(rbProduto.isSelected()){
-                            list = produtos.listar_por_prod(tfBuscar.getText());
+                            list = produtos.listaProdutoCod(code);
                             construirTabla(list);
                         }
                     

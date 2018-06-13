@@ -25,8 +25,11 @@ public class DAOProduto {
     public boolean save(Produto p){
         Connection con = intance.getConnection();
         System.err.println(intance);
+        System.err.println("oi"+p.getCode());
         PreparedStatement stmt = null; 
-        if(verificacao(p)){
+        System.err.println("oii"+p.getCode());
+        if(!verificacao(p)){
+            System.err.println("oiii"+p.getCode());
             return false;
         }
         try {
@@ -38,16 +41,16 @@ public class DAOProduto {
             stmt.setString(5, p.getDecricao());
             stmt.setFloat(6,p.getPreco() );
             stmt.setInt(7, p.getQuant());
-            
             stmt.executeUpdate();
             //JOptionPane.showMessageDialog(null, "Salvo com sucesso");
             return true;
         } catch (SQLException ex) {
             //JOptionPane.showMessageDialog(null, "Erro ao salvar"+ ex);
+            System.err.println(ex);
             return false;
         }finally{
-             ConnectionFactory.closeConection(con, stmt);
-            return false;
+            ConnectionFactory.closeConection(con, stmt);
+            return true;
         }
         
     }

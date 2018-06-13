@@ -5,6 +5,7 @@
  */
 package View;
 
+import Controller.DAOFacade;
 import Controller.DAOProduto;
 import Model.Produto;
 import java.awt.event.ActionEvent;
@@ -254,15 +255,14 @@ public class ListarProdView extends javax.swing.JFrame {
 
     private void tfBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfBuscarKeyReleased
                   if(tfBuscar.getText().equals("")){
-                    DAOProduto produtos = new DAOProduto();
-                    list = produtos.listar_todos();
+                    list = DAOFacade.listaProduto();
                     construirTabla(list);
                   }else{
                         DAOProduto produtos = new DAOProduto();
                         if(rbCod.isSelected()){
                             try{
                                int code = Integer.parseInt(tfBuscar.getText());
-                               list = produtos.listar_por_cod(code);
+                               list = DAOFacade.listaProdutoCod(code);
                                construirTabla(list); 
                             }catch(NumberFormatException e){
                                 list = new ArrayList();
@@ -270,7 +270,7 @@ public class ListarProdView extends javax.swing.JFrame {
                             }   
                         }
                         if(rbProduto.isSelected()){
-                            list = produtos.listar_por_prod(tfBuscar.getText());
+                            list = DAOFacade.listaProdutoNome(tfBuscar.getText());
                             construirTabla(list);
                         }
                     
@@ -297,10 +297,10 @@ public class ListarProdView extends javax.swing.JFrame {
             int dialogResult = JOptionPane.showConfirmDialog (null, "Deseja realmene excluir o prouto selecionado?","Warning",dialogButton);
             if(dialogResult==JOptionPane.YES_OPTION){
                 Produto p = list.get(i);
-                DAOProduto produtos = new DAOProduto();
-                if(produtos.delete(p)){
+                DAOFacade produtos = new DAOFacade();
+                if(produtos.deleteProduto(p)){
                     JOptionPane.showMessageDialog(null, "Produto Excluido com Sucesso");
-                    list = produtos.listar_todos();
+                    list = produtos.listaProduto();
                     construirTabla(list);
                 }else{
                     JOptionPane.showMessageDialog(null, "Problemas ao Excluir");

@@ -5,6 +5,7 @@
  */
 package View;
 
+import Controller.DAOFacade;
 import Controller.DAOGerente;
 import Model.Gerente;
 import javax.swing.JOptionPane;
@@ -248,9 +249,8 @@ public class UserView extends javax.swing.JFrame {
         }
         else {
             try {
-                Gerente gerente = new Gerente(tfuser.getText(), String.valueOf(tfsenha.getPassword()));
-                DAOGerente operacaoDAO = new DAOGerente();
-                boolean a = operacaoDAO.update(gerente);
+                DAOFacade operacaoDAO = new DAOFacade();
+                boolean a = operacaoDAO.alterarGerente(tfuser.getText(), String.valueOf(tfsenha.getPassword()));
                 if(a){
                     JOptionPane.showMessageDialog(null, "Senha alterada com sucesso!!!");
                 }

@@ -5,6 +5,7 @@
  */
 package View;
 
+import Controller.DAOFacade;
 import Controller.DAOGerente;
 import Model.Gerente;
 import javax.swing.JOptionPane;
@@ -110,9 +111,8 @@ public class UserLog extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "É necessário informar a senha");
         }
         else {
-            Gerente gerente = new Gerente(tfuser.getText(), String.valueOf(tfsenha.getPassword()));
-            DAOGerente operacaoDAO = new DAOGerente();
-            boolean a = operacaoDAO.login(gerente);
+            DAOFacade operacaoDAO = new DAOFacade();
+            boolean a = operacaoDAO.loginGerente(tfuser.getText(), String.valueOf(tfsenha.getPassword()));
             if(a){
                 new UserView(tfuser.getText(), String.valueOf(tfsenha.getPassword())).setVisible(true);
                 this.dispose();

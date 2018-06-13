@@ -5,6 +5,7 @@
  */
 package View;
 
+import Controller.DAOFacade;
 import Controller.DAOGerente;
 import Model.Gerente;
 import javax.swing.JOptionPane;
@@ -110,9 +111,8 @@ public class UserDeleteView extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "É necessário informar o usuário");
         }
         else {
-            Gerente gerente = new Gerente(tf_user.getText(), null);
-            DAOGerente operacaoDAO = new DAOGerente();
-            boolean a = operacaoDAO.delete(tf_user.getText());
+            DAOFacade operacaoDAO = new DAOFacade();
+            boolean a = operacaoDAO.excluiGerente(tf_user.getText());
             tf_user.setText("");
         }        
     }//GEN-LAST:event_btn_excluirActionPerformed

@@ -5,6 +5,7 @@
  */
 package View;
 
+import Controller.DAOFacade;
 import Controller.DAOProduto;
 import Model.Produto;
 import java.awt.event.KeyEvent;
@@ -281,7 +282,7 @@ public class CadastroView extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             if(verificarCampos()){
-                DAOProduto operacaoDAO = new DAOProduto();
+                DAOFacade operacaoDAO = new DAOFacade();
                 Produto novoProduto = new Produto(
                         Integer.parseInt(tfCode.getText()),
                         Integer.parseInt(tfqtd.getText()),
@@ -291,8 +292,8 @@ public class CadastroView extends javax.swing.JFrame {
                         taDescricao.getText(),
                         Float.parseFloat(tfpreco.getText())
                 );
-
-                boolean verifica = operacaoDAO.save(novoProduto);
+                System.err.println(novoProduto.getCode());
+                boolean verifica = DAOFacade.saveProduto(novoProduto);
                 if(verifica){
                     JOptionPane.showMessageDialog(null, "Salvo com sucesso");
                 }else{
@@ -303,6 +304,7 @@ public class CadastroView extends javax.swing.JFrame {
 
             }            
         } catch (Exception e) {
+            System.err.println(e);
         }
 
                

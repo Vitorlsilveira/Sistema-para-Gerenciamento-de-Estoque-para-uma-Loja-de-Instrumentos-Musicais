@@ -5,6 +5,7 @@
  */
 package View;
 
+import Controller.DAOFacade;
 import Controller.DAOProduto;
 import Model.Produto;
 import javax.swing.JOptionPane;
@@ -203,7 +204,7 @@ public class EditarView extends javax.swing.JFrame {
                 Float.parseFloat(tfpreco.getText())
         );
         //novoProduto.setId(produto.getId());
-        boolean verifica = operacaoDAO.update(novoProduto);
+        boolean verifica = DAOFacade.saveProduto(novoProduto);
         if(verifica){
             JOptionPane.showMessageDialog(null, "Produto Alterado com Sucesso");
             this.dispose();
