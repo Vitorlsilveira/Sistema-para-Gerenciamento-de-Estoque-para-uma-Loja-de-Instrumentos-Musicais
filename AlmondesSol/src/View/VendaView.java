@@ -6,8 +6,6 @@
 package View;
 
 import Controller.DAOFacade;
-import Controller.DAOProduto;
-import Controller.DAOVenda;
 import Model.Produto;
 import Model.Venda;
 import java.awt.Color;
@@ -503,14 +501,14 @@ public class VendaView extends javax.swing.JFrame {
     }
     
     private void btn_finalizar_vendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_finalizar_vendaActionPerformed
-        DAOVenda venda = new DAOVenda();
+        DAOFacade venda = new DAOFacade();
         if(!list2.isEmpty()){
             float total  = totalCompra(list2);
             Venda v = new Venda(tfcpfcli.getText(),getDateTime(),total,list2);
             if(v.getCpf_cli().equals("")){
-                boolean verifica = venda.save(v);                                
+                boolean verifica = venda.saveVenda(v);                                
             }else{
-                boolean verifica = venda.saveWhithCpf(v);
+                boolean verifica = venda.saveVendacomCPF(v);
             }
             
             list2.clear();
