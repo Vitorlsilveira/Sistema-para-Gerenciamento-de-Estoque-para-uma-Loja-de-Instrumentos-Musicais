@@ -48,7 +48,7 @@ public class DAOGerente {
         Connection con = intance.getConnection();
         PreparedStatement stmt = null;
         
-        String str = "update gerente set usuario= "+g.getUsuario()+", senha= "+g.getSenha()+" where usuario= "+g.getUsuario()+";";
+        String str = "update gerente set usuario= '"+g.getUsuario()+"', senha= '"+g.getSenha()+"' where usuario= '"+g.getUsuario()+"';";
 
         try {
             stmt = con.prepareStatement(str);
@@ -67,7 +67,7 @@ public class DAOGerente {
     public boolean delete(String user){
         Connection con = intance.getConnection();
         PreparedStatement stmt = null;
-        String str = "delete from gerente where usuario="+user+";";
+        String str = "delete from gerente where usuario='"+user+"';";
         
         try {
             stmt = con.prepareStatement(str);

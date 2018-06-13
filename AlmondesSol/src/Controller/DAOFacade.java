@@ -42,4 +42,44 @@ public class DAOFacade {
         return produtos.delete(produto);
     }
     
+    public static ArrayList<Venda> listaVenda(){
+        DAOVenda vendas = new DAOVenda();
+        return vendas.listar_todos();
+    }
+    
+    public static ArrayList<Venda> listaVendaData(String data){
+        DAOVenda vendas = new DAOVenda();
+        return vendas.listar_por_data(data);
+    }
+    
+    public static ArrayList<Venda> listaVendaClinte(String cpf){
+        DAOVenda vendas = new DAOVenda();
+        return vendas.listar_por_cli(cpf);
+    }
+    
+    public static boolean salvaGerente(String nome, String senha){
+        Gerente gerente = new Gerente(nome, senha);
+        DAOGerente operacaoDAO = new DAOGerente();
+        return operacaoDAO.save(gerente);
+    }
+    
+    public static boolean excluiGerente(String nome){
+        Gerente gerente = new Gerente(nome,null);
+        DAOGerente operacaoDAO = new DAOGerente();
+        return operacaoDAO.delete(nome);
+    }
+    
+    public static boolean loginGerente(String nome, String senha){
+        Gerente gerente = new Gerente(nome,senha);
+        DAOGerente operacaoDAO = new DAOGerente();
+        return operacaoDAO.login(gerente);
+    }
+    
+    public static boolean alterarGerente(String nome, String senha){
+        Gerente gerente = new Gerente(nome,senha);
+        DAOGerente operacaoDAO = new DAOGerente();
+        return operacaoDAO.update(gerente);
+    }
+    
+    
 }

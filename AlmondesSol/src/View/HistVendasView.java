@@ -5,6 +5,7 @@
  */
 package View;
 
+import Controller.DAOFacade;
 import Controller.DAOProduto;
 import Controller.DAOVenda;
 import Model.Produto;
@@ -25,8 +26,8 @@ public class HistVendasView extends javax.swing.JFrame {
     public HistVendasView() {
         initComponents();
         this.setLocationRelativeTo(null);
-        DAOVenda vendas = new DAOVenda();
-        list = vendas.listar_todos();
+        DAOFacade vendas = new DAOFacade();
+        list = vendas.listaVenda();
         construirTabla(list);
     }
         
@@ -268,17 +269,17 @@ public class HistVendasView extends javax.swing.JFrame {
 
     private void tfBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfBuscarKeyReleased
                 if(tfBuscar.getText().equals("")){
-                    DAOVenda vendas = new DAOVenda();
-                    list = vendas.listar_todos();
+                    DAOFacade vendas = new DAOFacade();
+                    list = vendas.listaVenda();
                     construirTabla(list);
                 }else{
-                        DAOVenda vendas = new DAOVenda();
+                        DAOFacade vendas = new DAOFacade();
                         if(rbCod.isSelected()){
-                            list = vendas.listar_por_data(tfBuscar.getText());
+                            list = vendas.listaVendaData(tfBuscar.getText());
                             construirTabla(list);
                         }
                         if(rbcpf.isSelected()){
-                            list = vendas.listar_por_cli(tfBuscar.getText());
+                            list = vendas.listaVendaClinte(tfBuscar.getText());
                             construirTabla(list);
                         }
                     
