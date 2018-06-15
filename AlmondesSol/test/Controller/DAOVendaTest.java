@@ -8,6 +8,7 @@ package Controller;
 import Model.Produto;
 import Model.Venda;
 import java.util.ArrayList;
+import junit.framework.TestCase;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -18,7 +19,7 @@ import static org.junit.Assert.*;
  *
  * @author tom
  */
-public class DAOVendaTest {
+public class DAOVendaTest extends TestCase{
      Venda v = null;
      DAOVenda instance = new DAOVenda();
      DAOProduto instanceprod = new DAOProduto();

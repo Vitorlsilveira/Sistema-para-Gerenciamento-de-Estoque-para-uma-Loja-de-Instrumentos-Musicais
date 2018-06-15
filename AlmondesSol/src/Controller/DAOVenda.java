@@ -50,6 +50,9 @@ public class DAOVenda {
     public boolean saveWhithCpf(Venda v){
         Connection con = intance.getConnection();
         PreparedStatement stmt = null; 
+        if(!verifica(v)){
+            return false;
+        }
         try {
             stmt = con.prepareStatement("INSERT INTO venda (data_venda,total,cpf_cli)VALUES(?,?,?)");
             stmt.setString(1, v.getData());
@@ -229,12 +232,11 @@ public class DAOVenda {
         if(v.getTotal()<=0){
            return false; 
         }
-        if(v.getShopping().isEmpty()){
-            return false;
-        }
-        
         if(v.getShopping()==null){
           return false; 
+        }
+        if(v.getShopping().isEmpty()){
+            return false;
         }
         return true;
     }

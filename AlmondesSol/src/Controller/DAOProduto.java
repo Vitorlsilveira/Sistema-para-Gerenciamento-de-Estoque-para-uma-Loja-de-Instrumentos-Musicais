@@ -59,7 +59,7 @@ public class DAOProduto {
         Connection con = intance.getConnection();
         PreparedStatement stmt = null;
         String str = "update produto set codBar = "+p.getCode()+",nome='"+p.getNome()+"',marca='"+ p.getMarca()+"',modelo='"+p.getModelo()+"',descricao='"+p.getDecricao()+"',preco="+p.getPreco()+", quant="+p.getQuant()+" where id = "+p.getId()+";";
-        if(verificacao(p)){
+        if(!verificacao(p)){
             return false;
         }
         try {
