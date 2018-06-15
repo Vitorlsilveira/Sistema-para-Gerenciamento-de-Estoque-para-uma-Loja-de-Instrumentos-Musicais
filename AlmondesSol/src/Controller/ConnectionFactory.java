@@ -28,7 +28,7 @@ public class ConnectionFactory {
     private static final String DRIVER = "com.mysql.jdbc.Driver";
     private static final String URL = "jdbc:mysql://127.0.0.1:3306/almonde_sol?useSSL=false";
     private static final String USER = "root";
-    private static final String SENHA = "dodo123";
+    private static final String SENHA = "tomazrvb";
     
     private static ConnectionFactory instance = null;
     protected ConnectionFactory() {

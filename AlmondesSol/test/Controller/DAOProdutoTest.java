@@ -7,6 +7,7 @@ package Controller;
 
 import Model.Produto;
 import java.util.ArrayList;
+import junit.framework.TestCase;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -17,7 +18,7 @@ import static org.junit.Assert.*;
  *
  * @author tom
  */
-public class DAOProdutoTest {
+public class DAOProdutoTest extends TestCase{
     
     Produto p, edit;
     DAOProduto instance = new DAOProduto();
@@ -301,7 +302,7 @@ public class DAOProdutoTest {
     }
     @Test
     public void testVerificacaoQtdcrt() {
-        p.setQuant(-1);
+        p.setQuant(30);
         boolean result = instance.verificacao(p);
         assertTrue("Verificação deve retornar True!",result);
         // TODO review the generated test code and remove the default call to fail.
@@ -310,7 +311,7 @@ public class DAOProdutoTest {
     
     @Test
     public void testVerificacaoprecocrt() {
-        p.setPreco(-1);
+        p.setPreco(30);
         boolean result = instance.verificacao(p);
         assertTrue("Verificação deve retornar True!",result);
         // TODO review the generated test code and remove the default call to fail.
