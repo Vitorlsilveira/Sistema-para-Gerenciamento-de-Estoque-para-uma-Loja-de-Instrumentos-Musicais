@@ -325,6 +325,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btn_vender">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/View/cart.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Vender"/>
       </Properties>
       <Events>
@@ -338,6 +341,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btn_limpar_listar_produtos">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/View/floors.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Limpar Lista de Produtos"/>
       </Properties>
       <Events>
@@ -346,6 +352,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btn_cancelar">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/View/cancel.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Cancelar"/>
       </Properties>
       <Events>
@@ -354,6 +363,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btn_finalizar_venda">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/View/checked.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Finalizar Venda"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
@@ -393,6 +405,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btn_retirar_produto">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/View/floors.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Retirar Produto"/>
       </Properties>
       <Events>

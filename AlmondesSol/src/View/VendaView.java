@@ -221,6 +221,7 @@ public class VendaView extends javax.swing.JFrame {
 
         jLabel2.setText("Lista de Produtos");
 
+        btn_vender.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/cart.png"))); // NOI18N
         btn_vender.setText("Vender");
         btn_vender.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -230,6 +231,7 @@ public class VendaView extends javax.swing.JFrame {
 
         jLabel3.setText("Produtos Selecionados");
 
+        btn_limpar_listar_produtos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/floors.png"))); // NOI18N
         btn_limpar_listar_produtos.setText("Limpar Lista de Produtos");
         btn_limpar_listar_produtos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -237,6 +239,7 @@ public class VendaView extends javax.swing.JFrame {
             }
         });
 
+        btn_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/cancel.png"))); // NOI18N
         btn_cancelar.setText("Cancelar");
         btn_cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -244,6 +247,7 @@ public class VendaView extends javax.swing.JFrame {
             }
         });
 
+        btn_finalizar_venda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/checked.png"))); // NOI18N
         btn_finalizar_venda.setText("Finalizar Venda");
         btn_finalizar_venda.setToolTipText("");
         btn_finalizar_venda.addActionListener(new java.awt.event.ActionListener() {
@@ -272,6 +276,7 @@ public class VendaView extends javax.swing.JFrame {
 
         jLabel4.setText("Cpf  Cliente:");
 
+        btn_retirar_produto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/floors.png"))); // NOI18N
         btn_retirar_produto.setText("Retirar Produto");
         btn_retirar_produto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -281,36 +286,36 @@ public class VendaView extends javax.swing.JFrame {
 
         menu_Realizar_Venda.setText("Realizar Venda");
         menu_Realizar_Venda.addMenuListener(new javax.swing.event.MenuListener() {
-            public void menuSelected(javax.swing.event.MenuEvent evt) {
-                menu_Realizar_VendaMenuSelected(evt);
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
             }
             public void menuDeselected(javax.swing.event.MenuEvent evt) {
             }
-            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                menu_Realizar_VendaMenuSelected(evt);
             }
         });
         jMenuBar1.add(menu_Realizar_Venda);
 
         menu_Historico_Venda.setText("Historico Venda");
         menu_Historico_Venda.addMenuListener(new javax.swing.event.MenuListener() {
-            public void menuSelected(javax.swing.event.MenuEvent evt) {
-                menu_Historico_VendaMenuSelected(evt);
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
             }
             public void menuDeselected(javax.swing.event.MenuEvent evt) {
             }
-            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                menu_Historico_VendaMenuSelected(evt);
             }
         });
         jMenuBar1.add(menu_Historico_Venda);
 
         menu_lista_produtos.setText("Lista Produtos");
         menu_lista_produtos.addMenuListener(new javax.swing.event.MenuListener() {
-            public void menuSelected(javax.swing.event.MenuEvent evt) {
-                menu_lista_produtosMenuSelected(evt);
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
             }
             public void menuDeselected(javax.swing.event.MenuEvent evt) {
             }
-            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                menu_lista_produtosMenuSelected(evt);
             }
         });
         jMenuBar1.add(menu_lista_produtos);
