@@ -25,9 +25,11 @@ public class HistVendasView extends javax.swing.JFrame {
      */
     public HistVendasView() {
         initComponents();
+        setResizable(false);
         this.setLocationRelativeTo(null);
         DAOFacade vendas = new DAOFacade();
         list = vendas.listaVenda();
+        rbCod.setSelected(true);
         construirTabla(list);
     }
         
@@ -255,7 +257,23 @@ public class HistVendasView extends javax.swing.JFrame {
     }//GEN-LAST:event_rbCodActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        int i = jTable1.getSelectedRow();
+        if(i!=-1){ 
+            int dialogButton = JOptionPane.YES_NO_OPTION;
+            int dialogResult = JOptionPane.showConfirmDialog (null, "Deseja realmene excluir a venda selecionado?","Warning",dialogButton);
+            if(dialogResult==JOptionPane.YES_OPTION){
+                Venda p = list.get(i);
+                if(vend.delete(p)){
+                    JOptionPane.showMessageDialog(null, "Produto Excluido com Sucesso");
+                    list = vend.listar_todos();
+                    construirTabla(list);
+                }else{
+                    JOptionPane.showMessageDialog(null, "Problemas ao Excluir");
+                }
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Selecione algum Produto!");
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -271,12 +289,12 @@ public class HistVendasView extends javax.swing.JFrame {
     }//GEN-LAST:event_rbcpfActionPerformed
 
     private void tfBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfBuscarKeyReleased
+                
                 if(tfBuscar.getText().equals("")){
-                    DAOFacade vendas = new DAOFacade();
+                    
                     list = vendas.listaVenda();
                     construirTabla(list);
                 }else{
-                        DAOFacade vendas = new DAOFacade();
                         if(rbCod.isSelected()){
                             list = vendas.listaVendaData(tfBuscar.getText());
                             construirTabla(list);
@@ -348,6 +366,8 @@ public class HistVendasView extends javax.swing.JFrame {
 //    }
     ArrayList<Venda> list;
     DefaultTableModel modelo;
+    DAOVenda vend = new DAOVenda();
+    DAOFacade vendas = new DAOFacade();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu admin;
     private javax.swing.JButton jButton1;

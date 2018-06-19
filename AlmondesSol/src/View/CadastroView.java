@@ -23,7 +23,7 @@ public class CadastroView extends javax.swing.JFrame {
      * Creates new form CadastroView
      */
     public CadastroView() {
-        setResizable(false);  
+        setResizable(false);
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -62,7 +62,6 @@ public class CadastroView extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         menu_usuario = new javax.swing.JMenu();
         menu_novo_produto = new javax.swing.JMenu();
-        Voltar_vendas = new javax.swing.JMenu();
 
         setTitle("Cadastro de Produtos");
 
@@ -89,10 +88,27 @@ public class CadastroView extends javax.swing.JFrame {
                 tfNomaActionPerformed(evt);
             }
         });
+        tfNoma.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfNomaKeyReleased(evt);
+            }
+        });
 
         jLabel3.setText("Marca");
 
+        tfMarca.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfMarcaKeyReleased(evt);
+            }
+        });
+
         jLabel4.setText("Modelo");
+
+        tfModelo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfModeloKeyReleased(evt);
+            }
+        });
 
         jLabel5.setText("Quantidade");
 
@@ -130,6 +146,14 @@ public class CadastroView extends javax.swing.JFrame {
 
         taDescricao.setColumns(20);
         taDescricao.setRows(5);
+        taDescricao.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                taDescricaoKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                taDescricaoKeyReleased(evt);
+            }
+        });
         jScrollPane1.setViewportView(taDescricao);
 
         btCad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/checked.png"))); // NOI18N
@@ -163,14 +187,6 @@ public class CadastroView extends javax.swing.JFrame {
             }
         });
         jMenuBar1.add(menu_novo_produto);
-
-        Voltar_vendas.setText("Vendas");
-        Voltar_vendas.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Voltar_vendasMouseClicked(evt);
-            }
-        });
-        jMenuBar1.add(Voltar_vendas);
 
         setJMenuBar(jMenuBar1);
 
@@ -278,11 +294,13 @@ public class CadastroView extends javax.swing.JFrame {
 
     private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
         // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_btCancelarActionPerformed
 
     private void btCadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadActionPerformed
         // TODO add your handling code here:
         try {
+            
             if(verificarCampos()){
                 DAOFacade operacaoDAO = new DAOFacade();
                 Produto novoProduto = new Produto(
@@ -294,7 +312,6 @@ public class CadastroView extends javax.swing.JFrame {
                         taDescricao.getText(),
                         Float.parseFloat(tfpreco.getText())
                 );
-                System.err.println(novoProduto.getCode());
                 boolean verifica = DAOFacade.saveProduto(novoProduto);
                 if(verifica){
                     JOptionPane.showMessageDialog(null, "Salvo com sucesso");
@@ -304,9 +321,11 @@ public class CadastroView extends javax.swing.JFrame {
                     
                 limparCampos();
 
+            }else{
+                JOptionPane.showMessageDialog(null, "Há campos vazios");
+                btCad.setEnabled(false);
             }            
         } catch (Exception e) {
-            System.err.println(e);
         }
 
                
@@ -328,9 +347,12 @@ public class CadastroView extends javax.swing.JFrame {
             if((key>=KeyEvent.VK_0 && key<=KeyEvent.VK_9) || (key>=KeyEvent.VK_NUMPAD0 && key<=KeyEvent.VK_NUMPAD9) || key==KeyEvent.VK_BACK_SPACE) {        
                 tfCode.setEditable(true);
                 l_verifica_cod.setText("");
+            
             }else{
                 l_verifica_cod.setText("Digite somente números!!!");
                 tfCode.setEditable(false);
+                
+            
 
             }            
         } catch (Exception e) {
@@ -345,9 +367,17 @@ public class CadastroView extends javax.swing.JFrame {
             if(verifica){
                 l_verifica_cod.setText("Codigo de barras em usado");
                 btCad.setEnabled(false);
+
             }else{
+                          
                 btCad.setEnabled(true);
-                l_verifica_cod.setText("");            
+                
+                l_verifica_cod.setText("");
+            }
+            if(verificarCampos()){
+                btCad.setEnabled(true);
+            }else{
+                btCad.setEnabled(false);
             }
 
         } catch (Exception e) {
@@ -408,6 +438,11 @@ public class CadastroView extends javax.swing.JFrame {
         } catch (Exception ex) {
             
         }
+            if(verificarCampos()){
+                btCad.setEnabled(true);
+            }else{
+                btCad.setEnabled(false);
+            }        
         
 
     }//GEN-LAST:event_tfqtdKeyReleased
@@ -433,6 +468,11 @@ public class CadastroView extends javax.swing.JFrame {
             }
         } catch (Exception e) {
         }
+        if(verificarCampos()){
+            btCad.setEnabled(true);
+        }else{
+            btCad.setEnabled(false);
+        }
     }//GEN-LAST:event_tfprecoKeyReleased
 
     private void menu_usuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu_usuarioMouseClicked
@@ -446,11 +486,46 @@ public class CadastroView extends javax.swing.JFrame {
         
     }//GEN-LAST:event_menu_novo_produtoMouseClicked
 
-    private void Voltar_vendasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Voltar_vendasMouseClicked
+    private void taDescricaoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_taDescricaoKeyPressed
         // TODO add your handling code here:
-        new VendaView().setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_Voltar_vendasMouseClicked
+     
+    }//GEN-LAST:event_taDescricaoKeyPressed
+
+    private void tfNomaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfNomaKeyReleased
+        // TODO add your handling code here:
+            if(verificarCampos()){
+                btCad.setEnabled(true);
+            }else{
+                btCad.setEnabled(false);
+            }
+    }//GEN-LAST:event_tfNomaKeyReleased
+
+    private void tfMarcaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfMarcaKeyReleased
+        // TODO add your handling code here:
+            if(verificarCampos()){
+                btCad.setEnabled(true);
+            }else{
+                btCad.setEnabled(false);
+            }        
+    }//GEN-LAST:event_tfMarcaKeyReleased
+
+    private void tfModeloKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfModeloKeyReleased
+        // TODO add your handling code here:
+            if(verificarCampos()){
+                btCad.setEnabled(true);
+            }else{
+                btCad.setEnabled(false);
+            }        
+    }//GEN-LAST:event_tfModeloKeyReleased
+
+    private void taDescricaoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_taDescricaoKeyReleased
+        // TODO add your handling code here:
+            if(verificarCampos()){
+                btCad.setEnabled(true);
+            }else{
+                btCad.setEnabled(false);
+            }        
+    }//GEN-LAST:event_taDescricaoKeyReleased
 
     private void limparCampos(){
         tfCode.setText("");
@@ -471,6 +546,47 @@ public class CadastroView extends javax.swing.JFrame {
     
     
     private boolean CamposVazios(){
+        if(tfCode.getText()==null || tfCode.getText().trim().equals("")){
+            
+            return true;
+        }
+        if(tfNoma.getText()==null || tfNoma.getText().trim().equals("")){
+            
+             return true;
+        }        
+        if(tfMarca.getText()==null || tfMarca.getText().trim().equals("")){
+            
+            return true;
+        }
+        if(tfModelo.getText()==null || tfModelo.getText().trim().equals("")){
+            
+             return true;
+        }
+
+        if(tfpreco.getText()==null || tfpreco.getText().trim().equals("")){
+            
+             return true;
+        }
+        if(tfqtd.getText()==null || tfqtd.getText().trim().equals("")){
+            
+            return true;
+        } 
+        if(taDescricao.getText()==null || taDescricao.getText().trim().equals("")){
+            
+             return true;
+        }        
+        return false;
+    }      
+
+    private boolean verificarCampos2(){
+        if(CamposVazios2()){
+            return false;
+        }
+        return true;
+    }
+    
+    
+    private boolean CamposVazios2(){
         if(tfCode.getText()==null || tfCode.getText().trim().equals("")){
             JOptionPane.showMessageDialog(null, "Campo codigo barras vazio!!!");
             return true;
@@ -541,7 +657,6 @@ public class CadastroView extends javax.swing.JFrame {
 //    }s
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu Voltar_vendas;
     private javax.swing.JButton btCad;
     private javax.swing.JButton btCancelar;
     private javax.swing.JLabel jLabel1;

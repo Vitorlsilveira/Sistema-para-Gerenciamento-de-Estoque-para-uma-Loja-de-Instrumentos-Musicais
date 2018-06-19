@@ -24,7 +24,6 @@ public class DAOGerente {
     ConnectionFactory intance = ConnectionFactory.getInstance();
     public boolean save(Gerente g){
         Connection con = intance.getConnection();
-        System.err.println(intance);
         PreparedStatement stmt = null; 
         try {
             stmt = con.prepareStatement("INSERT INTO gerente (usuario,senha)VALUES(?,?)");
@@ -57,7 +56,6 @@ public class DAOGerente {
             return true;
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Problemas na Edição");
-            System.out.println(ex);
             Logger.getLogger(Connection.class.getName()).log(Level.SEVERE, null, ex);
              return false;
         }

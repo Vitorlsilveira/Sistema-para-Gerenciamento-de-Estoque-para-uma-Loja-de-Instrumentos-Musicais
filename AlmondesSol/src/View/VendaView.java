@@ -6,9 +6,11 @@
 package View;
 
 import Controller.DAOFacade;
+import Controller.DAOProduto;
 import Model.Produto;
 import Model.Venda;
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 import java.util.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -27,6 +29,7 @@ public class VendaView extends javax.swing.JFrame {
      */
     public VendaView() {
         super("Almondes Sol - Vendas");
+        setResizable(false);
         initComponents();this.setLocationRelativeTo(null);
         rbCod.setSelected(true);
         DAOFacade produtos = new DAOFacade();
@@ -120,6 +123,7 @@ public class VendaView extends javax.swing.JFrame {
         tfcpfcli = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         btn_retirar_produto = new javax.swing.JButton();
+        l_verifica_cod = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         menu_Realizar_Venda = new javax.swing.JMenu();
         menu_Historico_Venda = new javax.swing.JMenu();
@@ -255,6 +259,11 @@ public class VendaView extends javax.swing.JFrame {
                 btn_finalizar_vendaActionPerformed(evt);
             }
         });
+        btn_finalizar_venda.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btn_finalizar_vendaKeyPressed(evt);
+            }
+        });
 
         tabela_lista_compra.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -273,6 +282,12 @@ public class VendaView extends javax.swing.JFrame {
             }
         });
         jScrollPane3.setViewportView(tabela_lista_compra);
+
+        tfcpfcli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfcpfcliActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Cpf  Cliente:");
 
@@ -337,6 +352,7 @@ public class VendaView extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(52, 52, 52)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(l_verifica_cod)
                     .addComponent(jLabel4)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(tfcpfcli, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -396,7 +412,8 @@ public class VendaView extends javax.swing.JFrame {
                     .addComponent(btn_cancelar)
                     .addComponent(btn_finalizar_venda)
                     .addComponent(tfcpfcli, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(l_verifica_cod))
         );
 
         pack();
@@ -407,12 +424,13 @@ public class VendaView extends javax.swing.JFrame {
         
         if(tfBuscar.getText().equals("")){
                     DAOFacade produtos = new DAOFacade();
+                   
                     list = produtos.listaProduto();
                     construirTabla(list);
                   }else{
-                        DAOFacade produtos = new DAOFacade();
-                        int code = Integer.parseInt(tfBuscar.getText());
                         if(rbCod.isSelected()){
+                            DAOFacade produtos = new DAOFacade();
+                            int code = Integer.parseInt(tfBuscar.getText());
                             try{
                                list = produtos.listaProdutoCod(code);
                                construirTabla(list); 
@@ -422,7 +440,9 @@ public class VendaView extends javax.swing.JFrame {
                             }   
                         }
                         if(rbProduto.isSelected()){
-                            list = produtos.listaProdutoCod(code);
+                            DAOProduto prod = new DAOProduto();
+                            String nome =tfBuscar.getText();
+                            list =prod.listar_por_prod(nome);
                             construirTabla(list);
                         }
                     
@@ -461,6 +481,22 @@ public class VendaView extends javax.swing.JFrame {
             
     }//GEN-LAST:event_btn_venderActionPerformed
 
+    private void tfCodeKeyPressed(java.awt.event.KeyEvent evt) {                                  
+        // TODO add your handling code here:
+        try {
+            int key = evt.getKeyCode();
+            if((key>=KeyEvent.VK_0 && key<=KeyEvent.VK_9) || (key>=KeyEvent.VK_NUMPAD0 && key<=KeyEvent.VK_NUMPAD9) || key==KeyEvent.VK_BACK_SPACE) {        
+                tfcpfcli.setEditable(true);
+                l_verifica_cod.setText("");
+            }else{
+                l_verifica_cod.setText("Digite somente números!!!");
+                tfcpfcli.setEditable(false);
+
+            }            
+        } catch (Exception e) {
+        }
+    }  
+    
     private void btn_retirar_produtoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_retirar_produtoActionPerformed
         int i = tabela_lista_compra.getSelectedRow();
         if(i!=-1){
@@ -477,14 +513,13 @@ public class VendaView extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_retirar_produtoActionPerformed
 
     private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed
-       new HistVendasView().setVisible(true);
         this.dispose();
        
     }//GEN-LAST:event_btn_cancelarActionPerformed
 
     private void btn_limpar_listar_produtosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_limpar_listar_produtosActionPerformed
        int dialogButton = JOptionPane.YES_NO_OPTION;
-       int dialogResult = JOptionPane.showConfirmDialog (null, "Deseja realmene excluir o prouto selecionado?","Warning",dialogButton);
+       int dialogResult = JOptionPane.showConfirmDialog (null, "Deseja realmene excluir todos prouto selecionado?","Warning",dialogButton);
        if(dialogResult==JOptionPane.YES_OPTION){
             list2.clear();
             construirTabla2(list2);
@@ -513,12 +548,17 @@ public class VendaView extends javax.swing.JFrame {
             if(v.getCpf_cli().equals("")){
                 boolean verifica = venda.saveVenda(v);                                
             }else{
-                boolean verifica = venda.saveVendacomCPF(v);
+                if(tfcpfcli.getText().matches("^[0-9]*$")){
+                    boolean verifica = venda.saveVendacomCPF(v);
+                    list2.clear();
+                    construirTabla2(list2);
+                    JOptionPane.showMessageDialog(null, "Compra Confirmada!");
+                }else{
+                    JOptionPane.showMessageDialog(null, "Cpf inválido");
+                }
             }
             
-            list2.clear();
-            construirTabla2(list2);
-            JOptionPane.showMessageDialog(null, "Compra Confirmada!");
+            
         }else{
             JOptionPane.showMessageDialog(null, "Nenhum Produto Selecionado!");
         }
@@ -546,6 +586,14 @@ public class VendaView extends javax.swing.JFrame {
         new UserLog().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_adminMouseClicked
+
+    private void tfcpfcliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfcpfcliActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfcpfcliActionPerformed
+
+    private void btn_finalizar_vendaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_finalizar_vendaKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_finalizar_vendaKeyPressed
 
     /**
      * @param args the command line arguments
@@ -608,6 +656,7 @@ public class VendaView extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel l_verifica_cod;
     private java.awt.Menu menu1;
     private java.awt.Menu menu2;
     private java.awt.Menu menu3;

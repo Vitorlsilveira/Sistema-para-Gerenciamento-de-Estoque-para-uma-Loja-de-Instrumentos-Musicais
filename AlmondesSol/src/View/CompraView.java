@@ -21,6 +21,7 @@ public class CompraView extends javax.swing.JFrame {
     public CompraView(ArrayList<Produto> p) {
         initComponents();
         construirTabla(p);
+        setResizable(false);
         setVisible(true);
         this.setLocationRelativeTo(null);
     }

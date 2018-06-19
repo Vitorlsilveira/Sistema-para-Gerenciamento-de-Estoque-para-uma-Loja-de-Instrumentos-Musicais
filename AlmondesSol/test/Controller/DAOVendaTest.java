@@ -197,7 +197,7 @@ public class DAOVendaTest extends TestCase{
         ArrayList<Produto> shoping = list; 
         shoping.get(0).setQuant(shoping.get(0).getQuant()-5);
         boolean result = instance.listSave(shoping);
-        assertFalse("O valor de quantidade de produto Não deve exceder ao Salvo em Banco!",result);
+        assertTrue("O valor de quantidade de produto Não deve exceder ao Salvo em Banco!",result);
         // TODO review the generated test code and remove the default call to fail.
     }
 

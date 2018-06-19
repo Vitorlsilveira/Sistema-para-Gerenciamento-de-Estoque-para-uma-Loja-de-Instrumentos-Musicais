@@ -192,6 +192,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="l_verifica_cod" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="tfcpfcli" min="-2" pref="253" max="-2" attributes="0"/>
@@ -262,7 +263,8 @@
                   <Component id="btn_finalizar_venda" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="tfcpfcli" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="24" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="l_verifica_cod" min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -371,6 +373,7 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_finalizar_vendaActionPerformed"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="btn_finalizar_vendaKeyPressed"/>
       </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane3">
@@ -397,6 +400,9 @@
       </SubComponents>
     </Container>
     <Component class="javax.swing.JTextField" name="tfcpfcli">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfcpfcliActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
@@ -413,6 +419,8 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_retirar_produtoActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="l_verifica_cod">
     </Component>
   </SubComponents>
 </Form>

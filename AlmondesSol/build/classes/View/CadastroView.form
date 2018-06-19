@@ -20,14 +20,6 @@
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="menu_novo_produtoMouseClicked"/>
           </Events>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="Voltar_vendas">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Vendas"/>
-          </Properties>
-          <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Voltar_vendasMouseClicked"/>
-          </Events>
-        </Menu>
       </SubComponents>
     </Menu>
   </NonVisualComponents>
@@ -199,6 +191,7 @@
     <Component class="javax.swing.JTextField" name="tfNoma">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfNomaActionPerformed"/>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfNomaKeyReleased"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
@@ -207,6 +200,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="tfMarca">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfMarcaKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
@@ -214,6 +210,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="tfModelo">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfModeloKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
@@ -256,6 +255,10 @@
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>
           </Properties>
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="taDescricaoKeyPressed"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="taDescricaoKeyReleased"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

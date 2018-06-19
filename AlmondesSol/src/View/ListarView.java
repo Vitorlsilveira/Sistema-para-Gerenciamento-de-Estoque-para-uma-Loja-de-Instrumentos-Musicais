@@ -65,6 +65,7 @@ public class ListarView extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(jTable1);
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/edit.png"))); // NOI18N
         jButton1.setText("Editar Item");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,6 +73,7 @@ public class ListarView extends javax.swing.JPanel {
             }
         });
 
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/eraser.png"))); // NOI18N
         jButton2.setText("Apagar Item");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

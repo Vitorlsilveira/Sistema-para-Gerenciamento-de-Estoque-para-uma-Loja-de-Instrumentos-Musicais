@@ -25,6 +25,7 @@ public class ListarProdView extends javax.swing.JFrame {
     public ListarProdView() {
         initComponents();
         this.setLocationRelativeTo(null);
+        setResizable(false);
         rbCod.setSelected(true);
         DAOProduto produtos = new DAOProduto();
         list = produtos.listar_todos();
@@ -248,6 +249,8 @@ public class ListarProdView extends javax.swing.JFrame {
        int i = jTable1.getSelectedRow();
        if(i!=-1){ 
             Produto p = list.get(i);
+            DAOProduto produtos = new DAOProduto();
+            
             this.dispose();
             new EditarView(p);
        }else{
