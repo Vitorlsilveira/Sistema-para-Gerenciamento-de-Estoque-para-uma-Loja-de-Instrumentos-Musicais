@@ -16,7 +16,6 @@ public class DAOFacade {
     
     public static boolean saveProduto(Produto produto){
         DAOProduto operacaoDAO = new DAOProduto();
-        System.err.println(produto.getCode());
         return operacaoDAO.save(produto);
     }
     
@@ -88,6 +87,5 @@ public class DAOFacade {
         DAOGerente operacaoDAO = new DAOGerente();
         return operacaoDAO.update(gerente);
     }
-    
     
 }

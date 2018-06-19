@@ -24,12 +24,8 @@ public class DAOProduto {
     
     public boolean save(Produto p){
         Connection con = intance.getConnection();
-        System.err.println(intance);
-        System.err.println("oi"+p.getCode());
         PreparedStatement stmt = null; 
-        System.err.println("oii"+p.getCode());
         if(!verificacao(p)){
-            System.err.println("oiii"+p.getCode());
             return false;
         }
         try {
@@ -46,7 +42,6 @@ public class DAOProduto {
             return true;
         } catch (SQLException ex) {
             //JOptionPane.showMessageDialog(null, "Erro ao salvar"+ ex);
-            System.err.println(ex);
             return false;
         }finally{
             ConnectionFactory.closeConection(con, stmt);

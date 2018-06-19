@@ -22,6 +22,7 @@ public class EditarView extends javax.swing.JFrame {
     public EditarView( Produto p) {
         initComponents();
         setVisible(true);
+        setResizable(false);
         this.setLocationRelativeTo(null);
         taDescricao.setText(p.getDecricao());
         tfCode.setText(""+p.getCode());
@@ -204,7 +205,7 @@ public class EditarView extends javax.swing.JFrame {
                 Float.parseFloat(tfpreco.getText())
         );
         //novoProduto.setId(produto.getId());
-        boolean verifica = DAOFacade.saveProduto(novoProduto);
+        boolean verifica = operacaoDAO.update(novoProduto);
         if(verifica){
             JOptionPane.showMessageDialog(null, "Produto Alterado com Sucesso");
             this.dispose();

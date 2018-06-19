@@ -24,7 +24,6 @@ public class DAOVenda {
     ConnectionFactory intance = ConnectionFactory.getInstance();
     public boolean save(Venda v){
         Connection con = intance.getConnection();
-        System.err.println(intance);
         PreparedStatement stmt = null;
         if(!verifica(v)){
             return false;
@@ -91,7 +90,6 @@ public class DAOVenda {
         } catch (SQLException ex) {
             Logger.getLogger(Connection.class.getName()).log(Level.SEVERE, null, ex);
         }
-        System.err.println(id);
         for(Produto p: shoping){
             con = ConnectionFactory.getConnection();
             stmt = null;
